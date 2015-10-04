@@ -1,0 +1,2509 @@
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+
+
+/* ****************** */
+p{ margin:0; padding:0 0 10px 0;}
+
+a:focus,select:focus,input:focus{
+  outline: 0;
+}
+
+html{width: 100%;}
+
+body{
+  font-family: "ProximaNovaBold";
+  width: 100%;
+  min-width: 1200px;
+}
+
+body a{
+  text-decoration: none;
+  color:#1a251e;
+}
+
+.clr{
+  clear: both;
+}
+
+.top-pattern{
+  background: url(../images/top-p.jpg) center top repeat-x;  
+  height: 84px;
+  text-transform: uppercase;
+}
+
+.container{
+  width:1180px;
+  margin:0 auto;
+  /*outline: 1px solid red;*/
+  /*height: 500px;*/
+  padding: 0 10px;
+}
+
+.logo{
+/*  float:left;
+  margin-right: 65px;
+  padding-top: 10px;*/
+  position: absolute;
+  top: 10px;
+}
+
+ul.menu{
+  list-style: none;
+  margin: 0;
+  padding-top: 40px;
+  float:left;
+  margin-left: 105px;
+}
+
+ul.menu li{
+  display: inline-block;
+  margin:0 15px;
+}
+
+ul.menu a{
+  text-decoration: none;
+  font-size: 18px;
+  color:#1a251e;
+}
+
+ul.menu a:hover{
+  color: #1c7842;
+}
+
+.right-nav{
+  font-size: 18px;
+  float:right;
+  padding-top:33px;
+  position: relative;
+}
+
+.right-nav a{
+  position: relative;
+}
+
+.right-nav img{
+  position: absolute;
+  top: 1px;
+    left: -30px;
+}
+
+.customer-name{
+      display: inline;
+      position: relative;
+}
+
+.logout{
+     font:15px "ProximaNovaRegular";
+    text-transform: none;
+    text-decoration: underline;
+}
+
+
+.mfp-wrap {
+  width: 350px;
+  height: 500px;
+  /*background-color: #fff;*/
+  top:70px;
+  /*outline: 1px solid #ccc !important;*/
+/*  right:50px;
+  left: auto;*/
+  left:50%;
+  margin-left: 50px;
+
+}
+
+.mfp-bg {
+  /*background: none;*/
+  opacity: 0.3;
+}
+
+.mfp-content{
+   vertical-align: top;
+}
+
+.mfp-container{
+   padding: 0;
+}
+
+#auth-modal .wrap-auth{
+  background: #fff;
+    border-radius: 6px;
+}
+
+#auth-modal .treugol{
+  margin-left: 280px;
+  display: block;
+}
+
+#auth-modal .wrap-form, #auth-modal .login-soc{
+    padding: 30px 35px 30px 35px;
+}
+
+#auth-modal .login-soc{
+  padding-bottom: 30px;
+  border-radius: 0 0 6px 6px;
+}
+
+.login-soc div{
+  background: url("../images/soc.jpg");
+  width: 263px;
+  height: 33px;
+}
+
+.login-soc div a{
+   height: 33px;
+    cursor: pointer;
+    width: 33px;
+    display: block;
+}
+
+#auth-modal h3{
+  font-size:24px;
+  color:#000;
+  margin: 0 0 20px 0;
+}
+
+#auth-modal{
+    font:18px "ProximaNovaRegular";
+    color: #afafaf;
+}
+
+#auth-modal input[type="text"], #auth-modal input[type="password"] {
+  width: 210px; 
+  margin-bottom: 10px;
+}
+
+#auth-modal input[type="submit"]{
+    padding: 8px 30px;
+    border-radius: 25px;
+    background-color: #fe157d;
+    border:0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "ProximaNovaBold";
+    margin-top: 10px;
+}
+
+.gray-btn{
+    border: 2px solid #f2f3f5;
+    padding: 11px 30px;
+    border-radius: 25px;
+}
+
+#auth-modal form a{
+  color: #fe157d;
+  text-decoration: underline;
+      padding-left: 50px;
+}
+
+#auth-modal form a:hover{
+  text-decoration: none;
+}
+
+#auth-modal .login-soc{
+  /*margin-top: 20px;*/
+  background-color: #fcfcfc;
+  /*background-color: gray;*/
+  border-top:1px solid #eeeeee;
+}
+
+#auth-modal .login-soc span{
+  padding-bottom: 10px;
+  display: block;
+}
+
+
+.cart{
+   border-radius: 20px;
+  padding: 7px 15px 7px 45px;
+  display: inline-block;
+  background: url(../images/cart.png) 13px no-repeat;
+   margin: 0 50px 0 20px;
+}
+
+.cart-active, .cart:hover{
+    background-color:#f5f071;
+}
+
+.phone{
+  background: url(../images/phone.png) 11px 10px no-repeat;
+  background-color:#f7f7f7;
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+ /* display: inline-block;*/
+  position: absolute;
+  right: 0;
+  top:30px;
+}
+
+.wrapper-1{
+  background: url(../images/top-bg2.jpg);
+  /*height: 450px;*/
+}
+
+.cartel-bg{
+   background: url(../images/cartel_bg.png) center bottom no-repeat;
+   /*width: 388px;*/
+   height: 314px;
+}
+
+
+.cartel-text h4{
+  font:23px "ProximaNovaRegular";
+  color: #363636;
+  text-align: center;
+}
+
+.cartel-text{
+   width: 818px;
+   margin: 0 auto;
+   padding-top: 90px;
+}
+
+.wrapper-2{
+     background-color: #03130a;
+     width: 100%;
+}
+
+.collection{
+  width: 100%;
+  height: 427px;
+  background: url(../images/women-katana-full.jpg) right top no-repeat;
+}
+
+.less1366px{
+   background: url(../images/women-katana1366.jpg) right top no-repeat;
+}
+
+.less1200px{
+   background: url(../images/women-katana1200.jpg) right top no-repeat;
+}
+
+.otzyv{
+  color:#6c8577;
+  font:18px "ProximaNovaRegular";
+}
+
+.collection h2{
+  color: #fff;
+  font:40px "ProximaNovaBold";
+  text-transform: uppercase;
+  margin: 40px 0 10px 0;
+}
+
+.collection .author{
+  font:italic 17px "ProximaNovaRegular";
+  color: #f0f0f3;
+  padding:0 0 35px 10px;
+  display: block;
+}
+
+a.more-otzyv{
+  color: #467c5e;
+  font:15px "ProximaNovaBold";
+  text-transform: uppercase;
+  border: 2px solid #467c5e;
+  border-radius: 23px;
+  padding: 10px 35px 10px 20px;
+}
+
+span.otzyv{
+  padding-top: 50px;
+  display: block;
+}
+
+h3{
+  font:24px "ProximaNovaBold";
+  color: #fff;
+  text-transform: uppercase;
+  margin:60px 0 40px 0;
+}
+
+.pop-aksess, .hot-product{
+  background-color: #f6faf8;
+  position: relative;
+}
+
+.row{
+  /*margin: 0 -10px;*/
+  margin: 0 -10px -60px -10px;
+  position: relative;
+}
+
+
+.pop-aksess .owl-item{
+   width: 303px !important;
+}
+
+.pop-aksess .owl-carousel {
+    top: -60px;
+}
+
+.owl-controls{
+   height: 0;
+}
+
+.pop-aksess .item{
+  text-align: center;
+  background-color: #fff;
+  padding:10px 0 45px 0;
+  border-radius: 10px;
+  width: 277px;
+  border: 1px solid #eaeeef;
+  margin-bottom: 10px;
+}
+
+.pop-aksess .item:hover{
+   box-shadow: 2px 2px 6px #eaeeef;
+}
+
+.pop-aksess .prev{
+    background: url(../images/arrow-left.png) no-repeat;
+    width: 34px;
+    height: 62px;
+    display: block;
+    position: absolute;
+    top:100px;
+    left: -67px;
+    cursor: pointer;
+}
+
+.pop-aksess .next{
+    background: url(../images/arrow-right.png) no-repeat;
+    width: 34px;
+    height: 62px;
+    display: block;
+    position: absolute;
+    top:100px;
+    right: -67px;
+    cursor: pointer;
+}
+
+.pop-aksess .less1200next{
+    top:100px;
+    right: 26px;
+}
+
+.pop-aksess .less1200prev{
+    top:100px;
+    left: 10px;
+}
+
+.pop-aksess h2{
+      font-size: 22px;
+    margin: 20px 15px 5px 15px;
+    line-height: 1;
+}
+
+.pop-aksess span{
+    font:17px "ProximaNovaRegular";
+    display: block;
+    padding-bottom: 20px;
+}
+
+.pop-aksess .item .buy{
+  border:1px solid #afafaf;
+  color: #afafaf;
+  padding: 8px 30px;
+  border-radius: 25px;
+  text-transform: uppercase;
+
+}
+
+.pop-aksess .item img{
+    max-width: 187px;
+    height: 118px;
+}
+
+.pop-aksess .item .buy:hover{
+    background-color:#249b50;
+    color:#fff;
+}
+
+.pop-aksess .item .price{
+   font-size: 22px;
+   margin:20px 0 35px 0;
+}
+
+
+
+
+
+
+
+.hot-product{
+  /*padding-bottom: 50px;*/
+  overflow: hidden;
+}
+
+.hot-product p{
+  padding-bottom: 0;
+}
+
+.hot-product .wrap-product{
+    margin: 0 0 20px 0;
+    overflow: hidden;
+    height: 403px;
+}
+
+.blok-3-left-1 .product{
+  margin-right: 16px;
+}
+
+.blok-4 .product{
+  margin-right: 18px;
+}
+
+.blok-4 .product:last-child{
+  margin-right: 0;
+}
+
+.blok-3-left-1 .product:last-child{
+  margin-right: 0;
+}
+
+.wrap-product .special-product{
+  width: 537px;  /* pad 40px */
+  float:left;
+  background-color: #fff;
+  padding: 0 0 40px 40px;
+  border: 2px solid #eaeeef;
+  border-radius: 10px;
+  margin: 0 18px;
+}
+
+.wrap-product .special-product .sprod-no-btn{
+  height: 314px;
+}
+
+.wrap-product .special-product:hover{
+  border:2px solid #249b50;
+}
+
+.wrap-product .special-product .s-left{
+  float: left;
+  width: 190px;
+}
+
+.wrap-product .special-product .s-right{
+  float:right;
+  margin-top: 35px;
+}
+
+.wrap-product .special-product .s-right img{
+  max-height: 265px;
+}
+
+.wrap-product .special-product h2{
+   font-size: 28px;
+   line-height: 1;
+}
+
+.wrap-product .special-product h2 a:hover{
+   text-decoration: underline;
+    /*color:#8d8d8d;*/
+}
+
+.wrap-product .special-product .action{
+  background-color: #249b50;
+  color:#fff;
+  padding: 2px 8px;
+    border-radius: 5px;
+    display: inline;
+}
+
+.wrap-product .spec-marbot{
+  margin-bottom: 48px;
+}
+
+.wrap-product .product{
+  text-align: center;
+  background-color: #fff;
+  padding:10px 0 40px 0;
+  border-radius: 10px;
+  width: 279px;
+  /*height:397px;*/
+  border: 1px solid #eaeeef;
+  float: left;
+  position: relative;
+}
+
+ .prod-in-cart{
+    position: absolute;
+    top:0;
+    left: 0;
+    background:url(../images/icon-cart.png) no-repeat;
+    width: 59px;
+    height: 60px;
+}
+
+.wrap-product .product:hover .prod-in-cart{
+  background: none;
+}
+
+.wrap-product .product:hover{
+   /*box-shadow: 2px 2px 6px #eaeeef;*/
+    background: #fff url(../images/frame-pattern.png) no-repeat;
+
+}
+
+.wrap-product .product h2{
+  font-size: 22px;
+  margin: 20px 15px 5px 15px;
+  line-height: 1;
+}
+
+.hot-product h4{
+  font-size: 24px;
+  /*margin: -30px 0 20px 0;*/
+  text-transform: uppercase;
+}
+
+.wrap-product .product span, .special-product span{
+    font:17px "ProximaNovaRegular";
+    display: block;
+    padding-bottom: 20px;
+}
+
+.wrap-product .buy{
+  border:1px solid #afafaf;
+  color: #afafaf;
+  padding: 8px 30px;
+  border-radius: 25px;
+  text-transform: uppercase;
+}
+
+.wrap-product .product img{
+    max-width: 187px;
+    height: 118px;
+}
+
+.wrap-product .buy:hover{
+    background-color:#249b50;
+     color:#fff;
+     border: 0;
+}
+
+.wrap-product .price{
+   font-size: 22px;
+   margin: 15px 0 0 0;
+}
+
+.wrap-product .no-old-price{
+  /*margin-bottom: 67px;*/
+}
+
+ .prod-no-btn{
+  height: 307px;
+}
+
+.wrap-product .old-price{
+  color: #bebebe;
+  text-decoration: line-through;
+  font:16px "ProximaNovaRegular";
+   margin: 5px 0 20px 0;
+}
+
+.pink{
+  color: #fe157d;
+}
+
+.green{
+   color: #249b50;
+}
+
+.article{
+  float: left;
+  position: relative;
+  width: 586px;
+  margin-right: 16px;
+}
+
+/*.article .a-text{
+  position: absolute;
+  top:197px;
+  left:40px;
+}*/
+
+.article span{
+  color: #edcdbe;
+    font:17px "ProximaNovaRegular";
+}
+
+.article h2 a{
+  font-size: 48px;
+  color: #fff32f;
+  text-transform: uppercase;
+}
+
+.article .icon-new{
+   background: url(../images/new.png) no-repeat;
+   width: 66px;
+   height: 66px;
+   position: absolute;
+   top:0;
+   left: 0;
+}
+
+
+
+
+
+
+.most-buy{
+     background: url(../images/top-bg2.jpg);
+
+}
+
+.most-buy .wrap-bg-left{
+   background: url(../images/girl-gun.png) left bottom no-repeat;
+}
+
+.most-buy .wrap-bg-right{
+   padding: 70px 0 60px 0;
+    background: url(../images/big-girl-eye.png) right bottom no-repeat;
+    overflow: hidden;
+}
+
+.most-buy h4{
+    margin:0 0 40px 0;
+      font-size: 24px;
+    /*margin: -30px 0 20px 0;*/
+    text-transform: uppercase;
+}
+
+.most-buy .article span{
+  color:#aba5a3;
+}
+.article.mini-img{
+  width: 279px;
+}
+
+.article.mini-img img{
+  max-width: 279px;
+  max-height: 397px;
+}
+
+.article.mini-img:last-child{
+   margin-right: 0;
+}
+
+.article .a-text{
+  position: absolute;
+   left:0;
+   bottom: 30px;
+   margin: 0 40px;
+}
+
+.article.mini-img .a-text{
+   margin: 0 30px;
+}
+
+.article.mini-img h2 a{
+  font-size: 27px;
+}
+
+
+  /* *************** */
+
+
+footer{
+  background: url(../images/footer_bg.jpg);
+  height: 266px;
+}
+
+footer ul li{
+  list-style:none;
+  display: inline-block;
+}
+
+footer .f_menu li{
+    margin-right: 40px;
+}
+
+footer .soc_links li{
+    margin-right: 20px;
+}
+
+footer .soc_links li:last-child{
+  margin-right: 0;
+}
+
+footer .f_menu{
+  float:left;
+}
+
+footer .soc_links{
+  float:right;
+}
+
+footer .f_menu, footer .soc_links{
+  margin: 35px 0 35px 0;
+  padding: 0;
+}
+
+footer ul a{
+  color:#fff;
+  text-decoration: underline;
+  font:16px "ProximaNovaRegular";
+}
+
+footer ul a:hover{
+  text-decoration:none;
+}
+
+.f-text-1, .f-text-2{
+  width: 585px;
+  font:13px "ProximaNovaRegular";
+  color:#494949;
+  margin-top:30px;
+}
+
+.f-text-1{
+  float: left;
+}
+
+.f-text-2{
+  float:right;
+}
+
+
+/* ************Каталог************ */
+
+
+ .active{
+  color:#fe157d !important;
+}
+
+.inner-wrap{
+  overflow: hidden;
+  padding: 0 0 80px 0;
+  margin: 0;
+}
+
+.breadcrambs{
+  font-size: 35px;
+  text-transform: uppercase;
+  float: left;
+}
+
+.breadcrambs, .search{
+   margin: 30px 0 0 0;
+}
+
+.breadcrambs span{
+  padding-bottom:5px;
+  font:18px "ProximaNovaRegular";
+  color: #fe157d;
+  display: block;
+  text-transform:none;
+}
+
+.search{
+  float:right;
+}
+
+.search input[type="text"]{
+   font:18px "ProximaNovaRegular";
+   color:#b8b8b8;
+   border:1px solid #eaeaed;
+   border-radius: 20px;
+   padding:10px 20px 10px 30px;
+   width: 275px;
+   float: left;
+}
+
+.search input[type="submit"]{
+     background: url(../images/lupa.jpg) right center no-repeat;
+     width: 23px;
+     height: 23px;
+     border:0;
+    margin-left: -37px;
+     margin-top: 10px;
+    float: left;
+}
+
+
+input:focus{
+  outline: 0;
+}
+
+
+ul.category{
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.category li{
+  float: left;
+  margin-right: 30px;
+  font:16px "ProximaNovaRegular";
+   border-radius: 20px;
+  padding: 7px 12px;
+  display: inline-block;
+}
+
+ul.category li.active{
+      background-color:#f5f071;
+}
+
+ul.category li.active span{
+     color:#a8a31e;
+}
+
+ul.category li a{
+  color: #242424;
+  /*font:16px "ProximaNovaRegular";*/
+  text-transform: uppercase;
+}
+
+ul.category li span{
+  padding-left: 10px;
+  color: #d0d0d0;
+}
+
+.catalog{
+    background-color: #fbfbf7;
+    position: relative;
+    /*padding-bottom: 50px;*/
+     /*overflow: hidden;*/
+}
+
+.catalog .prod-no-buy-link{
+  height: 297px;
+}
+
+
+.catalog .product h2 a{
+    font: 17px "ProximaNovaRegular";
+    display: block;
+    padding:5px 30px 33px 30px;
+
+}
+
+/*.catalog .product h2 {
+  margin-bottom: 23px;
+}*/
+
+.catalog .wrap-product .price{
+  margin-top: 25px;
+}
+
+.catalog .wrap-product .no-old-price {
+  margin-bottom: 37px;
+}
+
+.catalog .first-4 .product{
+   margin-top: -30px;
+}
+
+.catalog .wrap-product .product {
+  margin-bottom: 20px;
+  padding-bottom: 50px;
+}
+
+.catalog .wrap-product .buy:hover{
+  background:#fe157d;
+  border: 0;
+}
+
+.catalog .wrap-product .action{
+  background-color: #fe157d;
+  color:#fff;
+  padding: 2px 8px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+.catalog .wrap-product .action-border h2 a{
+   padding-bottom: 0;
+}
+
+.catalog .product:hover{
+  background: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.catalog .action-border:hover{
+  box-shadow: none;
+   background: #fff url(../images/frame-pattern.png) no-repeat;
+}
+
+
+.catalog .product:hover .prod-in-cart{
+  background:url(../images/icon-cart.png) no-repeat;
+}
+
+.only-catalog{
+   background: url(../images/top-bg2.jpg);
+   padding:80px 0;
+}
+
+.only-catalog .owl-carousel {
+    top: 0;
+}
+
+.only-catalog h4{
+    margin:0 0 40px 0;
+      font-size: 24px;
+    /*margin: -30px 0 20px 0;*/
+    text-transform: uppercase;
+}
+
+.only-catalog .item{
+  margin-bottom: 70px;
+}
+
+.only-catalog .prev, .only-catalog .next{
+  top:218px;
+}
+
+.catalog .show-more{
+   text-align: center;
+   margin:20px 0 0 0;
+}
+
+.catalog .show-more a{
+   text-transform: uppercase;
+   font-size: 18px;
+   background-color: #f5f5f2;
+   padding:10px 30px;
+   display: inline;
+   color: #c1c1c1;
+   border-radius: 20px;
+   margin:0 0 0 0;
+}
+
+/* *********** Карточка товара ********* */
+
+.map-product .wrapper-1{
+  padding-bottom: 275px;
+  /*height: 500px;*/
+}
+
+.map-product .inner-wrap{
+  padding: 0;
+}
+
+.map-product .breadcrambs{
+  font: 18px "ProximaNovaRegular";
+  text-transform: none;
+}
+
+.map-product .breadcrambs span{
+  display: inline;
+}
+
+.map-product .artikul{
+    font: 20px "ProximaNovaRegular";
+    text-transform: uppercase;
+}
+
+.map-product .data-product-parent{
+  background-color: #fefef8;
+  /*overflow: hidden;*/
+  margin-top: -30px;
+}
+
+.map-product .dp-title h2{
+  font-size: 35px;
+  margin:0 0 5px 0;
+}
+
+.map-product .data-product-child{
+    background: #fff;
+   /*overflow: hidden;*/
+   border: 1px solid #f1f2ef;
+   border-radius: 5px;
+   padding: 30px;
+   position: relative;
+   margin-top: -217px;
+   display: inline-block;
+}
+
+.map-product .data-product-child .ugol{
+   background: url(../images/ugol.png) no-repeat;
+   position: absolute;
+   width: 54px;
+   height: 27px;
+   top:-27px;
+   left:58px;
+}
+
+.map-product .dp-left{
+  float: left;
+  width: 580px;  /* -30px */
+  /*outline: 1px solid #000;*/
+}
+
+.map-product .dp-right{
+  float: right;
+  width: 538px;  /* -30px */
+  /*outline: 1px solid red;*/
+  font: 18px "ProximaNovaRegular";
+}
+
+.map-product .gray{
+  color: #C0BFBF;
+  display: block;
+  margin-bottom: 10px;
+}
+
+
+.data-product-child .main-img{
+  text-align: center;
+  width: 390px; /* 10px */
+  float:left;
+}
+
+.data-product-child .main-img img{
+  max-width: 390px;
+}
+
+.data-product-child .preview{
+  float:right;
+  width: 180px;
+  height: 120px;
+  text-align: center;
+}
+
+.data-product-child .preview img{
+  /*display: block;*/
+  margin-bottom: 5px;
+  max-width: 180px;
+  max-height: 120px;
+}
+
+.dp-param select{
+    border: 1px solid #afafaf;
+    padding: 8px 3px 8px 15px;
+    border-radius: 25px;
+    margin-right: 10px;
+}
+
+
+.data-product-child .price{
+  font:36px "ProximaNovaBold";
+  color: #fe157d;
+  margin: 5px 0 0 0;
+}
+
+.data-product-child .old-price{
+  font-size:21px;
+  color: #717171;
+  text-decoration: line-through;
+    margin: 0 0 10px 0;
+}
+
+
+.data-product-child .add-to-cart{
+    background: #fe157d;
+    color:#fff;
+    text-transform: uppercase;
+    position: relative;
+    border: 0;
+    font:18px "ProximaNovaBold";
+    padding: 8px 20px 8px 45px;
+     border-radius: 25px;
+}
+
+.data-product-child .add-to-cart img{
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+.data-product-child .action{
+    background-color: #fe157d;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.data-product-child .dp-desc p{
+  margin-top: 10px;
+}
+
+.data-product-child .dp-param span{
+  padding-top: 15px;
+}
+
+.map-product .only-catalog, .map-product .most-buy{
+   background-color: #fefef8 !important;
+   background: none;
+}
+
+.map-product .wrap-bg-right{
+  padding-top: 0;
+}
+
+.map-product .wrap-bg-right, .map-product .wrap-bg-left{
+    background: none;
+}
+
+.map-product h4{
+  color:#c5c5b3;
+  font:20px "ProximaNovaBold";
+  margin-bottom: 30px;
+}
+
+.map-product  .only-catalog .item {
+  margin-bottom: 35px;
+}
+
+.map-product  .only-catalog{
+    padding: 60px;
+}
+
+
+/*  ******Корзина товаров ********/
+
+.lk .pink{
+  position: relative;
+}
+.lk .pink img{
+  position: absolute;
+  top:0;
+  left:-30px;
+}
+
+.lk .full_name{
+  float: left;
+  padding-top: 40px;
+}
+
+.lk .full_name h2{
+ font: 35px "ProximaNovaBold";
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.lk .balans{
+  float:right;
+  padding-top: 40px;
+}
+
+.lk .balans p, .lk .full_name p{
+  margin:0;
+}
+
+.lk .balans .karta-out{
+    background: #fe157d;
+    color: #fff;
+    text-transform: uppercase;
+    position: relative;
+    border: 0;
+    font: 18px "ProximaNovaBold";
+    padding: 8px 20px 8px 15px;
+    border-radius: 25px;
+    display: block;
+    text-decoration: none;
+    margin-top: 10px;
+}
+
+.lk .balans .karta-out img{
+  padding-right: 10px;
+}
+
+.lk .full_name, .lk .balans{
+    font: 18px "ProximaNovaRegular";
+    text-transform: none;
+    margin:0;
+}
+
+.lk .balans span{
+     font: 20px "ProximaNovaBold";
+     text-transform: uppercase;
+}
+
+.lk .balans a{
+  text-decoration: underline;
+}
+
+.lk .balans a:hover{
+  text-decoration: none;
+}
+
+.lm-cart{
+  padding-bottom: 30px;
+  overflow: hidden;
+}
+
+.lm-cart .left-menu{
+  float:left;
+  width: 280px;
+}
+
+.lm-cart .cart-product{
+  float: right;
+  width: 870px;
+}
+
+.lm-cart .left-menu > div, .lm-cart .wrap_table{
+    background-color: #fff;
+    border-radius: 5px;
+    padding:30px 25px;
+}
+
+.lm-cart .wrap_table{
+  padding:30px 35px;
+}
+
+.lm-cart table{
+  width: 100%;
+}
+
+.lm-cart table .cart-item:nth-child(2n){
+  background-color: #f6f6f6;
+}
+
+.lm-cart .wrap_table{
+    font: 18px "ProximaNovaRegular";
+}
+
+.lm-cart .wrap_table img{
+  float:left;
+  margin-left:15px;
+}
+
+.lm-cart .wrap_table .product_title{
+  width: 260px;
+   padding: 10px 15px 10px 10px;
+  line-height: 1;
+}
+
+.lm-cart .wrap_table th:first-child{
+  padding-left:15px;
+}
+
+.lm-cart .wrap_table th{
+    padding-bottom: 15px;
+    color: #909090;
+    font-weight: normal;
+    text-align: left;
+}
+
+.lm-cart .wrap_table .kolvo {
+  width: 100px;
+}
+
+.lm-cart .wrap_table .del_product{
+  padding-right: 5px;
+}
+
+.lm-cart .wrap_table .kolvo select{
+  display: none;
+}
+
+.lm-cart .wrap_table tr:hover .kolvo select{
+  display: block;
+}
+
+.lm-cart .wrap_table tr:hover .kolvo span{
+  display: none;
+}
+
+.lm-cart .wrap_table .kolvo span{
+   padding: 8px 3px 8px 15px;
+}
+
+.lm-cart .wrap_table .kolvo-unic{
+   padding-left:15px;
+}
+
+.lm-cart .wrap_table img{
+  max-width: 63px;
+  max-height: 63px;
+}
+
+.lm-cart .wrap_table .del_product a{
+  visibility: hidden;
+}
+
+.lm-cart .wrap_table tr:hover .del_product a{
+  visibility: visible;
+}
+
+.lm-cart .wrap_table tr:last-child td{
+  padding-top: 10px;
+}
+
+.lm-cart .kolvo select{
+  border: 1px solid #afafaf !important;
+    padding: 8px 3px 8px 15px !important;
+   border-radius: 25px;
+   width: auto !important;
+}
+.lm-cart .bold{
+  font-family: "ProximaNovaBold";
+}
+
+
+.lm-cart .dop-links{
+  overflow: hidden;
+  margin-top: 40px;
+}
+
+.lm-cart .back-shop{
+  float: left;
+  text-decoration: underline;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 5px;
+}
+
+.lm-cart .back-shop img{
+  position: absolute;
+  top:4px;
+  left: -10px;
+}
+
+.lm-cart .back-shop:hover{
+  text-decoration: none;
+}
+
+.lm-cart .checkout{
+  float: right;
+  background-color: #fef247;
+  text-transform: uppercase;
+  position: relative;
+  border: 0;
+  font: 18px "ProximaNovaBold";
+  padding: 8px 40px 8px 20px;
+  border-radius: 25px;
+  margin-right: 45px;
+}
+
+.lm-cart .checkout img{
+   position: absolute;
+   top:11px;
+   right: 15px;
+}
+
+.lm-cart h3{
+    font: 28px "ProximaNovaRegular";
+      margin: 0px 0 20px 0;
+    text-transform: none;
+    color:#000;
+}
+
+.lm-cart .shop, .lm-cart .partner{
+   list-style: none;
+}
+
+
+.left-menu ul{
+  margin: 0;
+  padding: 0;
+}
+
+.left-menu ul li{
+    margin-bottom: 20px;
+}
+
+.lm-cart .shop a, .lm-cart .partner a{
+   font-size: 18px;
+    color: #1a251e;
+    text-transform: uppercase;
+}
+
+.lm-cart .partner li:last-child{
+  margin-bottom: 0;
+}
+
+.lm-cart .shop li:first-child, .lm-cart .partner li:first-child{
+  color: #909090;
+   font: 18px "ProximaNovaRegular";
+}
+
+.lm-cart .separator{
+   border-top: 1px solid #f2f2f2;
+   margin: 0 -25px 20px -25px;
+}
+
+
+/* ************ Оформление заказа **********/
+
+.j-guest-offer .cart-product{
+  float:none;
+}
+
+.j-guest-offer .cart-product h3{
+  padding: 50px 0 0 0;
+}
+
+.cart-product input, .cart-product select{
+    border: 2px solid #f2f3f5;
+    padding: 11px 30px;
+    border-radius: 25px;
+    width: 280px;
+}
+
+ .cart-product select{
+  width: 340px;
+}
+
+.name-block .offer-n p{
+  display: inline-block;
+  color:#909090;
+  width: 180px;
+  margin: 0 0 20px 0;
+  padding: 3px 0;
+}
+
+.account .offer-n p{
+    float:left;
+}
+
+.name-block .long-text {
+   margin-right: 200px;
+}
+.name-block .long-text p{
+  float: left;
+}
+
+.name-block{
+  position: relative;
+}
+
+.name-block span{
+      /*padding-right: 10px;*/
+      padding: 3px 10px 0 3px;
+}
+
+.name-block form{
+  display: inline-block;
+}
+
+.name-block .radioblock {
+  display: inline-block;
+}
+
+.name-block .radioblock .radio{
+  background: url("../images/radio-no-active.png") no-repeat;
+  display: inline-block;
+  padding: 0 0 0 30px;
+  margin: 0 30px 0 0;
+}
+
+.name-block .radioblock .r-active{
+  background: url("../images/radio-active.png") no-repeat;
+   font: 18px "ProximaNovaBold";
+}
+
+.name-block .edit-val{
+    display: none;
+}
+
+.offer-n:hover .edit-val{
+  display: inline-block;
+}
+.offer-n:hover span.hover-hidden{
+  display: none;
+}
+
+.name-block .edit-val input{
+  background: #f8f8f8;
+  border: 0 !important;
+   padding: 3px 30px 3px 10px !important; 
+  border-radius: 5px !important;
+   width: auto !important;
+   float:left;
+  }
+.name-block .edit-val input[type="submit"]{
+  background: #f8f8f8 url("../images/pen2.png") left center no-repeat;
+  margin-left: -30px;
+  width: 24px !important;
+  padding-right: 0 !important;
+}
+.way-pay{
+   border-bottom: 1px solid #e5e5e5;
+   border-top:1px solid #e5e5e5;
+   overflow: hidden;
+   padding: 15px 0 5px 0;
+}
+
+.way-pay p, .name-block .sposob-op{
+  float:left;
+}
+
+.name-block .radioblock {
+    float:left;
+}
+
+.way-pay .radioblock .radio{
+  width: 450px;
+  overflow: hidden;
+  display: block;
+}
+
+.way-pay .radioblock .radio{
+  background-position: left 10px;
+  clear:both;
+}
+
+.way-pay .radioblock .radio span{
+  float:left;
+  width: 260px;
+  font-size: 16px;
+}
+
+.way-pay .radioblock .radio img{
+  margin-right: 30px;
+   margin-bottom: 30px;
+   float:left;
+}
+
+.lk-article-bg{
+  background-color: #fefef8;
+  overflow: hidden;
+  padding-bottom: 70px;
+}
+
+.lk-article-bg h4{
+   margin: 70px 0 40px 0;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.mfp-bg.my-order-popup{
+  opacity: 0.6;
+}
+
+.mfp-wrap.my-order-popup{
+  left:50%;
+   /*width: 740px;*/
+   width: 730px;
+   margin-left: -340px;
+}
+
+#send-order{
+  background-color: #fff;
+  color: #000;
+  padding: 40px 50px 60px 50px;
+   font: 18px "ProximaNovaRegular";
+   border-radius: 6px;
+}
+
+#send-order h3{
+  color: #000;
+ font: 38px "ProximaNovaRegular";
+ text-transform: none;
+ margin:0;
+}
+
+#send-order a{
+    padding: 9px 40px 9px 20px;
+    border-radius: 25px;
+    background-color: #fe157d;
+    border: 0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "ProximaNovaBold";
+    margin-top: 10px;
+    position: relative;
+}
+
+#send-order a img{
+  position: absolute;
+right: 15px;
+    top: 11px;
+}
+
+#send-order .bez_bonus{
+  background-color:#fff;
+  border: 2px solid #000;
+  color: #000;
+  margin-left: 20px;
+  padding: 9px 20px;
+}
+
+#send-order .action{
+  background-color: #fe157d;
+    color: #fff;
+    padding: 2px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+#send-order .summa {
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+#send-order .summa p, #send-order .summa span{
+  float: left;
+  margin:0 0 10px 0;
+  width: 200px;
+}
+
+#send-order .summa span{
+  font-family: "ProximaNovaBold";
+}
+
+#send-order .summa p{
+    text-align: right;
+    margin-right: 20px;
+}
+
+
+#send-order .popup-modal-close{
+  position: absolute;
+  top:0;
+  right: 0;
+  color:#c7c7c7;
+  font-size: 25px;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.lk-gray{
+  color: #909090;
+}
+
+ .name-block .lk-foto-customer{
+  position: absolute;
+  max-height:183px !important;
+  max-width:183px !important;
+  top:0;
+  right: 0;
+}
+
+.wrap_table .my-link{
+  background-color: #fafafa;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.wrap_table h4{
+  margin: 0 0 20px 0;
+  font: 24px "ProximaNovaRegular";
+}
+
+.my-link .ref-link, .my-link .copy-link{
+   display: inline-block;
+   border-radius: 25px;
+    font: 18px "ProximaNovaBold";
+    padding: 8px 20px 8px 20px;
+}
+
+.my-link .ref-link{
+    background-color: #fff;
+    border: 1px solid #ebebeb;
+    margin-right: 10px;
+}
+
+.my-link .copy-link{
+  background-color: #fef247;
+  text-transform: uppercase;
+  border: 0;
+  cursor: pointer;
+}
+
+.my-link .new-link{
+  border-bottom: 1px dashed #fe157d;
+  display: table-cell;
+  padding-top: 20px;
+}
+
+.my-link .new-link:hover{
+  border-bottom: 0;
+}
+.ref-text p, .stat-vizit p{
+  color: #909090;
+}
+
+.stat-vizit{
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+.stat-vizit p{
+  margin: 0;
+}
+
+.stat-vizit span{
+  color: #000;
+  font: 18px "ProximaNovaBold";
+}
+
+.ref-text a{
+  text-decoration: underline;
+}
+
+.ref-text a:hover{
+  text-decoration: none;
+}
+
+.zclip embed{
+  opacity: 0;
+}
+
+/* финансы и история */
+
+.name-block .vyvod-money{
+  margin-top: 20px;
+}
+
+.name-block .vyvod-money a{
+    background-color: #fef247;
+    text-transform: uppercase;
+    position: relative;
+    border: 0;
+    font: 18px "ProximaNovaBold";
+    padding: 8px 40px 8px 20px;
+    border-radius: 25px;
+    margin-right: 45px;
+    margin-top: 20px;
+}
+
+.name-block .vyvod-money a img{
+    position: absolute;
+    top: 11px;
+    right: 15px;
+}
+
+.uprav-schet {
+   border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+}
+
+
+.uprav-schet .offer-n p{
+  width: 300px;
+  margin: 0 0 10px 0;
+}
+
+.wrap_table .bold{
+   font: 18px "ProximaNovaBold";
+}
+
+.history td{
+  padding: 5px;
+}
+
+.wrap_table .history th:first-child{
+  padding-left: 0;
+}
+
+
+/* *** page ************** */
+
+
+.page .page-content{
+  /*overflow: hidden;*/
+    margin-top: -280px;
+    position: relative;
+    display: inline-block;
+}
+
+
+.page .wrapper-1{
+  height: 400px;
+}
+
+.page .lk-article-bg {
+  overflow: visible;
+  padding-bottom: 20px;
+}
+
+.page .page-right{
+  float: right;
+  width: 883px;
+  background-color: #fff;
+  margin-top: 27px;
+  /*overflow: hidden;*/
+  font: 17px "ProximaNovaRegular";
+  border-radius: 5px;
+  border:1px solid #f2f2f2;;
+}
+
+.page .breadcrambs, .b-search{
+  text-transform: none;
+}
+
+.page .page-left{
+  width: 275px;
+  float:left;
+  font: 18px "ProximaNovaRegular";
+  margin-right: 20px;
+
+}
+
+.page .page-left img{
+  display: block;
+  margin-left: 60px;
+  margin-top: 1px;
+   position: relative;
+  top: 1px;
+}
+
+.page .inner-pl{
+    background-color: #fff;
+    border-radius: 5px;
+     border:1px solid #f2f2f2;;
+}
+
+
+.page .page-left a{
+  display: block;
+  padding: 20px 25px;
+  border-bottom: 1px solid #f2f2f2;
+  color:#909090;
+}
+
+.page .page-left a:last-child{
+  border: 0;
+}
+
+.page .page-right p{
+  font: 17px "ProximaNovaRegular";
+}
+
+.page .page-right .article{
+   width: 670px;
+}
+
+.page .page-right .article img{
+  max-width: 883px;
+  min-height: 200px;
+
+}
+.page .page-right .article a{
+  font-size: 36px;
+}
+
+.page .page-right.article span {
+    color: #aba5a3;
+}
+
+.page .content-left{
+  /*width: 500px;*/
+  width: 440px;
+  padding: 30px 30px;
+  float: left;
+}
+
+.page .content-right{
+  /*width:383px;*/
+  width: 350px;
+  padding: 30px 30px 30px 0;
+  float: right;
+}
+
+.page .content-right .quote{
+  border: 2px solid #000;
+  padding: 40px;
+  margin-top: 10px;
+}
+
+.page .content-right .quote p{
+  font: italic 30px "ProximaNovaRegular";
+  margin: 0;
+  padding-bottom: 30px;
+}
+
+.page .content-right .quote span{
+  font: italic 18px "ProximaNovaRegular";
+  color: #b0b0b0;
+}
+
+.page .content-left a{
+  color:#fe157d;
+  text-decoration: underline;
+  margin-right: 30px;
+}
+
+.page .content-left img{
+  max-width: 210px;
+}
+
+.page .content-left a:last-child{
+  margin-right: 0;
+}
+
+.page .content-left a:hover{
+  text-decoration: none;
+}
+
+.page .bot-article{
+  overflow: hidden;
+}
+
+.page .bot-article .article{
+  margin-bottom: 20px;
+}
+
+.page .bot-article h4{
+  color: #c5c5b3;
+}
+
+
+/*  ********* структура ******** */
+
+.structure .level-1{
+  font: 18px "ProximaNovaBold";
+}
+
+.structure .level-2{
+  padding-left: 20px;
+}
+
+.structure .level-3{
+  padding-left: 40px;
+}
+
+.structure table td{
+  padding: 7px 10px;
+}
+
+.structure table tr:nth-child(2n) {
+    background-color: #fff;
+}
+
+.structure .table-gray td{
+    background: #f6f6f6;
+}
+
+.structure .itog{
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px;
+  margin-bottom: 40px;
+}
+
+.structure .itog div{
+  display: table-cell;
+  float:right;
+  margin-right: 20px;
+}
+
+.structure .itog p{
+  margin: 0;
+  display: inline-block;
+  margin-right: 20px;
+}
+
+.structure table tr td:first-child{
+  width: 175px;
+}
+
+.structure table .level{
+  text-align: center;
+}
+
+.structure table{
+ text-align: left;
+}
+
+.light-gray{
+  color: #9b9b9b;
+}
+
+.structure .table-gray {
+  border-radius: 15px;
+  margin-bottom: 10px;
+}
+
+.structure .table-gray tr:first-child td:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+.structure .table-gray tr:first-child td:last-child{
+  border-radius: 0 5px 0 0;
+}
+
+.structure .table-gray tr:last-child td:first-child{
+  border-radius: 0 0 0 5px;
+}
+
+.structure .table-gray tr:last-child td:last-child{
+  border-radius: 0 0 5px 0;
+}
+
+.structure .single-table tr:nth-child(2n) {
+    background: #f6f6f6;
+}
+
+/* **** page error ** */
+
+.jewelry-error{
+  min-height: 768px;
+  background: url(../images/top-bg2.jpg);
+}
+
+.jewelry-error .breadcrambs{
+  display: block;
+}
+
+.jewelry-error h2{
+  font-size: 35px;
+   margin: 0px 0px 5px;
+  padding-top: 40px;
+}
+
+.jewelry-error p{
+    font:  18px "ProximaNovaRegular";
+}
+p.j-warning{
+   padding: 20px 0;
+  font:  18px "ProximaNovaRegular";
+}
+
+#auth-modal .reg-form{
+  display: none;
+}
+
+
+.error{
+    color: red;
+    font-size: 13px;
+    padding: 0 0 15px 0;
+    display: block;
+}
+
+.pagination{
+    text-align: center;
+    padding: 50px 0;
+}
+
+.pagination a{
+    padding: 10px 15px;
+    color: #c1c1c1;
+    background-color: #f5f5f2;
+    border-radius: 15px;
+    margin: 0 5px;
+}
+.pagination .results{
+  display: none;
+}

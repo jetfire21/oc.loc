@@ -1,0 +1,18 @@
+<?php echo $header; ?>
+
+<div class="jewelry-error">
+  <div class="container">
+      <div class="clr"></div>
+      <div>
+        <h2> <?php echo $heading_title; ?> 
+        <?php if($order_id) echo ' № '. $order_id; ?></h2>
+          <p class="j-warning"><?php echo $text_message; ?></p>
+        <div class="buttons">
+          <div class="right"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_continue; ?></a></div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+<?php echo $footer; ?>

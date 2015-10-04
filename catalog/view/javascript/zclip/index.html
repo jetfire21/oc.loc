@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    	<script src="jquery-1.11.3.min.js"></script>
+	<script src="jquery.zclip.js"></script>
+<script>
+$(document).ready(function() {	
+	  $('.copy-link').zclip({
+	path:'ZeroClipboard.swf',
+	copy:$('.ref-link').text(),
+	afterCopy:function(){
+	  alert("Текст скопирован в буфер обмена!");
+	}
+	});
+
+});
+</script>
+  </head>
+  <body>
+ <a href="" class="copy-link">af</a>
+ <div class="ref-link">dfasfsdfdf</div>	
+  </body>
+  </html>
