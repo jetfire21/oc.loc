@@ -3,6 +3,34 @@ class ModelAffiliateAffiliate extends Model {
 	public function addAffiliate($data) {
       	$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate SET firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', company = '" . $this->db->escape($data['company']) . "', address_1 = '" . $this->db->escape($data['address_1']) . "', address_2 = '" . $this->db->escape($data['address_2']) . "', city = '" . $this->db->escape($data['city']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', country_id = '" . (int)$data['country_id'] . "', zone_id = '" . (int)$data['zone_id'] . "', code = '" . $this->db->escape(uniqid()) . "', commission = '" . (float)$this->config->get('config_commission') . "', tax = '" . $this->db->escape($data['tax']) . "', payment = '" . $this->db->escape($data['payment']) . "', cheque = '" . $this->db->escape($data['cheque']) . "', paypal = '" . $this->db->escape($data['paypal']) . "', bank_name = '" . $this->db->escape($data['bank_name']) . "', bank_branch_number = '" . $this->db->escape($data['bank_branch_number']) . "', bank_swift_code = '" . $this->db->escape($data['bank_swift_code']) . "', bank_account_name = '" . $this->db->escape($data['bank_account_name']) . "', bank_account_number = '" . $this->db->escape($data['bank_account_number']) . "', status = '1', date_added = NOW()");
 	
+      		// my code
+		 $levels = $this->config->get('affiliate_level_commission');
+			 if(isset($this->request->cookie['tracking']) & $levels) {
+				$query = $this->db->query("SELECT affiliate_id FROM `" . DB_PREFIX . "affiliate` WHERE code = '" . $this->request->cookie['tracking'] . "'");
+				if ($query->num_rows) {
+					$affiliate_parent = $query->row['affiliate_id'];
+					$count_affiliate = $levels[1]['level_affiliate'];
+					if($count_affiliate != 0) {
+						$query = $this->db->query("SELECT count(*) as total FROM `" . DB_PREFIX . "affiliate` WHERE parent = '" . $affiliate_parent . "'");
+						$count_affiliate_sql = $query->row['total'];
+						if($count_affiliate_sql<$count_affiliate){
+							$count_affiliate = 0;
+						}
+					}
+					if($count_affiliate == 0) {
+						$query_id = $this->db->query("SELECT affiliate_id FROM `" . DB_PREFIX . "affiliate` WHERE email = '" . $this->db->escape($data['email']) . "'");
+						$affiliate_id = $query_id->row['affiliate_id'];
+						$this->db->query("UPDATE `" . DB_PREFIX . "affiliate` SET parent = '" . $affiliate_parent . "' WHERE affiliate_id = '" . (int)$affiliate_id . "'");
+					}
+				}
+			}
+			// echo '----------<pre>';
+			// print_r($levels);
+			// echo '----------</pre>';
+			// echo $this->request->cookie['tracking'];
+			// exit;
+	// my code
+	
 		$this->language->load('mail/affiliate');
 
 			
