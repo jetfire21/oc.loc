@@ -1,0 +1,87 @@
+﻿<modification>
+    <id>lang_affiliatemmm.en</id>
+    <version>2.0</version>
+    <vqmver>2.1.6</vqmver>
+    <author>NeitrinoZull</author>
+	<link>http://partnerka-business.ru/</link>
+	
+	<file name="admin/language/english/catalog/product.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['column_commission']             = 'Commission';
+$_['entry_commission']             = 'Commission<br /><span class="help">Percentage the affiliate recieves on each order.</span>';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/module/affiliate.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Heading
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+				$_['text_statisticsmyaffiliate'] = 'My Partners';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="admin/language/english/module/affiliate.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['entry_customer_lifetime']                 = 'Lifetime binding the buyer to the affiliate partner program: ';
+$_['entry_affiliate_level']                 = 'The level of partner: <span class="help">For automated regardless of the input data is always going to count 1</span>';
+$_['entry_affiliate_commission']               = 'Commission: %s %s <span class="help">Percentage the affiliate recieves on each order.</span>';
+$_['entry_affiliate_count']             = 'The number of partners<span class="help">If the count is 0, then Unlimited</span>';
+$_['button_add_level']             = 'Add level';
+$_['entry_product_commission']             = 'Commission for each product:';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/account.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['text_my_statisticsmyaffiliate']    = 'Statistics of my partners';
+$_['text_statisticsmyaffiliate'] = 'Statistics of my partners';
+$_['statisticsmyaffiliate'] = 'See the statistics of my partners';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/english/affiliate/tracking.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['text_register_url'] = '<b>Referral link to invite partners:</b>';
+$_['button_vk'] = 'Post';
+			]]>
+			</add>
+		</operation>
+	</file>
+</modification>

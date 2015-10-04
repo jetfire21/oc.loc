@@ -1,0 +1,181 @@
+<modification>
+    <id>affiliatemmm</id>
+    <version>2.0</version>
+    <vqmver>2.1.6</vqmver>
+    <author>NeitrinoZull</author>
+	<link>http://partnerka-business.ru/</link>
+	<file name="catalog/controller/module/affiliate.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				('module/affiliate')
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+				$this->data['level'] = $this->config->get('affiliate_level_commission');
+				$this->data['text_statisticsmyaffiliate'] = $this->language->get('text_statisticsmyaffiliate');
+				$this->data['statisticsmyaffiliate'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/controller/checkout/confirm.php">
+        <operation>
+            <search position="after">
+			<![CDATA[
+				isset($this->request->cookie['tracking'])
+			]]>
+            </search>
+            <add>
+			<![CDATA[
+				$this->load->model('module/statisticsmyaffiliate');
+				$this->model_module_statisticsmyaffiliate->isAffiliate();
+			]]>
+            </add>
+        </operation>
+    </file>
+	<file name="catalog/controller/affiliate/tracking.php">
+        <operation>
+            <search position="after">
+			<![CDATA[
+				$this->language->get('heading_title');
+			]]>
+            </search>
+            <add>
+			<![CDATA[
+				$this->data['button_vk'] = $this->language->get('button_vk');
+				$this->load->model('module/statisticsmyaffiliate');
+				$this->data['register'] = $this->model_module_statisticsmyaffiliate->getRegUrl();
+				$this->data['text_register_url'] = $this->language->get('text_register_url');
+			]]>
+            </add>
+        </operation>
+    </file>
+	<file name="catalog/controller/affiliate/account.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				$this->language->get('text_transaction');
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+				$this->data['level'] = $this->config->get('affiliate_level_commission');
+                $this->data['text_my_statisticsmyaffiliate'] = $this->language->get('text_my_statisticsmyaffiliate');
+                $this->data['text_statisticsmyaffiliate'] = $this->language->get('text_statisticsmyaffiliate');
+                $this->data['statisticsmyaffiliate'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/model/checkout/order.php">
+		<operation>
+			<search position="before" >
+			<![CDATA[
+				return $order_id;
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+			if($this->config->get('affiliate_product_commission')) {
+				if(isset($this->request->cookie['tracking'])) {
+					$this->load->model('affiliate/affiliate');
+					$affiliate_info = $this->model_affiliate_affiliate->getAffiliateByCode($this->request->cookie['tracking']);
+					$this->load->model('module/statisticsmyaffiliate');
+					$affiliate_commission = $this->model_module_statisticsmyaffiliate->getOrderCommission($order_id) / 100;
+					$this->db->query("UPDATE `" . DB_PREFIX . "order` SET commission = '" . $affiliate_commission . "' WHERE order_id = '" . (int)$order_id . "'");
+				}
+			}
+			]]>
+			</add>
+		</operation>
+	</file>
+    <file name="catalog/model/affiliate/affiliate.php">
+        <operation>
+            <search position="after">
+			<![CDATA[
+				mail/affiliate
+			]]>
+            </search>
+            <add>
+			<![CDATA[
+			 $levels = $this->config->get('affiliate_level_commission');
+			 if(isset($this->request->cookie['tracking']) & $levels) {
+				$query = $this->db->query("SELECT affiliate_id FROM `" . DB_PREFIX . "affiliate` WHERE code = '" . $this->request->cookie['tracking'] . "'");
+				if ($query->num_rows) {
+					$affiliate_parent = $query->row['affiliate_id'];
+					$count_affiliate = $levels[1]['level_affiliate'];
+					if($count_affiliate != 0) {
+						$query = $this->db->query("SELECT count(*) as total FROM `" . DB_PREFIX . "affiliate` WHERE parent = '" . $affiliate_parent . "'");
+						$count_affiliate_sql = $query->row['total'];
+						if($count_affiliate_sql<$count_affiliate){
+							$count_affiliate = 0;
+						}
+					}
+					if($count_affiliate == 0) {
+						$query_id = $this->db->query("SELECT affiliate_id FROM `" . DB_PREFIX . "affiliate` WHERE email = '" . $this->db->escape($data['email']) . "'");
+						$affiliate_id = $query_id->row['affiliate_id'];
+						$this->db->query("UPDATE `" . DB_PREFIX . "affiliate` SET parent = '" . $affiliate_parent . "' WHERE affiliate_id = '" . (int)$affiliate_id . "'");
+					}
+				}
+			}
+			]]>
+            </add>
+        </operation>
+    </file>
+	<file name="catalog/view/theme/*/template/module/affiliate.tpl">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				$text_transaction;
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+<?php if ($level) { ?>
+				<li><a href="<?php echo $statisticsmyaffiliate; ?>"><?php echo $text_statisticsmyaffiliate; ?></a></li>
+<?php } ?>
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/affiliate/account.tpl">
+		<operation>
+			<search position="after" offset="2">
+			<![CDATA[
+				$text_transaction;
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+<?php if ($level) { ?>
+  <h2><?php echo $text_my_statisticsmyaffiliate; ?></h2>
+  <div class="content">
+    <ul>
+      <li><a href="<?php echo $statisticsmyaffiliate; ?>"><?php echo $text_statisticsmyaffiliate; ?></a></li>
+	</ul>
+  </div>
+<?php } ?>
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/view/theme/*/template/affiliate/tracking.tpl">
+		<operation>
+            <search position="replace">
+			<![CDATA[<h1><?php echo $heading_title; ?></h1>]]>
+            </search>
+            <add trim="true">
+<![CDATA[
+<h1><?php echo $heading_title; ?></h1>
+<?php  
+	if (file_exists(DIR_TEMPLATE.'default/template/affiliate/trackingmmmurl.tpl')) {
+		require_once(DIR_TEMPLATE.'default/template/affiliate/trackingmmmurl.tpl');
+	} 
+?>
+]]>
+            </add>
+        </operation>
+    </file>
+</modification>

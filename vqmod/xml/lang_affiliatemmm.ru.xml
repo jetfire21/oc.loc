@@ -1,0 +1,86 @@
+﻿<modification>
+    <id>lang_affiliatemmm.ru</id>
+    <version>2.0</version>
+    <vqmver>2.1.6</vqmver>
+    <author>NeitrinoZull</author>
+	<link>http://partnerka-business.ru/</link>
+	<file name="admin/language/russian/catalog/product.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['column_commission']             = 'Комиссия';
+$_['entry_commission']             = 'Комиссия<br /><span class="help">Процент партнерской программы.</span>';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/russian/module/affiliate.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Heading
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+				$_['text_statisticsmyaffiliate'] = 'Мои Партнеры';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="admin/language/russian/module/affiliate.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['entry_customer_lifetime']                 = 'Пожизненная привязка покупателя к партнеру партнерской программы: ';
+$_['entry_affiliate_level']                 = 'Уровень партнера<span class="help">Проставляется автоматический независимо от введенных данных отсчет всегда идет с 1</span>';
+$_['entry_affiliate_commission']               = 'Вознаграждение: %s %s <span class="help">Процент, которые партнер получает за каждый заказ.</span>';
+$_['entry_affiliate_count']             = 'Количество партнеров<span class="help">Если кол-во равно 0, то не ограничено</span>';
+$_['button_add_level']             = 'Добавить уровень';
+$_['entry_product_commission']             = 'Комиссия по каждому товарy';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/russian/affiliate/account.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['text_my_statisticsmyaffiliate']    = 'Статистика моих партнеров';
+$_['text_statisticsmyaffiliate'] = 'Статистика моих партнеров';
+$_['statisticsmyaffiliate'] = 'Посмотреть статистику моих партнеров';
+			]]>
+			</add>
+		</operation>
+	</file>
+	<file name="catalog/language/russian/affiliate/tracking.php">
+		<operation>
+			<search position="after">
+			<![CDATA[
+				// Text
+			]]>
+			</search>
+			<add>
+			<![CDATA[
+$_['text_register_url'] = '<b>Реферальная ссылка для приглашения партнеров:</b>';
+$_['button_vk'] = 'Опубликовать';
+			]]>
+			</add>
+		</operation>
+	</file>
+</modification>
