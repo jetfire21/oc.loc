@@ -143,6 +143,7 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum(1, $result['affiliate_id'], $this->data);
 				// $resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum($this->affiliate->getId(), $result['affiliate_id'], $this->data);
 				$phone3f = $this->model_module_statisticsmyaffiliate->getPhoneEmail( $result['affiliate_id']);
+				$count_aff = $this->model_module_statisticsmyaffiliate->getCountAff( $result['affiliate_id']);
 				$this->data['affiliates'][] = array(
 					'level' =>  $result['level'],
 					'affiliate' =>  $affiliate_name,
@@ -151,7 +152,8 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 					'sum_orders' => $this->currency->format($resultOrders['sum_orders'], $this->config->get('config_currency')),
 					'sum_shopping' => $this->currency->format($resultShopping['sum_shopping'], $this->config->get('config_currency')),
 					'commission' => $this->currency->format($resultSum['commission'], $this->config->get('config_currency')),
-					'phone3f' => $phone3f
+					'phone3f' => $phone3f,
+					'count_aff' => $count_aff
 				);
 			}
 		}

@@ -43,7 +43,7 @@
                                 <td class="light-gray">Не указан</td>
                             <?php endif;?>
                             <td> <?php echo $affiliate['level']; ?></td>
-                            <td><?php echo count($affiliates)-1;?></td>
+                            <td><?php echo $affiliate['count_aff']; ?></td>
                             <td class="bold"><?php echo $affiliate['commission']; ?></td>
                         </tr>   
 
