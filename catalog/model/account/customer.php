@@ -155,6 +155,7 @@ class ModelAccountCustomer extends Model {
 		$query = $this->db->query("SELECT MAX(customer_id) FROM " . DB_PREFIX . "customer");
 		
 		return $query->row;	
+
 	}
 	
 	public function getCustomerByEmail($email) {

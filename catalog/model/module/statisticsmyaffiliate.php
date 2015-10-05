@@ -210,5 +210,11 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		}
 		return '&';
 	}
+
+	public function getParentByCustomerId($customer_id) {
+		$query = $this->db->query("SELECT parent FROM `" . DB_PREFIX . "affiliate` WHERE customer_id = '" . (int)$customer_id . "'");
+		if($query->num_rows) return $query->row['parent'];
+		return 0;
+	}
 }
 ?>

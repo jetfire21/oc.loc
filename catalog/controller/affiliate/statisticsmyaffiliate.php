@@ -2,10 +2,22 @@
 class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 
     public function index() {
-        if (!$this->affiliate->isLogged()) {
-            $this->session->data['redirect'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
-            $this->redirect($this->url->link('affiliate/login', '', 'SSL'));
-        }
+
+
+        // if (!$this->affiliate->isLogged()) {
+        //     $this->session->data['redirect'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
+        //     $this->redirect($this->url->link('affiliate/login', '', 'SSL'));
+        // }
+
+        // my code
+
+       if (!$this->customer->isLogged()) {
+	  		$this->session->data['redirect'] = $this->url->link('account/account', '', 'SSL');
+	  
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
+    	} 
+
+    	// my code
 		
         $this->language->load('affiliate/statisticsmyaffiliate');
 
@@ -112,8 +124,16 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 		$getlevel = $this->config->get('affiliate_level_commission');
         $levelcount = count($getlevel);
 		$implode = array();
-		$implode[] = "parent = '" . $this->affiliate->getId() . "'";
+		// $implode[] = "parent = '" . $this->affiliate->getId() . "'";
+		$parent =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
+		$implode[] = "parent = '" . $parent . "'";
+		// print_r($_SESSION['customer_id']);
+		// echo $parent;
+		// exit;
+
 		$training = $this->model_module_statisticsmyaffiliate->getAffiliatesChildren($implode, $levelcount);
+		// var_dump($training);
+		// exit;
 		$results = '';
 		if(strlen($training)) {
 			$results = $this->model_module_statisticsmyaffiliate->getChildrenLevel($training, $levelcount);

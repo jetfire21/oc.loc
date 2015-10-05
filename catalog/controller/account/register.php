@@ -549,13 +549,14 @@ class ControllerAccountRegister extends Controller {
 	 	$this->load->model('account/customer');
 		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
 			$this->model_account_customer->addCustomer($this->request->post);
+			$customer_id =  $this->model_account_customer->getCustomerLastId();
 
 			// my code
 			if( $_GET['tracking']) setcookie('tracking', $_GET['tracking']);
 			// print_r($_COOKIE);
 			// exit;
 			$this->load->model('affiliate/affiliate');
-			$this->model_affiliate_affiliate->addAffiliate($this->request->post);
+			$this->model_affiliate_affiliate->addAffiliate($this->request->post, $customer_id['MAX(customer_id)'] );
 
 			// my code
 		}
