@@ -36,10 +36,14 @@
                         <?php foreach ($affiliates as $affiliate) { ?>
                         <tr>
                             <td class="level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
-                            <td class="d-reg">04.07 22:01</td>
-                            <td class="t-phone">+7 (495) 000 00 00</td>
-                            <td><?php echo $affiliate['level']; ?></td>
-                            <td>20</td>
+                            <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
+                             <?php if( !empty($affiliate['phone3f']['telephone'])): ?>
+                                <td class="t-phone"><?php echo $affiliate['phone3f']['telephone']; ?> </td>
+                            <?php else:?>
+                                <td class="light-gray">Не указан</td>
+                            <?php endif;?>
+                            <td> <?php echo $affiliate['level']; ?></td>
+                            <td><?php echo count($affiliates)-1;?></td>
                             <td class="bold"><?php echo $affiliate['commission']; ?></td>
                         </tr>   
 
@@ -59,12 +63,19 @@
                         </tr>
                         <?php } ?>
                     </table>
-                                            <td><?php echo $affiliate['count_orders']; ?></td>
+<!--                     <?php foreach ($affiliates as $affiliate) { ?>
+                              <tr>
+                                <td><?php echo $affiliate['level']; ?></td>
+                                <td><?php echo $affiliate['affiliate']; ?></td>
+                                <td><?php echo $affiliate['count_orders']; ?></td>
                                 <td><?php echo $affiliate['count_shopping']; ?></td>
                                 <td><?php echo $affiliate['sum_orders']; ?></td>
                                 <td><?php echo $affiliate['sum_shopping']; ?></td>
                                 <td><?php echo $affiliate['commission']; ?></td>
-
+                                <td><?php print_r($affiliate['phone3f']); ?></td>
+                             </tr>
+                               <?php } ?> -->
+                
             </div>
                     <div class="clr"></div>
         </div>

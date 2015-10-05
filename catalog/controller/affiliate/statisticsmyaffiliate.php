@@ -125,15 +125,14 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
         $levelcount = count($getlevel);
 		$implode = array();
 		// $implode[] = "parent = '" . $this->affiliate->getId() . "'";
-		$parent =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
-		$implode[] = "parent = '" . $parent . "'";
+		$parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
+		$implode[] = "parent = '" . $parent_id . "'";
 		// print_r($_SESSION['customer_id']);
 		// echo $parent;
 		// exit;
 
 		$training = $this->model_module_statisticsmyaffiliate->getAffiliatesChildren($implode, $levelcount);
-		// var_dump($training);
-		// exit;
+
 		$results = '';
 		if(strlen($training)) {
 			$results = $this->model_module_statisticsmyaffiliate->getChildrenLevel($training, $levelcount);
@@ -141,7 +140,9 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 				$affiliate_name  = $this->model_module_statisticsmyaffiliate->getAffiliatesName($result['affiliate_id']);
 				$resultOrders = $this->model_module_statisticsmyaffiliate->GetStatisticsOrders($result['affiliate_id'], $this->data);
 				$resultShopping =  $this->model_module_statisticsmyaffiliate->GetStatisticsShopping($result['affiliate_id'], $this->data);
-				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum($this->affiliate->getId(), $result['affiliate_id'], $this->data);
+				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum(1, $result['affiliate_id'], $this->data);
+				// $resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum($this->affiliate->getId(), $result['affiliate_id'], $this->data);
+				$phone3f = $this->model_module_statisticsmyaffiliate->getPhoneEmail( $result['affiliate_id']);
 				$this->data['affiliates'][] = array(
 					'level' =>  $result['level'],
 					'affiliate' =>  $affiliate_name,
@@ -149,7 +150,8 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 					'count_shopping' => (int)$resultShopping['count_shopping'],
 					'sum_orders' => $this->currency->format($resultOrders['sum_orders'], $this->config->get('config_currency')),
 					'sum_shopping' => $this->currency->format($resultShopping['sum_shopping'], $this->config->get('config_currency')),
-					'commission' => $this->currency->format($resultSum['commission'], $this->config->get('config_currency'))
+					'commission' => $this->currency->format($resultSum['commission'], $this->config->get('config_currency')),
+					'phone3f' => $phone3f
 				);
 			}
 		}

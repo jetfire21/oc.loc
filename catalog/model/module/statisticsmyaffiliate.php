@@ -66,6 +66,7 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
         $sql = "SELECT SUM(case when amount > 0 then amount else 0 end) AS commission FROM " . DB_PREFIX . "affiliate_transaction ";
         $rezult_data = $this->end($affiliate_id, $data, $sql, -1, $affiliate_children);
         return $rezult_data;
+
     }
 
     private function end($affiliate_id, $data, $sql, $order_status_id = -1, $affiliate_children = 0) {
@@ -96,7 +97,8 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
         }
 
         $query = $this->db->query($sql);
-        return $query->row;
+        return $query->row; 
+
     }
 	
 	public function isAffiliate(){
@@ -214,6 +216,12 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 	public function getParentByCustomerId($customer_id) {
 		$query = $this->db->query("SELECT parent FROM `" . DB_PREFIX . "affiliate` WHERE customer_id = '" . (int)$customer_id . "'");
 		if($query->num_rows) return $query->row['parent'];
+		return 0;
+	}
+
+	public function getPhoneEmail($affiliate_id) {
+		$query = $this->db->query("SELECT email,telephone,date_added FROM `" . DB_PREFIX . "affiliate` WHERE affiliate_id = '" . (int)$affiliate_id . "'");
+		if($query->num_rows) return $query->row;
 		return 0;
 	}
 }

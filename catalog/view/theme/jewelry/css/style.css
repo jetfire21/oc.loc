@@ -2379,8 +2379,12 @@ right: 15px;
   padding-left: 20px;
 }
 
-.structure .level-3{
+.structure .level-3, .structure .level-4, .structure .level-5, .structure .level-6, .structure .level-7{
   padding-left: 40px;
+}
+
+.structure .level-4, .structure .level-5, .structure .level-6, .structure .level-7{
+  padding-left: 60px;
 }
 
 .structure table td{
