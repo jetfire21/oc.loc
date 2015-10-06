@@ -136,8 +136,12 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 		$results = '';
 		if(strlen($training)) {
 			$results = $this->model_module_statisticsmyaffiliate->getChildrenLevel($training, $levelcount);
+			// print_r($results);
+			// exit;
+
 			foreach ($results as $result) {
 				$affiliate_name  = $this->model_module_statisticsmyaffiliate->getAffiliatesName($result['affiliate_id']);
+                $aff_ids = $this->model_module_statisticsmyaffiliate->getAffiliate($result['affiliate_id']);
 				$resultOrders = $this->model_module_statisticsmyaffiliate->GetStatisticsOrders($result['affiliate_id'], $this->data);
 				$resultShopping =  $this->model_module_statisticsmyaffiliate->GetStatisticsShopping($result['affiliate_id'], $this->data);
 				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum(1, $result['affiliate_id'], $this->data);
@@ -145,7 +149,9 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
 				$phone3f = $this->model_module_statisticsmyaffiliate->getPhoneEmail( $result['affiliate_id']);
 				$count_aff = $this->model_module_statisticsmyaffiliate->getCountAff( $result['affiliate_id']);
 				$this->data['affiliates'][] = array(
-					'level' =>  $result['level'],
+                    'aff_id' => $aff_ids['affiliate_id'],
+                    'parent' => $aff_ids['parent'],
+					'level' =>  $result['level']-1,
 					'affiliate' =>  $affiliate_name,
 					'count_orders' => (int)$resultOrders['count_orders'],
 					'count_shopping' => (int)$resultShopping['count_shopping'],

@@ -533,14 +533,14 @@ class ControllerAccountRegister extends Controller {
       		$res['confirm'] = $this->language->get('error_confirm');
     	}
 
-    	// if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
-     //  		$this->error['warning'] = $this->language->get('error_exists');
-    	// }
+     if ($this->model_account_customer->getTotalCustomersByEmail($this->request->post['email'])) {
+     		$this->error['warning'] = $this->language->get('error_exists');
+    	 }
 
 	 if(!empty($res)) { 
 	 	$res['s_name'] = $this->request->post['firstname'];
 	 	echo json_encode($res);
-	 	// $this->data['res'] = 'error';
+	 	 $this->data['res'] = 'error';
 	  }
 	 else {
 	 	$res['success'] = 'ok';
@@ -556,18 +556,14 @@ class ControllerAccountRegister extends Controller {
 			// print_r($_COOKIE);
 			// exit;
 			$this->load->model('affiliate/affiliate');
-			$this->model_affiliate_affiliate->addAffiliate($this->request->post, $customer_id['MAX(customer_id)'] );
+			$this->model_affiliate_affiliate->addAffiliate($this->request->post, $customer_id['MAX(customer_id)'],$_GET['tracking'] );
 
 			// my code
 		}
 		
-	 	echo json_encode($res);
+	 	 echo json_encode($res);
 	 }
 
-
-	 // $this->data['q'] = 10;
-	 $this->template = $this->config->get('config_template') . '/template/account/my_validate.tpl';
-	  $this->response->setOutput($this->render());	
 
 	}
 

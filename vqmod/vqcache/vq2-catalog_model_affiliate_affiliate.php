@@ -1,7 +1,20 @@
 <?php
 class ModelAffiliateAffiliate extends Model {
-	public function addAffiliate($data,$customer_id) {
-      	$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate SET customer_id='".(int)$customer_id."' ,firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', company = '" . $this->db->escape($data['company']) . "', address_1 = '" . $this->db->escape($data['address_1']) . "', address_2 = '" . $this->db->escape($data['address_2']) . "', city = '" . $this->db->escape($data['city']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', country_id = '" . (int)$data['country_id'] . "', zone_id = '" . (int)$data['zone_id'] . "', code = '" . $this->db->escape(uniqid()) . "', commission = '" . (float)$this->config->get('config_commission') . "', tax = '" . $this->db->escape($data['tax']) . "', payment = '" . $this->db->escape($data['payment']) . "', cheque = '" . $this->db->escape($data['cheque']) . "', paypal = '" . $this->db->escape($data['paypal']) . "', bank_name = '" . $this->db->escape($data['bank_name']) . "', bank_branch_number = '" . $this->db->escape($data['bank_branch_number']) . "', bank_swift_code = '" . $this->db->escape($data['bank_swift_code']) . "', bank_account_name = '" . $this->db->escape($data['bank_account_name']) . "', bank_account_number = '" . $this->db->escape($data['bank_account_number']) . "', status = '1', date_added = NOW()");
+	public function addAffiliate($data,$customer_id,$code) {
+
+	
+      	$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate SET customer_id='".(int)$customer_id."' ,firstname = '" . $this->db->escape($data['firstname']) . "', lastname = '" . $this->db->escape($data['lastname']) . "', email = '" . $this->db->escape($data['email']) . "', telephone = '" . $this->db->escape($data['telephone']) . "', fax = '" . $this->db->escape($data['fax']) . "', salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($data['password'])))) . "', company = '" . $this->db->escape($data['company']) . "', address_1 = '" . $this->db->escape($data['address_1']) . "', address_2 = '" . $this->db->escape($data['address_2']) . "', city = '" . $this->db->escape($data['city']) . "', postcode = '" . $this->db->escape($data['postcode']) . "', country_id = '" . (int)$data['country_id'] . "', zone_id = '" . (int)$data['zone_id'] . "',code = '" . $this->db->escape(uniqid()) . "', commission = '" . (float)$this->config->get('config_commission') . "', tax = '" . $this->db->escape($data['tax']) . "', payment = '" . $this->db->escape($data['payment']) . "', cheque = '" . $this->db->escape($data['cheque']) . "', paypal = '" . $this->db->escape($data['paypal']) . "', bank_name = '" . $this->db->escape($data['bank_name']) . "', bank_branch_number = '" . $this->db->escape($data['bank_branch_number']) . "', bank_swift_code = '" . $this->db->escape($data['bank_swift_code']) . "', bank_account_name = '" . $this->db->escape($data['bank_account_name']) . "', bank_account_number = '" . $this->db->escape($data['bank_account_number']) . "', status = '1', date_added = NOW()");
+
+
+      	// my code
+		 // $query = $this->db->query("SELECT max(affiliate_id) FROM `" . DB_PREFIX . "affiliate`");
+		 // $aff_id = $query->row['max(affiliate_id)'];
+
+	  // 	 $aff_id = $this->getAffiliate($aff_id);
+
+		 // $this->db->query("INSERT INTO " . DB_PREFIX . "affiliate_level SET aff_id='".(int)$aff_id['affiliate_id']."', level='".(int)$aff['parent']."'");
+		// my code
+
 	
       		// my code
 		 $levels = $this->config->get('affiliate_level_commission');
@@ -24,12 +37,7 @@ class ModelAffiliateAffiliate extends Model {
 					}
 				}
 			}
-			// echo '----------<pre>';
-			// print_r($levels);
-			// echo '----------</pre>';
-			// echo $this->request->cookie['tracking'];
-			// exit;
-	// my code
+
 	
 		$this->language->load('mail/affiliate');
 
@@ -80,6 +88,7 @@ class ModelAffiliateAffiliate extends Model {
 		$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 		$mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));
 		$mail->send();
+
 	}
 	
 	public function editAffiliate($data) {
@@ -117,5 +126,6 @@ class ModelAffiliateAffiliate extends Model {
 		
 		return $query->row['total'];
 	}
+
 }
 ?>

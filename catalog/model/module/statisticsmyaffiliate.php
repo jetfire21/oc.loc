@@ -230,5 +230,11 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		if($query->num_rows) return $query->row['count(parent)'];
 		return 0;
 	}
+
+	public function getAffiliate($affiliate_id) {
+		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "affiliate WHERE affiliate_id = '" . (int)$affiliate_id . "'");
+		
+		return $query->row;
+	}
 }
 ?>

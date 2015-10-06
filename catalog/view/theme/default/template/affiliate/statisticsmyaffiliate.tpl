@@ -16,6 +16,104 @@
 
     <div class="clr"></div>
 
+
+<?php 
+
+     foreach ($affiliates as $affiliate) {
+
+        if($affiliate['level'] == 1) {
+            $lev1[$affiliate['aff_id']] = $affiliate['aff_id'];
+            $new[$affiliate['aff_id']][] = $affiliate;
+        }
+     }
+
+       foreach ($affiliates as $affiliate) {
+        foreach ($lev1 as $k => $v) {
+             if( $affiliate['level'] == 2 and $affiliate['parent'] == $v ){
+                $lev2[$k][] = $affiliate['aff_id'];
+                  $new[$k][] = $affiliate;
+            }
+        }
+     }
+
+     
+      foreach ($affiliates as $affiliate) {
+        foreach ($lev2 as $lev1 => $val) {
+            foreach ($val as $k => $v) {
+                 if($affiliate['level'] == 3 and $affiliate['parent'] == $v ){
+                    $lev3[$lev1][] = $affiliate['aff_id'];
+                      $new[$lev1][] = $affiliate;
+                  }
+            }
+        }                            
+     }
+
+   foreach ($affiliates as $affiliate) {
+        foreach ($lev3 as $lev1 => $val) {
+            foreach ($val as $k => $v) {
+                 if($affiliate['level'] == 4 and $affiliate['parent'] == $v ){
+                    $lev4[$lev1][] = $affiliate['aff_id'];
+                      $new[$lev1][] = $affiliate;
+                  }
+            }
+        }                            
+     }
+
+   foreach ($affiliates as $affiliate) {
+        foreach ($lev4 as $lev1 => $val) {
+            foreach ($val as $k => $v) {
+                 if($affiliate['level'] == 5 and $affiliate['parent'] == $v ){
+                    $lev5[$lev1][] = $affiliate['aff_id'];
+                      $new[$lev1][] = $affiliate;
+                  }
+            }
+        }                            
+     }
+
+   foreach ($affiliates as $affiliate) {
+        foreach ($lev5 as $lev1 => $val) {
+            foreach ($val as $k => $v) {
+                 if($affiliate['level'] == 6 and $affiliate['parent'] == $v ){
+                    $lev6[$lev1][] = $affiliate['aff_id'];
+                      $new[$lev1][] = $affiliate;
+                  }
+            }
+        }                            
+     }
+
+   foreach ($affiliates as $affiliate) {
+        foreach ($lev6 as $lev1 => $val) {
+            foreach ($val as $k => $v) {
+                 if($affiliate['level'] == 7 and $affiliate['parent'] == $v ){
+                    $lev7[$lev1][] = $affiliate['aff_id'];
+                      $new[$lev1][] = $affiliate;
+                  }
+            }
+        }                            
+     }
+
+     echo 'lev1-------------------';
+    print_r($lev1); 
+
+    echo 'lev2---------------------------';
+    print_r($lev2);         
+
+    echo 'lev3---------------------------';
+    print_r($lev3);
+          
+    echo 'lev4---------------------------';
+    print_r($lev4);  
+
+    echo 'lev5---------------------------';
+    print_r($lev5);
+    
+     echo '-----------------------------new------------';
+     print_r($new);
+     print_r($affiliates);
+
+?>
+
+
     <div class="lm-cart">
 
       <?php echo $column_left; ?>
@@ -23,17 +121,9 @@
                 <h3>Структура и регистрации </h3>
                 <div class="wrap_table">
                 <h4>Моя структура партнеров</h4>
-                    <table class="history table-gray">  
-                        <?php if (isset($affiliates)) { ?>
-                             <tr>                        
-                                <th>Имя</th>
-                                <th>Дата рег.</th>
-                                <th>Телефон</th>
-                                <th>Ур.</th>
-                                <th>Реф.</th>
-                                <th>Мой доход</th>
-                            </tr>
-                        <?php foreach ($affiliates as $affiliate) { ?>
+
+
+<!--                         <?php foreach ($affiliates as $affiliate) { ?>
                         <tr>
                             <td class="level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
                             <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
@@ -46,6 +136,60 @@
                             <td><?php echo $affiliate['count_aff']; ?></td>
                             <td class="bold"><?php echo $affiliate['commission']; ?></td>
                         </tr>   
+                         <?php } ?> -->
+
+                        <?php foreach ($new as $k => $affiliate) { ?>
+                                    <?php foreach ($affiliate as $k => $affiliate) { ?>
+                                    <?php echo $affiliate['affiliate']; ?>
+                                     <?php } ?>
+                        <?php } ?>
+                            
+                            <?php $i = 0; ?>
+                         <?php if (isset($affiliates)) { ?>
+                            <?php foreach ($new as $k => $affiliate) { ?>
+                                <table class="history table-gray">  
+                                   <?php if($i == 0):?>
+                                         <tr>                        
+                                            <th>Имя</th>
+                                            <th>Дата рег.</th>
+                                            <th>Телефон</th>
+                                            <th>Ур.</th>
+                                            <th>Реф.</th>
+                                            <th>Мой доход</th>
+                                        </tr>
+                                    <?php endif;?>
+                                <?php if($i%2 == 0):?> 
+                                    <?php if($i != 0 ) :?> <table class="history table-gray">   <?php endif;?>
+                                <?php else:?>
+                                    <table class="history">  
+                                <?php endif;?>
+                                <?php foreach ($affiliate as $k => $affiliate) { ?>
+                                    <tr>
+                                        <td class="level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
+                                        <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
+                                         <?php if( !empty($affiliate['phone3f']['telephone'])): ?>
+                                            <td class="t-phone"><?php echo $affiliate['phone3f']['telephone']; ?> </td>
+                                        <?php else:?>
+                                            <td class="light-gray">Не указан</td>
+                                        <?php endif;?>
+                                        <td> <?php echo $affiliate['level']; ?></td>
+                                        <td><?php echo $affiliate['count_aff']; ?></td>
+                                        <td class="bold"><?php echo $affiliate['commission']; ?></td>
+                                    </tr>  
+                                  <?php } ?>
+                            </table>
+                            <?php $i++;?>
+                            <?php } ?>
+
+                        <?php } else { ?>
+                        <table>
+                        <tr>
+                            <td class="center" colspan="7"><?php echo $text_no_results; ?></td>
+                        </tr>
+                        </table>
+                        <?php } ?>
+                    
+
 
 <!--                          <tr>
                                 <td><?php echo $affiliate['level']; ?></td>
@@ -56,13 +200,7 @@
                                 <td><?php echo $affiliate['sum_shopping']; ?></td>
                                 <td><?php echo $affiliate['commission']; ?></td>
                              </tr> -->
-                         <?php } ?>
-                        <?php } else { ?>
-                        <tr>
-                            <td class="center" colspan="7"><?php echo $text_no_results; ?></td>
-                        </tr>
-                        <?php } ?>
-                    </table>
+
 <!--                     <?php foreach ($affiliates as $affiliate) { ?>
                               <tr>
                                 <td><?php echo $affiliate['level']; ?></td>
