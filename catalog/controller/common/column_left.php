@@ -79,7 +79,7 @@ class ControllerCommonColumnLeft extends Controller {
 		$this->data['link_account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['link_cart'] = $this->url->link('checkout/cart', '', 'SSL');
 		$this->data['link_referal'] = $this->url->link('account/account/referal', '', 'SSL');
-		$this->data['link_structura'] = $this->url->link('account/account/structura', '', 'SSL');
+		$this->data['link_structura'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
 		$this->data['link_history'] = $this->url->link('account/account/history', '', 'SSL');
 		$this->data['link_logout'] = $this->url->link('account/logout', '', 'SSL');
 		

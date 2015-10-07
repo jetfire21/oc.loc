@@ -2,7 +2,8 @@
     if( $_SERVER['QUERY_STRING'] == 'route=account/account' ) $active_account = "active";
     if( $_SERVER['QUERY_STRING'] == 'route=checkout/cart' ) $active_cart = "active";
     if( $_SERVER['QUERY_STRING'] == 'route=account/account/referal') $active_referal = "active";
-    if( $_SERVER['QUERY_STRING'] == 'route=account/account/structura' ) $active_structura = "active";
+    if( $_SERVER['QUERY_STRING'] == 'route=affiliate/statisticsmyaffiliate' ) $active_structura = "active";
+    // if( $_SERVER['QUERY_STRING'] == 'route=account/account/structura' ) $active_structura = "active";
     if( $_SERVER['QUERY_STRING'] == 'route=account/account/history' ) $active_history = "active";
  ?>
 

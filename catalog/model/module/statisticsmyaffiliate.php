@@ -236,5 +236,12 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		
 		return $query->row;
 	}
+
+	public function checkCustomerId($customer_id) {
+		$query = $this->db->query("SELECT customer_id FROM " . DB_PREFIX . "affiliate WHERE customer_id = '" . (int)$customer_id . "'");
+		
+		return $query->num_rows;
+	}
+	
 }
 ?>

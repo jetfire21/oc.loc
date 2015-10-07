@@ -2387,8 +2387,31 @@ right: 15px;
   padding-left: 60px;
 }
 
+ .structure .level-5, .structure .level-6, .structure .level-7{
+  padding-left: 80px;
+}
+
+ .structure .level-6, .structure .level-7{
+  padding-left: 90px;
+}
+
 .structure table td{
   padding: 7px 10px;
+}
+
+.structure .d-reg, .structure .light-gray, .structure .t-phone{
+  width: 140px;
+}
+
+.structure .lev, .structure .ref{
+  width: 15px;
+}
+.structure .cash{
+  width: 90px;
+}
+
+.structure .d-reg{
+  padding-left:0;
 }
 
 .structure table tr:nth-child(2n) {
@@ -2418,9 +2441,9 @@ right: 15px;
   margin-right: 20px;
 }
 
-.structure table tr td:first-child{
+/*.structure table tr td:first-child{
   width: 175px;
-}
+}*/
 
 .structure table .level{
   text-align: center;

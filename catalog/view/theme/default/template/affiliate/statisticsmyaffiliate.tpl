@@ -92,24 +92,24 @@
         }                            
      }
 
-     echo 'lev1-------------------';
-    print_r($lev1); 
+    //  echo 'lev1-------------------';
+    // print_r($lev1); 
 
-    echo 'lev2---------------------------';
-    print_r($lev2);         
+    // echo 'lev2---------------------------';
+    // print_r($lev2);         
 
-    echo 'lev3---------------------------';
-    print_r($lev3);
+    // echo 'lev3---------------------------';
+    // print_r($lev3);
           
-    echo 'lev4---------------------------';
-    print_r($lev4);  
+    // echo 'lev4---------------------------';
+    // print_r($lev4);  
 
-    echo 'lev5---------------------------';
-    print_r($lev5);
+    // echo 'lev5---------------------------';
+    // print_r($lev5);
     
-     echo '-----------------------------new------------';
-     print_r($new);
-     print_r($affiliates);
+    //  echo '-----------------------------new------------';
+    //  print_r($new);
+    //  print_r($affiliates);
 
 ?>
 
@@ -138,11 +138,11 @@
                         </tr>   
                          <?php } ?> -->
 
-                        <?php foreach ($new as $k => $affiliate) { ?>
+<!--                         <?php foreach ($new as $k => $affiliate) { ?>
                                     <?php foreach ($affiliate as $k => $affiliate) { ?>
                                     <?php echo $affiliate['affiliate']; ?>
                                      <?php } ?>
-                        <?php } ?>
+                        <?php } ?> -->
                             
                             <?php $i = 0; ?>
                          <?php if (isset($affiliates)) { ?>
@@ -150,12 +150,12 @@
                                 <table class="history table-gray">  
                                    <?php if($i == 0):?>
                                          <tr>                        
-                                            <th>Имя</th>
-                                            <th>Дата рег.</th>
-                                            <th>Телефон</th>
-                                            <th>Ур.</th>
-                                            <th>Реф.</th>
-                                            <th>Мой доход</th>
+                                            <th class="tabl-first">Имя</th>
+                                            <th class="d-reg">Дата рег.</th>
+                                            <th class="t-phone">Телефон</th>
+                                            <th class="lev">Ур.</th>
+                                            <th class="ref">Реф.</th>
+                                            <th class="cash">Мой доход</th>
                                         </tr>
                                     <?php endif;?>
                                 <?php if($i%2 == 0):?> 
@@ -165,16 +165,16 @@
                                 <?php endif;?>
                                 <?php foreach ($affiliate as $k => $affiliate) { ?>
                                     <tr>
-                                        <td class="level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
+                                        <td class="tabl-first level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
                                         <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
                                          <?php if( !empty($affiliate['phone3f']['telephone'])): ?>
                                             <td class="t-phone"><?php echo $affiliate['phone3f']['telephone']; ?> </td>
                                         <?php else:?>
                                             <td class="light-gray">Не указан</td>
                                         <?php endif;?>
-                                        <td> <?php echo $affiliate['level']; ?></td>
-                                        <td><?php echo $affiliate['count_aff']; ?></td>
-                                        <td class="bold"><?php echo $affiliate['commission']; ?></td>
+                                        <td class="lev"> <?php echo $affiliate['level']; ?></td>
+                                        <td class="ref"><?php echo $affiliate['count_aff']; ?></td>
+                                        <td class="cash bold"><?php echo $affiliate['commission']; ?></td>
                                     </tr>  
                                   <?php } ?>
                             </table>
@@ -182,9 +182,9 @@
                             <?php } ?>
 
                         <?php } else { ?>
-                        <table>
+                        <table class="history">
                         <tr>
-                            <td class="center" colspan="7"><?php echo $text_no_results; ?></td>
+                            <td class="center" colspan="7"> У вас пока нет партнеров</td>
                         </tr>
                         </table>
                         <?php } ?>

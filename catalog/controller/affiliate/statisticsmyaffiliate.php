@@ -120,50 +120,66 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
         $this->data['text_no_results'] = $this->language->get('text_no_results');
         $this->data['action'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
 		
+
 		$this->load->model('module/statisticsmyaffiliate');
 		$getlevel = $this->config->get('affiliate_level_commission');
         $levelcount = count($getlevel);
 		$implode = array();
 		// $implode[] = "parent = '" . $this->affiliate->getId() . "'";
-		$parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
-		$implode[] = "parent = '" . $parent_id . "'";
-		// print_r($_SESSION['customer_id']);
-		// echo $parent;
-		// exit;
+        $check_customer_id =  $this->model_module_statisticsmyaffiliate->checkCustomerId($_SESSION['customer_id']);
 
-		$training = $this->model_module_statisticsmyaffiliate->getAffiliatesChildren($implode, $levelcount);
+     if( $check_customer_id ){
 
-		$results = '';
-		if(strlen($training)) {
-			$results = $this->model_module_statisticsmyaffiliate->getChildrenLevel($training, $levelcount);
-			// print_r($results);
-			// exit;
+        $parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
+        $implode[] = "parent = '" . $parent_id . "'";
 
-			foreach ($results as $result) {
-				$affiliate_name  = $this->model_module_statisticsmyaffiliate->getAffiliatesName($result['affiliate_id']);
-                $aff_ids = $this->model_module_statisticsmyaffiliate->getAffiliate($result['affiliate_id']);
-				$resultOrders = $this->model_module_statisticsmyaffiliate->GetStatisticsOrders($result['affiliate_id'], $this->data);
-				$resultShopping =  $this->model_module_statisticsmyaffiliate->GetStatisticsShopping($result['affiliate_id'], $this->data);
-				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum(1, $result['affiliate_id'], $this->data);
-				// $resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum($this->affiliate->getId(), $result['affiliate_id'], $this->data);
-				$phone3f = $this->model_module_statisticsmyaffiliate->getPhoneEmail( $result['affiliate_id']);
-				$count_aff = $this->model_module_statisticsmyaffiliate->getCountAff( $result['affiliate_id']);
-				$this->data['affiliates'][] = array(
-                    'aff_id' => $aff_ids['affiliate_id'],
-                    'parent' => $aff_ids['parent'],
-					'level' =>  $result['level']-1,
-					'affiliate' =>  $affiliate_name,
-					'count_orders' => (int)$resultOrders['count_orders'],
-					'count_shopping' => (int)$resultShopping['count_shopping'],
-					'sum_orders' => $this->currency->format($resultOrders['sum_orders'], $this->config->get('config_currency')),
-					'sum_shopping' => $this->currency->format($resultShopping['sum_shopping'], $this->config->get('config_currency')),
-					'commission' => $this->currency->format($resultSum['commission'], $this->config->get('config_currency')),
-					'phone3f' => $phone3f,
-					'count_aff' => $count_aff
-				);
-			}
-		}
-		$transaction_total = count($results);
+        // print_r($_SESSION['customer_id']);
+         // echo $parent_id;
+         //  exit; 
+
+    		$training = $this->model_module_statisticsmyaffiliate->getAffiliatesChildren($implode, $levelcount);
+
+    		$results = '';
+    		if(strlen($training)) {
+    			$results = $this->model_module_statisticsmyaffiliate->getChildrenLevel($training, $levelcount);
+    			// print_r($results);
+    			// exit;
+
+    			foreach ($results as $result) {
+    				$affiliate_name  = $this->model_module_statisticsmyaffiliate->getAffiliatesName($result['affiliate_id']);
+                    $aff_ids = $this->model_module_statisticsmyaffiliate->getAffiliate($result['affiliate_id']);
+    				$resultOrders = $this->model_module_statisticsmyaffiliate->GetStatisticsOrders($result['affiliate_id'], $this->data);
+    				$resultShopping =  $this->model_module_statisticsmyaffiliate->GetStatisticsShopping($result['affiliate_id'], $this->data);
+    				$resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum(1, $result['affiliate_id'], $this->data);
+    				// $resultSum = $this->model_module_statisticsmyaffiliate->GetStatisticsSum($this->affiliate->getId(), $result['affiliate_id'], $this->data);
+    				$phone3f = $this->model_module_statisticsmyaffiliate->getPhoneEmail( $result['affiliate_id']);
+
+                     $phone3f['date_added'] = substr($phone3f['date_added'],0,-3);
+                     $temp = explode(" ", $phone3f['date_added']);
+                     $date = array_reverse(explode("-", $temp[0]));
+                     $date = implode(".", $date);
+                     $date .= " ".$temp[1];
+                     $phone3f['date_added']  =  $date;
+
+    				$count_aff = $this->model_module_statisticsmyaffiliate->getCountAff( $result['affiliate_id']);
+    				$this->data['affiliates'][] = array(
+                        'aff_id' => $aff_ids['affiliate_id'],
+                        'parent' => $aff_ids['parent'],
+    					'level' =>  $result['level']-1,
+    					'affiliate' =>  $affiliate_name,
+    					'count_orders' => (int)$resultOrders['count_orders'],
+    					'count_shopping' => (int)$resultShopping['count_shopping'],
+    					'sum_orders' => $this->currency->format($resultOrders['sum_orders'], $this->config->get('config_currency')),
+    					'sum_shopping' => $this->currency->format($resultShopping['sum_shopping'], $this->config->get('config_currency')),
+    					'commission' => $this->currency->format($resultSum['commission'], $this->config->get('config_currency')),
+    					'phone3f' => $phone3f,
+    					'count_aff' => $count_aff
+    				);
+    			}
+    		}
+    		$transaction_total = count($results);
+
+         }
 		
 	    $pagination = new Pagination();
 		$pagination->total = $transaction_total;
