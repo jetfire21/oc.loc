@@ -135,7 +135,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
               <input class="gray-btn" type="password" placeholder="Подтвердите пароль"  name="confirm" value="<?php echo $confirm; ?>">
                 </div>
 
-              <input type="submit" value="Регистрация" class="send-reg">
+              <div class="reg-loader"><input type="submit" value="Регистрация" class="send-reg"></div>
             </form>
          </div>
 
@@ -161,6 +161,9 @@ $(".send-reg").click(function(e){
          type: 'post',
          data: data,
          dataType: 'json',
+         // beforeSend: function(){
+
+         // },
          success: function(json) {
             
           // console.log(json.firstname);
@@ -203,8 +206,12 @@ $(".send-reg").click(function(e){
            else { $('.reg-form .confirm span').remove(); }
 
 
-
-           if(json.success == 'ok') window.location.href = "/index.php?route=account/success";
+           if(json.success == 'ok') {
+            window.location.href = "/index.php?route=account/success";
+            $('.reg-loader').append("<img class='loader' src='catalog/view/theme/jewelry/images/loader.gif'>");
+            // setTimeout("console.log('Boom!');", 2000);
+            // return false;
+          }
           
 
          },

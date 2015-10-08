@@ -28,40 +28,25 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
         return $text;
     }
 	//explode(',,', $text);
-	
 	public function getChildrenLevel($text, $level) {
 		$text = trim($text,',');
 		$count = 0;
 		$getlevel = explode(',,', $text);
-		$result = array();
-
+		$return = array();
 		foreach ($getlevel as $l) {
 			$getaffiliate = explode(',', $l);
 			$count++;
 			if($count<=$level){
 				foreach ($getaffiliate as $a) {
-					$result[] = array(
+					$return[] = array(
 						'level' => $count,
-						'affiliate_id' => $a,
-                        'parent' => $this->getAffiliateParent($a, 0, 0)
+						'affiliate_id' => $a
 					);
 				}
 			}
 		}
-        $return = array();
-        $this->sortAffiliates($result, $return, $this->affiliate->getId());
-
+		
         return $return;
-    }
-
-    private function sortAffiliates($results, &$return, $parentId = null) {
-        foreach ($results as $item) {
-            if ($parentId == $item['parent']) {
-                $return[] = $item;
-                $this->sortAffiliates($results, $return, $item['affiliate_id']);
-            }
-        }
-        return;
     }
 	
     public function GetStatisticsOrders($affiliate_id, $data) {

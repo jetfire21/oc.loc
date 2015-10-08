@@ -2534,3 +2534,10 @@ p.j-warning{
 .pagination .results{
   display: none;
 }
+
+.reg-loader{ position: relative;}
+img.loader{
+  position: absolute;
+  right: 0;
+  top:12px;
+}

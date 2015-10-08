@@ -29,7 +29,7 @@ unset($affiliates[0]);
 ?>
    
                             
-                           <?php $i = 0; $table = 0; ?>
+                           <?php $i = 0; ?>
                          <?php if (isset($affiliates)) { ?>
                             <?php foreach ($affiliates as $affiliate): ?>
 
@@ -37,12 +37,12 @@ unset($affiliates[0]);
 
                                         <?php $id_lev1 = $affiliate['aff_id'];?>
 
-                                        <?php if($table % 2 == 0):?> 
+                                        <?php if($i%2 == 0):?> 
                                           <table class="history table-gray"> 
                                         <?php else:?>
-                                            <table class="history <?php echo $table.'---'. $table%2;?>">  
+                                            <table class="history">  
                                          <?php endif;?>
-                                         <?php $table++; ?>
+
                                     <?php endif;?>
 
 
