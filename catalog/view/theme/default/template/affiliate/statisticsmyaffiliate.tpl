@@ -1,3 +1,5 @@
+ <?php print_r($affiliates);?>
+
  <?php echo $header; ?>
 
 <div class="lk structure">
@@ -9,7 +11,8 @@
       <h2>Личный кабинет</h2>
     </div>
     <div class="balans">
-      <p>Ваш баланс: <span>1 200 руб</span></p>
+      <p>Ваш баланс: <span><?php echo $sum_comission;?></span></p>
+      <!-- <p>Ваш баланс: <span>1 200 руб</span></p> -->
       <a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
       <a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
     </div>
@@ -57,9 +60,20 @@ unset($affiliates[0]);
                                             </tr>
                                         <?php endif;?>
 
+                                            <?php 
+                                                if($affiliate['level'] == 1) {
+                                                    $html = '<div class="switcher">+</div>';
+                                                    $children = "";
+                                                }
+                                                else {
+                                                    $html = '';
+                                                    $children = "children";
+                                                }    
 
-                                            <tr>
-                                                <td class="tabl-first level-<?php echo $affiliate['level'];?>"><?php echo $affiliate['affiliate']; ?></td>
+                                             ?>
+
+                                            <tr class="<?php echo $children;?>" >
+                                                <td class="tabl-first level-<?php echo $affiliate['level'];?>"><?php echo $html .$affiliate['affiliate']; ?></td>
                                                 <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
                                                  <?php if( !empty($affiliate['phone3f']['telephone'])): ?>
                                                     <td class="t-phone"><?php echo $affiliate['phone3f']['telephone']; ?> </td>
@@ -85,7 +99,61 @@ unset($affiliates[0]);
                         </tr>
                         </table>
                         <?php } ?> 
-                        <!-- </table> -->
+
+
+                        <div class="itog">
+                                <div>
+                                    <p>Итого</p>
+                                    <p><?php echo $count_aff;?></p>
+                                    <p class="bold"><?php echo $sum_comission;?></p>
+                                </div>
+                        </div>
+
+                        <h4>История регистраций</h4>
+                    <table class="history single-table">
+
+                            <th>Дата рег.</th>
+                            <th>Имя</th>
+                            <th>Телефон</th>
+                            <th>Ур.</th>
+                            <th>Реф.</th>
+                            <th>Заработал</th>
+                        <tr>
+                            <td>Сегодня,22:00</td>
+                            <td>Федор Макров</td>
+                            <td class="light-gray">не указан</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>2 000 руб</td>
+                        </tr>                       
+                        <tr>
+                            <td>Сегодня,22:00</td>
+                            <td>Федор Макров</td>
+                            <td class="light-gray">не указан</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>2 000 руб</td>
+                        </tr>                       
+                        <tr>
+                            <td>Сегодня,22:00</td>
+                            <td>Федор Макров</td>
+                            <td class="light-gray">не указан</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>2 000 руб</td>
+                        </tr>
+                        <tr>
+                            <td>Сегодня,22:00</td>
+                            <td>Федор Макров</td>
+                            <td class="light-gray">не указан</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>2 000 руб</td>
+                        </tr>   
+                    </table>
+
+
+                        
             </div>
                     <div class="clr"></div>
         </div>
@@ -127,3 +195,15 @@ unset($affiliates[0]);
 </div>
 
 <?php echo $footer; ?> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+$(".switcher").click(function(){
+    $(this).parent().parent().parent().find(".children").toggle();
+    // $(this).parent().parent().find(".children").toggle();
+    console.log( $(this).parent() );
+});
+
+});
+</script>

@@ -2541,3 +2541,20 @@ img.loader{
   right: 0;
   top:12px;
 }
+
+.switcher{
+   /*background: url("../images/plus41.png");*/
+/*   width: 10px;
+   height: 10px;
+      border: 1px solid #ccc;*/
+   display: inline-block;
+   margin-right: 8px;
+   cursor: pointer;
+   color: #A28585;
+   font-weight: bold;
+
+}
+
+.children{
+  display: none;
+}

@@ -18,6 +18,13 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
     	} 
 
     	// my code
+
+        $this->load->model('account/customer');
+        $customer_info = $this->model_account_customer->getCustomer($_SESSION['customer_id']);
+        $address =  $this->model_account_customer->getCustomerAddress1($_SESSION['customer_id']);
+
+        $this->data['customer_info'] = $customer_info;
+
 		
         $this->language->load('affiliate/statisticsmyaffiliate');
 
@@ -175,11 +182,16 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
     					'phone3f' => $phone3f,
     					'count_aff' => $count_aff
     				);
+                    $this->data['sum_comission'] = $this->data['sum_comission'] + $resultSum['commission'];
+                    $this->data['count_aff'] = $this->data['count_aff'] + $count_aff;
     			}
     		}
     		$transaction_total = count($results);
 
          }
+
+        $this->data['sum_comission'] =  $this->currency->format($this->data['sum_comission'] , $this->config->get('config_currency'));
+         $this->data['count_aff'] =  $this->data['count_aff'] - 1;
 		
 	    $pagination = new Pagination();
 		$pagination->total = $transaction_total;
