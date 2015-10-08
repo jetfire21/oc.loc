@@ -28,25 +28,40 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
         return $text;
     }
 	//explode(',,', $text);
+
 	public function getChildrenLevel($text, $level) {
 		$text = trim($text,',');
 		$count = 0;
 		$getlevel = explode(',,', $text);
-		$return = array();
+		$result = array();
+
 		foreach ($getlevel as $l) {
 			$getaffiliate = explode(',', $l);
 			$count++;
 			if($count<=$level){
 				foreach ($getaffiliate as $a) {
-					$return[] = array(
+					$result[] = array(
 						'level' => $count,
-						'affiliate_id' => $a
+						'affiliate_id' => $a,
+                        'parent' => $this->getAffiliateParent($a, 0, 0)
 					);
 				}
 			}
 		}
-		
+        $return = array();
+        $this->sortAffiliates($result, $return, $this->affiliate->getId());
+
         return $return;
+    }
+
+    private function sortAffiliates($results, &$return, $parentId = null) {
+        foreach ($results as $item) {
+            if ($parentId == $item['parent']) {
+                $return[] = $item;
+                $this->sortAffiliates($results, $return, $item['affiliate_id']);
+            }
+        }
+        return;
     }
 	
     public function GetStatisticsOrders($affiliate_id, $data) {
@@ -235,6 +250,12 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "affiliate WHERE affiliate_id = '" . (int)$affiliate_id . "'");
 		
 		return $query->row;
+	}	
+
+	public function getAffId($customer_id) {
+		$query = $this->db->query("SELECT affiliate_id FROM " . DB_PREFIX . "affiliate WHERE customer_id = '" . (int)$customer_id . "'");
+		
+		return $query->row['affiliate_id'];	
 	}
 
 	public function checkCustomerId($customer_id) {
@@ -242,13 +263,6 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		
 		return $query->num_rows;
 	}
-
-	        public function getAffId($customer_id) {
-        $query = $this->db->query("SELECT affiliate_id FROM " . DB_PREFIX . "affiliate WHERE customer_id = '" . (int)$customer_id . "'");
-        
-        return $query->row['affiliate_id']; 
-    }
-
 	
 }
 ?>

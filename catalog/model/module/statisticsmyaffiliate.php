@@ -28,8 +28,30 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
         return $text;
     }
 	//explode(',,', $text);
-	
-	public function getChildrenLevel($text, $level) {
+
+	// public function getChildrenLevel($text, $level) {
+	// 	$text = trim($text,',');
+	// 	$count = 0;
+	// 	$getlevel = explode(',,', $text);
+	// 	$return = array();
+	// 	foreach ($getlevel as $l) {
+	// 		$getaffiliate = explode(',', $l);
+	// 		$count++;
+	// 		if($count<=$level){
+	// 			foreach ($getaffiliate as $a) {
+	// 				$return[] = array(
+	// 					'level' => $count,
+	// 					'affiliate_id' => $a
+	// 				);
+	// 			}
+	// 		}
+	// 	}
+		
+ //        return $return;
+ //    }
+
+
+public function getChildrenLevel($text, $level, $aff_id) {
 		$text = trim($text,',');
 		$count = 0;
 		$getlevel = explode(',,', $text);
@@ -49,7 +71,8 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 			}
 		}
         $return = array();
-        $this->sortAffiliates($result, $return, $this->affiliate->getId());
+        // $this->sortAffiliates($result, $return, $this->affiliate->getId());
+        $this->sortAffiliates($result, $return, $aff_id);
 
         return $return;
     }
@@ -257,6 +280,21 @@ class ModelModuleStatisticsmyaffiliate extends Model {//('tracking', $tracking);
 		
 		return $query->num_rows;
 	}
+
+    public function getAffId($customer_id) {
+        $query = $this->db->query("SELECT affiliate_id FROM " . DB_PREFIX . "affiliate WHERE customer_id = '" . (int)$customer_id . "'");
+        
+        return $query->row['affiliate_id']; 
+    }
+
+    public function getTotalSumRef($aff_id) {
+        $query = $this->db->query("SELECT SUM(amount) FROM " . DB_PREFIX . "affiliate_transaction WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
+        return $query->row['SUM(amount)']; 
+    }
+
+    
+
 	
 }
 ?>

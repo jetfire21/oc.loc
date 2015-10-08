@@ -2543,16 +2543,21 @@ img.loader{
 }
 
 .switcher{
-   /*background: url("../images/plus41.png");*/
-/*   width: 10px;
+   width: 10px;
    height: 10px;
-      border: 1px solid #ccc;*/
+   /*border: 1px solid #ccc;*/
    display: inline-block;
    margin-right: 8px;
    cursor: pointer;
    color: #A28585;
    font-weight: bold;
 
+}
+.my-plus{
+     background: url("../images/my-plus.png");
+}
+.my-minus{
+     background: url("../images/my-min.png");
 }
 
 .children{

@@ -128,5 +128,12 @@ class ModelAffiliateAffiliate extends Model {
 		return $query->row['total'];
 	}
 
+	public function getAffLastId() {
+		$query = $this->db->query("SELECT MAX(affiliate_id) FROM " . DB_PREFIX . "affiliate");
+		
+		return $query->row;	
+
+	}
+
 }
 ?>
