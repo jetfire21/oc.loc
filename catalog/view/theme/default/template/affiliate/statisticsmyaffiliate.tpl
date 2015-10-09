@@ -165,6 +165,13 @@
                         </table>
                         <?php } ?> 
 
+                        <?php 
+							foreach ($affiliates as $k => $v) {
+								if($v['phone3f']['date_added']) $date[$v['phone3f']['date_added']] = $v;
+							}
+							ksort($date);
+                        ?>
+
 
                         <h4>История регистраций</h4>
                     <table class="history single-table">
@@ -175,7 +182,7 @@
                             <th>Ур.</th>
                             <th>Реф.</th>
                             <th>Заработал</th>
-                            <?php foreach ($affiliates as $v): ?>
+                            <?php $i=1; foreach ($date as $v): ?>
                                 <tr>
                                     <td><?php echo $v['phone3f']['date_added'];?></td>
                                     <td><?php echo $v['affiliate'];?></td>
@@ -184,11 +191,12 @@
                                                 <?php else:?>
                                                     <td class="light-gray">Не указан</td>
                                                 <?php endif;?>
-                                    <td><?php echo $v['level'];?></td>
+                                    <td><?php echo $v['level']+1;?></td>
                                     <td><?php echo $v['count_aff'];?></td>
                                     <td><?php echo $v['cash_aff'];?></td>
                                 </tr>
-                            <?php endforeach;?>
+								<?php if($i == 10) break; ?>
+                            <?php $i++; endforeach;?>
                     </table>
 
 
@@ -286,4 +294,3 @@ $(".s_lev_6").click(function(){
 });
 </script>
 
- <?php  print_r($affiliates);?>

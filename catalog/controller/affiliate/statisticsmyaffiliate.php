@@ -141,9 +141,9 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
         $aff_id =  $this->model_module_statisticsmyaffiliate->getAffId($_SESSION['customer_id']);
         $parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
 
-        echo "-----------------parent: ".$parent_id;
-        echo "-------------aff_id ".$aff_id;
-        echo "--------session customer_id: ".$_SESSION['customer_id']."------<br>";
+        // echo "-----------------parent: ".$parent_id;
+        // echo "-------------aff_id ".$aff_id;
+        // echo "--------session customer_id: ".$_SESSION['customer_id']."------<br>";
 
         // if(parent_id == 0) $parent_id = $aff_id;
 

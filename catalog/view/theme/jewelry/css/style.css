@@ -2432,7 +2432,7 @@ right: 15px;
 .structure .itog div{
   display: table-cell;
   float:right;
-  margin-right: 20px;
+  margin-right: 0;
 }
 
 .structure .itog p{
