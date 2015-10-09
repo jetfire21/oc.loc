@@ -2553,6 +2553,11 @@ img.loader{
    font-weight: bold;
 
 }
+.switcher-empty{
+  width: 18px;
+
+   display: inline-block;
+}
 .my-plus{
      background: url("../images/my-plus.png");
 }
@@ -2560,6 +2565,8 @@ img.loader{
      background: url("../images/my-min.png");
 }
 
-.children{
+.children,.children-2,.children-3,.children-4,.children-5,.children-6,.children-7{
   display: none;
 }
+
+.children+td{ color:red !important;}

@@ -32,7 +32,7 @@
                             
                            <?php $i = 0; $table = 0; ?>
                          <?php if (isset($affiliates)) { ?>
-                            <?php foreach ($affiliates as $affiliate): ?>
+                            <?php foreach ($affiliates as $k => $affiliate): ?>
 
                                     <?php if($affiliate['level'] == 0): ?>
 
@@ -41,7 +41,7 @@
                                         <?php if($table % 2 == 0):?> 
                                           <table class="history table-gray"> 
                                         <?php else:?>
-                                            <table class="history <?php echo $table.'---'. $table%2;?>">  
+                                            <table class="history">  
                                          <?php endif;?>
                                          <?php $table++; ?>
                                     <?php endif;?>
@@ -59,19 +59,67 @@
                                         <?php endif;?>
 
                                             <?php 
-                                                if($affiliate['level'] == 0) {
-                                                    $html = '<div class="switcher my-plus"></div>';
-                                                    $children = "";
-                                                }
-                                                else {
-                                                    $html = '';
-                                                    $children = "children";
-                                                }    
+                                                // if($affiliate['level'] == 0) {
+                                                //     for($i = $k; $i < count($affiliates); $i++){
+                                                //         // $next = $affiliates[$k+1]['affiliate'];
+                                                //         if($affiliate['aff_id'] == $affiliates[$k+1]['parent'] )   { 
+
+                                                //                $html = '<div class="switcher s_lev_1 my-plus"></div>';
+                                                //         }
+                                                //     }
+                                                //     $children = "parent";
+                                                // }
+                                                // else {
+                                                //      $html = '';
+                                                //     $children = "children";
+                                                // }     
+
+
+                                               //  for($j = $affiliate['level']; $j < $affiliate['level']+1; $j++){
+	                                              //   if($affiliate['level'] == $j) {
+	                                              //       for($i = $k; $i < count($affiliates); $i++){
+	                                              //           // $next = $affiliates[$k+1]['affiliate'];
+	                                              //           if($affiliate['aff_id'] == $affiliates[$k+1]['parent'] )   { 
+
+	                                              //                  $html = '<div class="switcher s_lev_'.$j.' my-plus"></div>';
+	                                              //           }
+	                                              //       }
+	                                              //   } 
+	                                              // }
+
+                                                // if($affiliate['level'] == 1) {
+                                                //     for($i = $k; $i < count($affiliates); $i++){
+                                                //         // $next = $affiliates[$k+1]['affiliate'];
+                                                //         if($affiliate['aff_id'] == $affiliates[$k+1]['parent'] )   { 
+
+                                                //                $html = '<div class="switcher s_lev_2 my-plus"></div>';
+                                                //         }
+                                                //     }
+                                                // }   
 
                                              ?>
+                                            <tr class="<?php echo $children;?> children-<?php echo $affiliate['level']+1;?>" >
+                                                <td class="tabl-first level-<?php echo $affiliate['level']+1;?>">
+<!-- 	                                                <?php if($affiliate['level'] < 6):?>
+	                                                	<div class="switcher s_lev_<?php echo $affiliate['level']+1;?> my-plus"></div>
+	                                                <?php endif;?> -->
+	                                                <?php
+                                                    for($j = $affiliate['level']; $j < $affiliate['level']+1; $j++){
+	                                                if($affiliate['level'] == $j) {
+	                                                    for($i = $k; $i < count($affiliates); $i++){
+	                                                        // $next = $affiliates[$k+1]['affiliate'];
+	                                                        if($affiliate['aff_id'] == $affiliates[$k+1]['parent'] )   { 
 
-                                            <tr class="<?php echo $children;?>" >
-                                                <td class="tabl-first level-<?php echo $affiliate['level']+1;?>"><?php echo $html .$affiliate['affiliate']; ?></td>
+	                                                               $html = '<div class="switcher s_lev_'.($j+1).' my-plus"></div>';
+	                                                        }
+	                                                        else $html = '<div class="switcher-empty">&nbsp;&nbsp;</div>';
+
+	                                                    }
+	                                                } 
+	                                              }
+	                                                ?>
+	                                                <?php echo $html. $affiliate['affiliate']; ?>
+                                                </td>
                                                 <td class="d-reg"><?php echo $affiliate['phone3f']['date_added']; ?></td>
                                                  <?php if( !empty($affiliate['phone3f']['telephone'])): ?>
                                                     <td class="t-phone"><?php echo $affiliate['phone3f']['telephone']; ?> </td>
@@ -82,8 +130,20 @@
                                                 <td class="ref"><?php echo $affiliate['count_aff']; ?></td>
                                                 <td class="cash bold"><?php echo $affiliate['commission']; ?></td>
                                             </tr>  
-                                    <?php if( ($affiliate['level'] == 0 and $affiliate['aff_id'] != $id_lev1) or ($i == count($affiliates)-1) ): ?>   
-                                    </table>
+                                            
+                                    <?php if( $affiliate['level'] == 0):?>  
+                                        
+                                        <?php  for($i = $k; $i < count($affiliates); $i++) {
+                                            if( $affiliate['aff_id'] != $affiliates[$k+1]['parent'] )   { 
+                                                echo "</table>";
+                                             }
+                                          }   
+                                     ?>
+                    
+                                  <?php endif;?>
+
+                                  <?php if( $i == count($affiliates)-1 ): ?>
+                                     </table>
                                   <?php endif;?>
                                             
                                 
@@ -178,12 +238,50 @@
 <script type="text/javascript">
 $(document).ready(function() {
 
-$(".switcher").click(function(){
-    $(this).parent().parent().parent().find(".children").toggle();
+$(".s_lev_1").click(function(){
+    $(this).parent().parent().parent().find(".children-2").toggle();
     $(this).toggleClass("my-minus")
-    // $(this).parent().parent().find(".children").toggle();
-    console.log( $(this).parent() );
 });
+
+$(".s_lev_2").click(function(){
+	 $(this).parent().parent().parent().find(".children-3").toggle();
+	 $(this).toggleClass("my-minus")
+});
+
+$(".s_lev_3").click(function(){
+	 $(this).parent().parent().parent().find(".children-4").toggle();
+	 $(this).toggleClass("my-minus")
+});
+
+$(".s_lev_4").click(function(){
+	 $(this).parent().parent().parent().find(".children-5").toggle();
+	 $(this).toggleClass("my-minus")
+});
+
+$(".s_lev_5").click(function(){
+	 $(this).parent().parent().parent().find(".children-6").toggle();
+	 $(this).toggleClass("my-minus")
+});
+
+$(".s_lev_6").click(function(){
+	 $(this).parent().parent().parent().find(".children-7").toggle();
+	 $(this).toggleClass("my-minus")
+});
+
+// $("td.level-1").each(function(){
+//     var child = $(this).parent().next().find(".level-2");
+//    console.log( child.is('.level-2') ); 
+//    if(child.is('.level-2')){
+//     // $(this).prepend('<div class="switcher my-plus"></div>');
+//    }
+//    // console.log( $(this).is(".level-1") ); 
+//   // if( $(this).is(".level-1") ) {
+//   //   $(this).parent().next().is(".level-2");
+//   //    console.log( 'lev2 ' + $(this).is(".level-2") );
+//   // }
+//   // console.log($(this).html());
+// });
+
 
 });
 </script>
