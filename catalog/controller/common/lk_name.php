@@ -1,5 +1,5 @@
 <?php  
-class ControllerCommonColumnLeft extends Controller {
+class ControllerCommonLkName extends Controller {
 	protected function index() {
 		$this->load->model('design/layout');
 		$this->load->model('catalog/category');
@@ -44,10 +44,10 @@ class ControllerCommonColumnLeft extends Controller {
 		
 		foreach ($extensions as $extension) {
 			$modules = $this->config->get($extension['code'] . '_module');
-		
+			
 			if ($modules) {
 				foreach ($modules as $module) {
-					if ($module['layout_id'] == $layout_id && $module['position'] == 'column_left' && $module['status']) {
+					if ($module['layout_id'] == $layout_id && $module['position'] == 'lk_name' && $module['status']) {
 						$module_data[] = array(
 							'code'       => $extension['code'],
 							'setting'    => $module,
@@ -75,18 +75,11 @@ class ControllerCommonColumnLeft extends Controller {
 				$this->data['modules'][] = $module;
 			}
 		}
-
-		$this->data['link_account'] = $this->url->link('account/account', '', 'SSL');
-		$this->data['link_cart'] = $this->url->link('checkout/cart', '', 'SSL');
-		$this->data['link_referal'] = $this->url->link('affiliate/tracking', '', 'SSL');
-		$this->data['link_structura'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
-		$this->data['link_history'] = $this->url->link('account/account/history', '', 'SSL');
-		$this->data['link_logout'] = $this->url->link('account/logout', '', 'SSL');
 		
-		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/column_left.tpl')) {
-			$this->template = $this->config->get('config_template') . '/template/common/column_left.tpl';
+		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/lk_name.tpl')) {
+			$this->template = $this->config->get('config_template') . '/template/common/lk_name.tpl';
 		} else {
-			$this->template = 'default/template/common/column_left.tpl';
+			$this->template = 'jewelry/template/common/lk_name.tpl';
 		}
 								
 		$this->render();

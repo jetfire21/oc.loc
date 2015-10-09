@@ -4,17 +4,18 @@
 <div class="wrapper-1">
   <div class="container">
 
-    <div class="full_name"> 
+<!--     <div class="full_name"> 
       <p>Профиль <?php echo $customer_info['firstname'].' '.$customer_info['lastname']; ?></</p>
       <h2>Личный кабинет</h2>
     </div>
     <div class="balans">
-      <p>Ваш баланс: <span>1 200 руб</span></p>
+      <p>Ваш баланс: <span><?php echo $this->session->data['balans'];?></span></p>
       <a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
       <a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
     </div>
 
-    <div class="clr"></div>
+    <div class="clr"></div> -->
+    <?php echo $lk_name; ?>
 
     <div class="lm-cart">
 

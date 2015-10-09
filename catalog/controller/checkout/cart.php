@@ -391,6 +391,7 @@ class ControllerCheckoutCart extends Controller {
 				'common/column_right',
 				'common/content_bottom',
 				'common/content_top',
+				'common/lk_name',
 				'common/footer',
 				'common/header'	
 			);
@@ -420,6 +421,7 @@ class ControllerCheckoutCart extends Controller {
 				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
+				'common/lk_name',
 				'common/footer',
 				'common/header'	
 			);

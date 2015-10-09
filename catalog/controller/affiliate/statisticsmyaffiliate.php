@@ -133,26 +133,16 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
         $levelcount = count($getlevel);
 		$implode = array();
 		// $implode[] = "parent = '" . $this->affiliate->getId() . "'";
-        $check_customer_id =  $this->model_module_statisticsmyaffiliate->checkCustomerId($_SESSION['customer_id']);
+        // $check_customer_id =  $this->model_module_statisticsmyaffiliate->checkCustomerId($_SESSION['customer_id']);
+        $aff_id =  $this->session->data['affiliate_id'];
 
-
-     if( $check_customer_id ){
-
-        $aff_id =  $this->model_module_statisticsmyaffiliate->getAffId($_SESSION['customer_id']);
-        $parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
-
-        // echo "-----------------parent: ".$parent_id;
-        // echo "-------------aff_id ".$aff_id;
-        // echo "--------session customer_id: ".$_SESSION['customer_id']."------<br>";
-
-        // if(parent_id == 0) $parent_id = $aff_id;
-
-        // $implode[] = "parent = '" . $parent_id . "'";
-        $implode[] = "parent = '" . $aff_id . "'";
+     if( $aff_id){
+        
+            $parent_id =  $this->model_module_statisticsmyaffiliate->getParentByCustomerId($_SESSION['customer_id']);
+            $implode[] = "parent = '" . $aff_id . "'";
 
     		$training = $this->model_module_statisticsmyaffiliate->getAffiliatesChildren($implode, $levelcount);
-            // echo '----traning '.$training;
-            //   echo '----levelcount-----'.$levelcount."---------------";
+
 
     		$results = '';
     		if(strlen($training)) {
@@ -227,6 +217,7 @@ class ControllerAffiliateStatisticsmyaffiliate extends Controller {
             'common/column_right',
             'common/content_top',
             'common/content_bottom',
+            'common/lk_name',
             'common/footer',
             'common/header'
         );

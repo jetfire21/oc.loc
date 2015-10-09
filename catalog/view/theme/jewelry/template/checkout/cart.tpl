@@ -5,7 +5,8 @@
 
 	<?php // echo $logged; ?>
 	<?php if($logged) { ?>
-			<div class="full_name"> 
+	<!-- 		
+		<div class="full_name"> 
 				<p>Профиль Рубен Меджмулян</p>
 				<h2>Личный кабинет</h2>
 			</div>
@@ -14,7 +15,8 @@
 				<a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
 				<a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
 			</div>
-		<div class="clr"></div>
+		<div class="clr"></div> -->
+		<?php echo $lk_name; ?>
 	<?php } ?>
 		
 

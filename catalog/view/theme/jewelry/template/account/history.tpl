@@ -3,7 +3,7 @@
 <div class="lk structure">
 <div class="wrapper-1">
   <div class="container">
-
+   <!-- 
     <div class="full_name"> 
       <p>Профиль <?php echo $customer_info['firstname'].' '.$customer_info['lastname']; ?></</p>
       <h2>Личный кабинет</h2>
@@ -15,6 +15,9 @@
     </div>
 
     <div class="clr"></div>
+     -->
+
+     <?php echo $lk_name; ?>
 
     <div class="lm-cart">
 

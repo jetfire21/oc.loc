@@ -71,7 +71,15 @@ class ControllerAccountAccount extends Controller {
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		$address =  $this->model_account_customer->getCustomerAddress1($this->customer->getId());
 
+		$this->load->model('module/statisticsmyaffiliate');
+		$this->session->data['affiliate_id'] =  $this->model_module_statisticsmyaffiliate->getAffId($_SESSION['customer_id']);
+		$this->session->data['balans'] = $this->model_module_statisticsmyaffiliate->getTotalSumRef($this->session->data['affiliate_id']);
+		$this->session->data['balans'] = $this->currency->format($this->session->data['balans'] , $this->config->get('config_currency'));
+
+
 		$this->data['customer_info'] = $customer_info;
+		$this->session->data['name_fam'] = $customer_info['firstname'] ." ".$customer_info['lastname'];
+
 		$this->data['address'] = $address;
 		$this->data['link_account'] = $this->url->link('account/account', '', 'SSL');
 		$this->data['link_cart'] = $this->url->link('checkout/cart', '', 'SSL');
@@ -81,7 +89,7 @@ class ControllerAccountAccount extends Controller {
 
 		// print_r($this->data);
 		// print_r($customer_info);
-		// print_r($_POST);
+		print_r($_SESSION);
 
 		// ************************* мой код
 		
@@ -96,6 +104,7 @@ class ControllerAccountAccount extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'
 		);
@@ -115,6 +124,7 @@ class ControllerAccountAccount extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'
 		);
@@ -133,6 +143,7 @@ class ControllerAccountAccount extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'
 		);
@@ -150,6 +161,7 @@ class ControllerAccountAccount extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'
 		);
