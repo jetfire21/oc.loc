@@ -1,3 +1,4 @@
+<?php print_r($transactions); ?>
 <?php echo $header; ?>
 
 <div class="lk structure">
@@ -37,13 +38,27 @@
 				    </div>
 				    <h4>История счета</h4>
 				    <table class="history">
+							
+							<?php if($transactions):?>
+						    	<th>Дата</th>
+						    	<th>Операция</th>
+						    	<th>Имя</th>
+						    	<th>Сумма</th>
+						    	<th>Остаток</th>
+								<?php foreach($transactions as $item):?>
+								<tr>
+									<td><?php echo $item["date_added"];?></td>
+									<td><?php echo $item["operation"];?></td>
+									<td><?php echo $item["name"];?></td>
+									<td>+ <?php echo $item["amount"];?></td>
+									<td><?php echo $item["amount"];?></td>
+								</tr>
+								<?php endforeach;?>
+							<?php else:?>
+								<p>У вас еще не было транзакций!</p>
+							<?php endif;?>
 
-					    	<th>Дата</th>
-					    	<th>Операция</th>
-					    	<th>Имя</th>
-					    	<th>Сумма</th>
-					    	<th>Остаток</th>
-						<tr>
+<!-- 					<tr>
 							<td>Сегодня,22:00</td>
 							<td>Запроше вывод</td>
 							<td>Я (Рубен Меджм.)</td>
@@ -70,7 +85,7 @@
 							<td>Я (Рубен Меджм.)</td>
 							<td>- 102 000 руб</td>
 							<td>1 200 руб</td>
-						</tr>	
+						</tr>	 -->
     				</table>				
 			</div>
 			        <div class="clr"></div>

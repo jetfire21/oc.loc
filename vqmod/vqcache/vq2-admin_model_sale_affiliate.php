@@ -206,7 +206,7 @@ class ModelSaleAffiliate extends Model {
 				$getaffiliates = $this->model_module_affiliatemmm->getAffiliateCommission($text, $getlevel, $order_info);
 				foreach ($getaffiliates as $parentaffiliate) {
           if ((int)$order_id != 0 & (float)$parentaffiliate['total'] != 0) {
-            $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$parentaffiliate['affiliate_id'] . "', order_id = '" . (float)$order_id . "', description = '" . $this->db->escape($description). " (" .$affiliate_info['firstname'] ." ". $affiliate_info['lastname'] . ")', amount = '" . (float)$parentaffiliate['total'] . "', date_added = NOW(), affiliate_children = '" . $affiliate_id . "'");
+            $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$parentaffiliate['affiliate_id'] . "', order_id = '" . (float)$order_id . "',operation = 'Оплата заказа №" . (float)$order_id. "',payment='1', name='".$affiliate_info['firstname'] ." ". $affiliate_info['lastname']."', description = '" . $this->db->escape($description). " (" .$affiliate_info['firstname'] ." ". $affiliate_info['lastname'] . ")', amount = '" . (float)$parentaffiliate['total'] . "', date_added = NOW(), affiliate_children = '" . $affiliate_id . "'");
           } 
         }
 			}

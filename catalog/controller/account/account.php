@@ -137,6 +137,21 @@ class ControllerAccountAccount extends Controller {
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		$this->data['customer_info'] = $customer_info;
 
+		$this->load->model('affiliate/transaction');
+		 $data['order'] = "DESC";
+		$this->data['transactions'] = $this->model_affiliate_transaction->getTransactions($data);
+		foreach ( $this->data['transactions'] as $k => $v) {
+			$this->data['transactions'][$k]['amount'] = $this->currency->format( $v['amount'] , $this->config->get('config_currency'));
+
+	         $v['date_added'] = substr($v['date_added'],0,-3);
+	         $temp = explode(" ", $v['date_added']);
+	         $date = array_reverse(explode("-", $temp[0]));
+	         $date = implode(".", $date);
+	         $date .= " ".$temp[1];
+	         $this->data['transactions'][$k]['date_added']  =  $date;
+		}
+		
+
 		$this->template = $this->config->get('config_template') . '/template/account/history.tpl';
 		$this->children = array(
 			'common/column_left',

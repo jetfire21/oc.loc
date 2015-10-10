@@ -1686,7 +1686,7 @@ ul.category li span{
 }
 
 .lm-cart .wrap_table{
-    font: 18px "ProximaNovaRegular";
+    font: 17px "ProximaNovaRegular";
 }
 
 .lm-cart .wrap_table img{
@@ -2205,7 +2205,7 @@ right: 15px;
 }
 
 .wrap_table .bold{
-   font: 18px "ProximaNovaBold";
+   font: 17px "ProximaNovaBold";
 }
 
 .history td{
@@ -2372,7 +2372,7 @@ right: 15px;
 /*  ********* структура ******** */
 
 .structure .level-1{
-  font: 18px "ProximaNovaBold";
+  font: 17px "ProximaNovaBold";
 }
 
 .structure .level-2{
@@ -2396,7 +2396,7 @@ right: 15px;
 }
 
 .structure table td{
-  padding: 7px 10px;
+  padding: 7px 10px 7px 0;
 }
 
 .structure .d-reg, .structure .light-gray, .structure .t-phone{
@@ -2404,10 +2404,10 @@ right: 15px;
 }
 
 .structure .lev, .structure .ref{
-  width: 15px;
+  width: 30px;
 }
 .structure .cash{
-  width: 90px;
+  width: 95px;
 }
 
 .structure .d-reg{
@@ -2438,7 +2438,12 @@ right: 15px;
 .structure .itog p{
   margin: 0;
   display: inline-block;
-  margin-right: 20px;
+  margin-right: 23px;
+}
+
+.structure .itog .itog-sum{
+  margin-right: 0;
+  width: 105px;
 }
 
 /*.structure table tr td:first-child{

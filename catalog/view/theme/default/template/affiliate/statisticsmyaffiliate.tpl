@@ -127,9 +127,9 @@
                                                 <?php else:?>
                                                     <td class="light-gray">Не указан</td>
                                                 <?php endif;?>
-                                                <td class="lev"> <?php echo $affiliate['level']+1; ?></td>
-                                                <td class="ref"><?php echo $affiliate['count_aff']; ?></td>
-                                                <td class="cash bold"><?php echo $affiliate['commission']; ?></td>
+                                                <td class="lev"><?php echo $affiliate['level']+1;?></td>
+                                                <td class="ref"><?php echo $affiliate['count_aff'];?></td>
+                                                <td class="cash bold"><?php echo $affiliate['commission'];?></td>
                                             </tr>  
                                             
                                     <?php if( $affiliate['level'] == 0):?>  
@@ -153,8 +153,8 @@
                                 <div class="itog">
                                         <div>
                                             <p>Итого</p>
-                                            <p><?php echo $count_aff;?></p>
-                                            <p class="bold"><?php echo $sum_comission;?></p>
+                                            <p><?php echo count($affiliates);?></p>
+                                            <p class="bold itog-sum"><?php echo $sum_comission;?></p>
                                         </div>
                                 </div>
 
@@ -176,28 +176,31 @@
 
                         <h4>История регистраций</h4>
                     <table class="history single-table">
-
-                            <th>Дата рег.</th>
-                            <th>Имя</th>
-                            <th>Телефон</th>
-                            <th>Ур.</th>
-                            <th>Реф.</th>
-                            <th>Заработал</th>
-                            <?php $i=1; foreach ($date as $v): ?>
-                                <tr>
-                                    <td><?php echo $v['phone3f']['date_added'];?></td>
-                                    <td><?php echo $v['affiliate'];?></td>
-                                               <?php if($v['phone3f']['telephone']): ?>
-                                                    <td class="t-phone"><?php echo $v['phone3f']['telephone']; ?> </td>
-                                                <?php else:?>
-                                                    <td class="light-gray">Не указан</td>
-                                                <?php endif;?>
-                                    <td><?php echo $v['level']+1;?></td>
-                                    <td><?php echo $v['count_aff'];?></td>
-                                    <td><?php echo $v['cash_aff'];?></td>
-                                </tr>
-								<?php if($i == 10) break; ?>
-                            <?php $i++; endforeach;?>
+						<?php if($date):?>
+	                            <th>Дата рег.</th>
+	                            <th>Имя</th>
+	                            <th>Телефон</th>
+	                            <th>Ур.</th>
+	                            <th>Реф.</th>
+	                            <th>Заработал</th>
+	                            <?php $i=1; foreach ($date as $v): ?>
+	                                <tr>
+	                                    <td><?php echo $v['phone3f']['date_added'];?></td>
+	                                    <td><?php echo $v['affiliate'];?></td>
+	                                               <?php if($v['phone3f']['telephone']): ?>
+	                                                    <td class="t-phone"><?php echo $v['phone3f']['telephone']; ?> </td>
+	                                                <?php else:?>
+	                                                    <td class="light-gray">Не указан</td>
+	                                                <?php endif;?>
+	                                    <td><?php echo $v['level']+1;?></td>
+	                                    <td><?php echo $v['count_aff'];?></td>
+	                                    <td><?php echo $v['cash_aff'];?></td>
+	                                </tr>
+									<?php if($i == 10) break; ?>
+	                            <?php $i++; endforeach;?>
+	                      <?php else:?>
+	                  		  <p>Регистраций еще не было!</p>
+	               		 <?php endif;?>
                     </table>
 
 
