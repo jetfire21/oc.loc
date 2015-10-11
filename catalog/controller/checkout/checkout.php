@@ -300,7 +300,7 @@ class ControllerCheckoutCheckout extends Controller {
 					$data['customer_id'] = 0;
 					$data['customer_group_id'] = 1;
 					$data['firstname'] = $customer_info['firstname'];
-					$data['lastname'] = '';
+					$data['lastname'] = $customer_info['lastname'];
 					$data['email'] = $customer_info['email'];
 					$data['telephone'] = $customer_info['telephone'];
 					$data['fax'] = '';
@@ -512,7 +512,11 @@ class ControllerCheckoutCheckout extends Controller {
 			} else {
 				$data['accept_language'] = '';
 			}
-						
+			// print_r($data);
+			// exit;
+
+
+
 			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
 			$order_id = $this->session->data['order_id'];
 			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
@@ -626,6 +630,9 @@ class ControllerCheckoutCheckout extends Controller {
 		if ($this->customer->isLogged() && $this->customer->getAddressId()) {					
 			$customer_address = $this->model_account_address->getAddress($this->customer->getAddressId());	
 		}
+
+		// print_r($_POST);
+		// exit;
 		
 		if (isset($this->request->post['firstname'])) {
 			$this->data['firstname'] = $this->request->post['firstname'];

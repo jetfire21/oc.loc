@@ -207,10 +207,10 @@
 				$this->load->model('sale/order');
 				$order_info = $this->model_sale_order->getOrder($order_id);
 				$this->load->model('module/affiliatemmm');
-				$getlevel = $this->config->get('affiliate_level_commission');
-				$levelcount = count($getlevel);
-				$text = $this->model_module_affiliatemmm->getAffiliateParent((int)$affiliate_id, 0, $levelcount);
-				$getaffiliates = $this->model_module_affiliatemmm->getAffiliateCommission($text, $getlevel, $order_info);
+				 $getlevel = $this->config->get('affiliate_level_commission');
+				 $levelcount = count($getlevel);
+				 $text = $this->model_module_affiliatemmm->getAffiliateParent((int)$affiliate_id, 0, $levelcount);
+				 $getaffiliates = $this->model_module_affiliatemmm->getAffiliateCommission($text, $getlevel, $order_info);
 				
 
 				foreach ($getaffiliates as $parentaffiliate) {

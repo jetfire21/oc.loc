@@ -2149,7 +2149,9 @@ class ControllerSaleOrder extends Controller {
 				$affiliate_total = $this->model_sale_affiliate->getTotalTransactionsByOrderId($this->request->get['order_id']);
 				
 				if (!$affiliate_total) {
-					$this->model_sale_affiliate->addTransaction($order_info['affiliate_id'], $this->language->get('text_order_id') . ' #' . $this->request->get['order_id'], $order_info['commission'], $this->request->get['order_id']);
+					$this->model_sale_affiliate->addTransaction($order_info['affiliate_id'], $this->language->get('text_order_id') . ' #' . $this->request->get['order_id'], $order_info['commission'], $this->request->get['order_id'], $order_info['firstname'], $order_info['lastname']);
+					$this->model_sale_affiliate->updateBalansAff($order_info['affiliate_id'], $order_info['commission']);
+
 					
 					$json['success'] = $this->language->get('text_commission_added');
 				} else {

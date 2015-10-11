@@ -189,11 +189,11 @@ class ModelSaleAffiliate extends Model {
 		return $query->row['total'];
 	}
 		
-	public function addTransaction($affiliate_id, $description = '', $amount = '', $order_id = 0) {
+	public function addTransaction($affiliate_id, $description = '', $amount = '', $order_id = 0, $firstname, $lastname) {
 		$affiliate_info = $this->getAffiliate($affiliate_id);
 		
 		if ($affiliate_info) { 
-			$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate_transaction SET affiliate_id = '" . (int)$affiliate_id . "', order_id = '" . (float)$order_id . "', description = '" . $this->db->escape($description) . "', amount = '" . (float)$amount . "', date_added = NOW()");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate_transaction SET affiliate_id = '" . (int)$affiliate_id . "', order_id = '" . (float)$order_id . "', description = '" . $this->db->escape($description) . "',name = '" . $this->db->escape($firstname)." ".$this->db->escape($lastname). "', payment='1', operation='Оплата заказа №".$order_id."',amount = '" . (float)$amount . "', date_added = NOW()");
 		
 			$this->language->load('mail/affiliate');
 							
@@ -252,5 +252,10 @@ class ModelSaleAffiliate extends Model {
 	
 		return $query->row['total'];
 	}		
+
+     public function updateBalansAff($aff_id,$commission) {
+        $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET `balans`= `balans` + '".$commission."' WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
+    }
 }
 ?>
