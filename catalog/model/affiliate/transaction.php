@@ -53,5 +53,25 @@ class ModelAffiliateTransaction extends Model {
 			return 0;	
 		}
 	}
+
+	public function getTotalSumOut() {
+		$query = $this->db->query("SELECT SUM(amount) AS total FROM `" . DB_PREFIX . "affiliate_transaction` WHERE withdrawal='1' AND affiliate_id = '" . (int)$this->affiliate->getId() . "' GROUP BY affiliate_id");
+		
+		if ($query->num_rows) {
+			return $query->row['total'];
+		} else {
+			return 0;	
+		}
+	}
+
+	public function getTotalSumPay() {
+		$query = $this->db->query("SELECT SUM(amount) AS total FROM `" . DB_PREFIX . "affiliate_transaction` WHERE payment='1' AND affiliate_id = '" . (int)$this->affiliate->getId() . "' GROUP BY affiliate_id");
+		
+		if ($query->num_rows) {
+			return $query->row['total'];
+		} else {
+			return 0;	
+		}
+	}
 }
 ?>

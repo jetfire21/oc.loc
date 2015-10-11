@@ -293,6 +293,20 @@ public function getChildrenLevel($text, $level, $aff_id) {
         return $query->row['SUM(amount)']; 
     }
 
+     public function getBalansAff($aff_id) {
+        $query = $this->db->query("SELECT balans FROM " . DB_PREFIX . "affiliate WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
+        return $query->row['balans']; 
+    }
+
+     public function withdrawal($aff_id, $name_fam, $balans) {
+        $query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET balans='0' WHERE affiliate_id = '" . (int)$aff_id . "'");
+
+        $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$aff_id . "',operation = 'Запрошен вывод', withdrawal='1', name='".$name_fam."', amount = '" . (float)$balans . "', date_added = NOW()");
+    }
+
+
+
     
 
 	

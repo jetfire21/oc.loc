@@ -1,4 +1,8 @@
-<?php print_r($transactions); ?>
+<?php
+ //print_r($transactions);
+print_r($affiliate_info);
+  ?>
+
 <?php echo $header; ?>
 
 <div class="lk structure">
@@ -27,14 +31,14 @@
       			<div class="cart-product">
 				<h3>Финансы и история</h3>
 				<div class="wrap_table">
-				<h4>Упраление счетом</h4>
+				<h4>Управление счетом</h4>
 					<div class="name-block uprav-schet"> 
-						<div class="offer-n"><p>Баланс счета: </p><span class="bold">1 200 руб</span></div>
-						<div class="offer-n"><p>Всего заработано: </p><span class="bold">108 456 руб</span></div>
-						<div class="offer-n"><p>Уже выведено: </p><span class="bold">106 300 руб</span></div>
-						<div class="offer-n"><p> Дата создания счета: </p><span>10.09 00:00</span></div>
-						<div class="offer-n"><p> Доступно к выводу: </p><span>1 200 руб</span></div>
-						<div class="vyvod-money"><a href=""> вывести средства <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-right.png" alt=""></a></div>
+						<div class="offer-n"><p>Баланс счета: </p><span class="bold"><?php echo $this->session->data['balans'];?></span></div>
+						<div class="offer-n"><p>Всего заработано: </p><span class="bold"><?php echo $affiliate_info['total_sum'];?></span></div>
+						<div class="offer-n"><p>Уже выведено: </p><span class="bold"><?php echo $affiliate_info['total_out'];?></span></div>
+						<div class="offer-n"><p> Дата создания счета: </p><span><?php echo $affiliate_info['date_added'];?></span></div>
+						<div class="offer-n"><p> Доступно к выводу: </p><span><?php echo $this->session->data['balans'];?></span></div>
+						<div class="vyvod-money"><a href="" class="withdrawal"> вывести средства <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-right.png" alt=""></a></div>
 				    </div>
 				    <h4>История счета</h4>
 				    <table class="history">
@@ -50,8 +54,14 @@
 									<td><?php echo $item["date_added"];?></td>
 									<td><?php echo $item["operation"];?></td>
 									<td><?php echo $item["name"];?></td>
-									<td>+ <?php echo $item["amount"];?></td>
-									<td><?php echo $item["amount"];?></td>
+									<?php if($item['withdrawal'] == 1): ?>
+										<td>- <?php echo $item["amount"];?></td>
+										<td>0 руб</td>
+									<?php elseif($item['payment'] == 1): ?>
+										<td>+ <?php echo $item["amount"];?></td>
+										<td><?php echo $item["amount"];?></td>
+									<?php endif; ?>
+									
 								</tr>
 								<?php endforeach;?>
 							<?php else:?>
@@ -129,3 +139,32 @@
 </div>
 
 <?php echo $footer; ?> 
+
+
+<script type="text/javascript">
+	$(".withdrawal").click(function(e){
+		e.preventDefault();
+		var redirect = 'http://oc.loc/index.php?route=account/account/history';
+
+     	 $.ajax({
+	         url: 'http://oc.loc/index.php?route=account/account/withdrawal',
+	         // url: 'http://oc.loc/catalog/controller/account/register.php',
+	         type: 'post',
+	         data: 'data=withdrawal',
+	         dataType: 'json',
+	         success: function(json) {
+	          	if(json.balans) { 
+	          	  // alert(json.balans); 
+	          	  alert("Oтправлен запрос на вывод");
+	          	  window.location = redirect;
+	          	}
+		        if(json.error) { alert('Нечего выводить! Ваш баланс 0 рублей');}
+		          console.log(json);
+	         },
+			error:function(xhr, ajaxOptions, thrownError) {
+				alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+			}
+	     });
+
+	});
+</script>

@@ -1,12 +1,13 @@
 <?php 
 class ControllerAccountAccount extends Controller { 
+
 	public function index() {
 		if (!$this->customer->isLogged()) {
 	  		$this->session->data['redirect'] = $this->url->link('account/account', '', 'SSL');
 	  
 	  		$this->redirect($this->url->link('account/login', '', 'SSL'));
     	} 
-	
+
 		$this->language->load('account/account');
 
 		$this->document->setTitle($this->language->get('heading_title'));
@@ -73,7 +74,10 @@ class ControllerAccountAccount extends Controller {
 
 		$this->load->model('module/statisticsmyaffiliate');
 		$this->session->data['affiliate_id'] =  $this->model_module_statisticsmyaffiliate->getAffId($_SESSION['customer_id']);
-		$this->session->data['balans'] = $this->model_module_statisticsmyaffiliate->getTotalSumRef($this->session->data['affiliate_id']);
+		$this->session->data['balans'] = $this->model_module_statisticsmyaffiliate->getBalansAff($this->session->data['affiliate_id']);
+		$this->session->data['balans_noformat'] = $this->session->data['balans'];
+		$this->balans = $this->session->data['balans'];
+
 		$this->session->data['balans'] = $this->currency->format($this->session->data['balans'] , $this->config->get('config_currency'));
 
 
@@ -131,6 +135,8 @@ class ControllerAccountAccount extends Controller {
 		$this->response->setOutput($this->render());
   	}
 
+
+
   	public function history(){
 
   		$this->load->model('account/customer');
@@ -138,10 +144,12 @@ class ControllerAccountAccount extends Controller {
 		$this->data['customer_info'] = $customer_info;
 
 		$this->load->model('affiliate/transaction');
+
 		 $data['order'] = "DESC";
 		$this->data['transactions'] = $this->model_affiliate_transaction->getTransactions($data);
 		foreach ( $this->data['transactions'] as $k => $v) {
 			$this->data['transactions'][$k]['amount'] = $this->currency->format( $v['amount'] , $this->config->get('config_currency'));
+			// $total_sum = $total_sum + $v['amount'];
 
 	         $v['date_added'] = substr($v['date_added'],0,-3);
 	         $temp = explode(" ", $v['date_added']);
@@ -150,6 +158,30 @@ class ControllerAccountAccount extends Controller {
 	         $date .= " ".$temp[1];
 	         $this->data['transactions'][$k]['date_added']  =  $date;
 		}
+
+		$this->load->model('module/statisticsmyaffiliate');
+		$aff_info = $this->model_module_statisticsmyaffiliate->getAffiliate($this->session->data['affiliate_id']);
+
+         $aff_info['date_added'] = substr($aff_info['date_added'],0,-3);
+         $temp = explode(" ", $aff_info['date_added']);
+         $date = array_reverse(explode("-", $temp[0]));
+         $date = implode(".", $date);
+         $date .= " ".$temp[1];
+         $aff_info['date_added']  =  $date;
+
+         // $aff_info['total_sum'] =  $aff_info['total_out'] + $this->session->data['balans_noformat'];
+         // $aff_info['total_sum'] = $this->currency->format( $aff_info['total_sum'] , $this->config->get('config_currency'));
+         // $aff_info['total_sum'] = $this->currency->format( $total_sum , $this->config->get('config_currency'));
+         // $aff_info['total_out'] = $this->currency->format( $aff_info['total_out'] , $this->config->get('config_currency'));
+
+ 		 $total_sum = $this->model_affiliate_transaction->getTotalSumPay();
+		 $total_out = $this->model_affiliate_transaction->getTotalSumOut();
+		// echo '---------------';
+         $aff_info['total_sum'] = $this->currency->format( $total_sum , $this->config->get('config_currency'));
+        $aff_info['total_out'] = $this->currency->format( $total_out, $this->config->get('config_currency'));
+        // echo '---------------';
+
+         $this->data['affiliate_info'] = $aff_info;
 		
 
 		$this->template = $this->config->get('config_template') . '/template/account/history.tpl';
@@ -163,6 +195,25 @@ class ControllerAccountAccount extends Controller {
 			'common/header'
 		);
 		$this->response->setOutput($this->render());
+  	}
+
+  	 public function withdrawal(){
+  	 	if($this->request->post['data']){
+
+  	 		$res['balans'] = $this->session->data['balans_noformat'];
+
+  	 		if($res['balans'] > 0){
+  	 			$this->load->model('module/statisticsmyaffiliate');
+			    $this->model_module_statisticsmyaffiliate->withdrawal($this->session->data['affiliate_id'],$this->session->data['name_fam'], $res['balans']);
+			    $this->session->data['balans_noformat'] = 0;
+			    $this->session->data['balans'] = "0 руб";
+  	 			echo json_encode($res);
+  	 		} else {
+  	 			 $res['error'] = 1;
+  	 			echo json_encode($res);
+  	 		}
+  	 	}
+
   	}
 
 	public function structura(){
