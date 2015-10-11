@@ -556,7 +556,6 @@ class ControllerAccountRegister extends Controller {
 			// print_r($_COOKIE);
 			// exit;
 			$this->load->model('affiliate/affiliate');
-			// $this->model_affiliate_affiliate->addAffiliate($this->request->post, $customer_id['MAX(customer_id)'],$_GET['tracking'] );
 			$this->model_affiliate_affiliate->addAffiliate($this->request->post, $customer_id['MAX(customer_id)'], $_COOKIE['tracking'] );
 			$this->model_affiliate_affiliate->pushCountRegByCode($_COOKIE['tracking']);
 

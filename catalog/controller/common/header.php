@@ -9,6 +9,12 @@ class ControllerCommonHeader extends Controller {
 			$server = $this->config->get('config_url');
 		}
 
+		if($this->request->get['tracking']){
+			$this->load->model('affiliate/affiliate');
+			$this->model_affiliate_affiliate->pushCountVisitByCode($this->request->get['tracking']);
+		}
+
+
 		$this->data['base'] = $server;
 		$this->data['description'] = $this->document->getDescription();
 		$this->data['keywords'] = $this->document->getKeywords();

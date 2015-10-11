@@ -109,6 +109,14 @@ class ModelAffiliateAffiliate extends Model {
 		$query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET `reg`=`reg` + 1 WHERE code='". $code . "'");	
 	}
 
+	public function pushCountOrderingByCode($code) {
+		$query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET `ordering`=`ordering` + 1 WHERE code='". $code . "'");	
+	}
+
+	public function pushCountVisitByCode($code) {
+		$query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET `visit`=`visit` + 1 WHERE code='". $code . "'");	
+	}
+
 
 
 	// public function getAffLastId() {

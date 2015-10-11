@@ -517,6 +517,11 @@ class ControllerCheckoutCheckout extends Controller {
 			$order_id = $this->session->data['order_id'];
 			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
 
+			if($_COOKIE['tracking']){
+				$this->load->model('affiliate/affiliate');
+				$this->model_affiliate_affiliate->pushCountOrderingByCode($_COOKIE['tracking']);
+			}
+
 			if( $this->customer->isLogged() ) {
 
 	            if( $this->session->data['balans_noformat'] > $this->data['totals'][1]['value']) {

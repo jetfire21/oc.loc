@@ -38,9 +38,15 @@
 					</div>
 					<div class="stat-vizit">
 						<h4>Общая статистика переходов по ссылке:</h4>
-						<p>Всего переходов по ссылке - <span>1 345,</span></p>
-						<p>Всего регистраций по ссылке - <span>345,</span></p>
-						<p>Всего оформили заказ - <span>3</span></p>
+						<p>Всего переходов по ссылке - <span>
+							<?php echo $aff_info['visit'];?>
+						,</span></p>
+						<p>Всего регистраций по ссылке - <span>
+							<?php echo $aff_info['reg'];?>
+						,</span></p>
+						<p>Всего оформили заказ - <span>
+							<?php echo $aff_info['ordering'];?>
+						</span></p>
 					</div>
 			   </div>
 			        <div class="clr"></div>
