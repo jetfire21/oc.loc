@@ -32,8 +32,9 @@
 					</div>
 					<div class="my-link">
 						<h4>Моя ссылка:</h4>
-						<div class="ref-link">tracking=<?php echo $code; ?></div><a href="" class="copy-link">скопировать</a>
+						<input type="text" class="ref-link" value="<?php echo $this->url->link('common/home');?>&tracking=<?php echo $code; ?>" /><a href="" class="copy-link">скопировать</a>
 						<a href="" class="new-link pink">Я хочу чтобы ссылка вела на другую страницу</a>
+						<input type="text" class="new-ref-link" value="&nbsp;" /><a href="" class="save-link">Сохранить</a>
 					</div>
 					<div class="stat-vizit">
 						<h4>Общая статистика переходов по ссылке:</h4>
@@ -82,3 +83,24 @@
 </div>
 
 <?php echo $footer; ?> 
+
+<script type="text/javascript">
+
+$(".my-link .new-link").click(function(e){
+      e.preventDefault();
+      $(".my-link .new-ref-link, .my-link .save-link").fadeIn();
+
+});
+
+
+ $(".my-link .save-link").click(function(e){
+ 	e.preventDefault();
+ 	var ref = $(".my-link .new-ref-link").val() + "&tracking=<?php echo $code;?>";
+ 	$(".my-link .ref-link").val(ref);
+ 	// $(".my-link .ref-link").attr("value",ref);
+ 	// window.location = "/index.php?route=affiliate/tracking";
+ 	$(".my-link .new-ref-link, .my-link .save-link").fadeOut();
+
+ });
+
+</script>

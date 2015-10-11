@@ -64,11 +64,15 @@ $(document).ready(function() {
     });
   });
 
+var base = $("base").attr("href");
+
 // clipboard no fx
   $('.copy-link').zclip({
-    path:'js/zclip/ZeroClipboard.swf',
-    copy:$('.ref-link').text(),
+    path: base +'catalog/view/theme/jewelry/js/zclip/ZeroClipboard.swf',
+    //copy:$('.ref-link').attr("value"),
+    copy:function(){ return $('.ref-link').val(); },
     afterCopy:function(){
+      $(this).select();
       alert("Текст скопирован в буфер обмена!");
     }
   });

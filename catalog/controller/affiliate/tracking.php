@@ -11,7 +11,7 @@ class ControllerAffiliateTracking extends Controller {
 		if (!$this->session->data['customer_id']) {
 	  		$this->session->data['redirect'] = $this->url->link('affiliate/tracking', '', 'SSL');
 	  
-	  		$this->redirect($this->url->link('common/hone', '', 'SSL'));
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
     	} 
 	
 		$this->language->load('affiliate/tracking');

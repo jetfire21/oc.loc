@@ -2109,30 +2109,37 @@ right: 15px;
   font: 24px "ProximaNovaRegular";
 }
 
-.my-link .ref-link, .my-link .copy-link{
+.my-link .ref-link, .my-link .copy-link,  .my-link .new-ref-link,  .my-link .save-link{
    display: inline-block;
    border-radius: 25px;
     font: 18px "ProximaNovaBold";
     padding: 8px 20px 8px 20px;
+
 }
 
-.my-link .ref-link{
+.my-link .ref-link, .my-link .new-ref-link{
+  width: 350px;
     background-color: #fff;
     border: 1px solid #ebebeb;
     margin-right: 10px;
 }
 
-.my-link .copy-link{
+.my-link .copy-link, .my-link .save-link{
   background-color: #fef247;
   text-transform: uppercase;
   border: 0;
   cursor: pointer;
 }
 
+.my-link .new-ref-link, .my-link .save-link{
+  display: none;
+}
+
 .my-link .new-link{
   border-bottom: 1px dashed #fe157d;
-  display: table-cell;
+  display: table;
   padding-top: 20px;
+  margin-bottom: 20px;
 }
 
 .my-link .new-link:hover{
