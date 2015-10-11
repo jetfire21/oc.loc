@@ -299,16 +299,28 @@ public function getChildrenLevel($text, $level, $aff_id) {
         return $query->row['balans']; 
     }
 
-     public function withdrawal($aff_id, $name_fam, $balans) {
-        $query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET balans='0' WHERE affiliate_id = '" . (int)$aff_id . "'");
-
-        $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$aff_id . "',operation = 'Запрошен вывод', withdrawal='1', name='".$name_fam."', amount = '" . (float)$balans . "', date_added = NOW()");
+     public function updateBalansAff($aff_id,$balans) {
+        $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET balans='".$balans."' WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
     }
 
+     public function withdrawal($aff_id, $name_fam, $sum_out) {
 
+        $query = $this->db->query("UPDATE " . DB_PREFIX . "affiliate SET balans='0' WHERE affiliate_id = '" . (int)$aff_id . "'");
 
-    
+        $balans = $this->getBalansAff($aff_id);
+        if($balans > 0){
+        	$ostatok = $balans - $sum_out;
+        }
+        else $ostatok = 0;
 
-	
+        $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$aff_id . "',operation = 'Запрошен вывод', withdrawal='1', name='".$name_fam."',ostatok = '" . (float)$ostatok."', amount = '" . (float)$sum_out . "', date_added = NOW()");
+    }
+
+     public function addTransaction($aff_id, $name_fam, $sum_pay, $balans_after_pay) {
+
+        $this->db->query("INSERT INTO `" . DB_PREFIX . "affiliate_transaction` SET affiliate_id = '" . (int)$aff_id . "',operation = 'Оплата товара', withdrawal='1', name='я(".$name_fam.")', amount = '" . (float)$sum_pay . "' , ostatok = '" . (float)$balans_after_pay . "', date_added = NOW()");
+    }
+
 }
 ?>

@@ -56,10 +56,10 @@ print_r($affiliate_info);
 									<td><?php echo $item["name"];?></td>
 									<?php if($item['withdrawal'] == 1): ?>
 										<td>- <?php echo $item["amount"];?></td>
-										<td>0 руб</td>
+										<td><?php echo $item["ostatok"];?></td>
 									<?php elseif($item['payment'] == 1): ?>
 										<td>+ <?php echo $item["amount"];?></td>
-										<td><?php echo $item["amount"];?></td>
+										<td><?php echo $item["ostatok"];?></td>
 									<?php endif; ?>
 									
 								</tr>

@@ -148,7 +148,14 @@ class ControllerAccountAccount extends Controller {
 		 $data['order'] = "DESC";
 		$this->data['transactions'] = $this->model_affiliate_transaction->getTransactions($data);
 		foreach ( $this->data['transactions'] as $k => $v) {
-			$this->data['transactions'][$k]['amount'] = $this->currency->format( $v['amount'] , $this->config->get('config_currency'));
+			// if($this->session->data['balans_noformat'] > 0 and $v['withdrawal'] == 1){
+			// 	$ostatok = $this->session->data['balans_noformat'] - $v['amount'];
+			// 	$this->data['transactions'][$k]['amount'] = $this->currency->format( $v['amount'] , $this->config->get('config_currency'));
+			// }else{
+			   $this->data['transactions'][$k]['amount'] = $this->currency->format( $v['amount'] , $this->config->get('config_currency'));
+			   $this->data['transactions'][$k]['ostatok'] = $this->currency->format( $v['ostatok'] , $this->config->get('config_currency'));
+			// }
+
 			// $total_sum = $total_sum + $v['amount'];
 
 	         $v['date_added'] = substr($v['date_added'],0,-3);

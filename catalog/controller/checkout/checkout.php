@@ -281,6 +281,7 @@ class ControllerCheckoutCheckout extends Controller {
 			}
 
 			$this->data['totals'] = $total_data;
+			// $this->session->data['totals'] = $total_data;
 		//=========================end cart==================================//
 		
 		//=========================insert order==============================//
@@ -515,6 +516,29 @@ class ControllerCheckoutCheckout extends Controller {
 			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
 			$order_id = $this->session->data['order_id'];
 			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
+
+			if( $this->customer->isLogged() ) {
+
+	            if( $this->session->data['balans_noformat'] > $this->data['totals'][1]['value']) {
+
+	               $sum_pay = $this->data['totals'][1]['value'];
+	               $this->load->model('module/statisticsmyaffiliate');
+				   $balans_tabl = $this->model_module_statisticsmyaffiliate->getBalansAff($this->session->data['affiliate_id']);
+				   $balans_for_pay = $balans_tabl - $sum_pay;
+   	               $this->model_module_statisticsmyaffiliate->addTransaction($this->session->data['affiliate_id'],$this->session->data['name_fam'],$sum_pay, $balans_for_pay);
+				   $balans_tabl = $this->model_module_statisticsmyaffiliate->updateBalansAff($this->session->data['affiliate_id'], $balans_for_pay);
+
+
+
+	           } elseif( $this->session->data['balans_noformat'] < $this->data['totals'][1]['value']){
+
+	              // $this->session->data['balans_noformat'];
+	               $this->load->model('module/statisticsmyaffiliate');
+	               $this->model_module_statisticsmyaffiliate->updateBalansAff($this->session->data['affiliate_id'], 0);
+	               $this->model_module_statisticsmyaffiliate->addTransaction($this->session->data['affiliate_id'],$this->session->data['name_fam'],$this->session->data['balans_noformat']);
+	          
+	           }
+            }
 
 			unset($this->session->data['cart']);
 			$this->redirect($this->url->link('checkout/success', '', 'SSL'));
@@ -927,6 +951,7 @@ class ControllerCheckoutCheckout extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'	
 		);

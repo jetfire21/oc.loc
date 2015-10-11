@@ -98,5 +98,11 @@ class ModelModuleAffiliatemmm extends Model {
 		}
 		return '';
     }
+
+     public function getBalansAff($aff_id) {
+        $query = $this->db->query("SELECT balans FROM " . DB_PREFIX . "affiliate WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
+        return $query->row['balans']; 
+    }
 }
 ?>

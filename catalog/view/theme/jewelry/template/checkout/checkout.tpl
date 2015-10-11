@@ -5,7 +5,7 @@
 
   <?php // echo $logged; ?>
   <?php if($logged) { ?>
-      <div class="full_name"> 
+<!--       <div class="full_name"> 
         <p>Профиль Рубен Меджмулян</p>
         <h2>Личный кабинет</h2>
       </div>
@@ -14,7 +14,8 @@
         <a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
         <a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
       </div>
-    <div class="clr"></div>
+    <div class="clr"></div> -->
+    <?php echo $lk_name;?>
   <?php } ?>
     
 
@@ -183,17 +184,38 @@
   <div id="send-order" class="white-popup-block mfp-hide">
   			<div class="popup-modal-close">X</div>
 			<h3>Оплата заказа </h3>
-			<p>
-			На вашем счету в личном кабинете есть <span class="action">1200 руб,</span>  вы можете использовать 
-			ее для полной или частичной оплаты заказа.
-			</p>
+
+      <?php if($this->session->data['balans']):?>
+  			<p>
+  			На вашем счету в личном кабинете есть <span class="action"><?php echo $this->session->data['balans'];?>,</span>  вы можете использовать 
+  			ее для полной или частичной оплаты заказа.
+  			</p>
+      <?php else: ?>
+          <p>
+        На вашем счету нет средств для полной или частичной оплаты заказа.
+        </p>
+      <?php endif;?>
+
 			<div class="summa">
-				<div><p>Сумма к оплате заказа: </p><span><?php echo $totals[1]['value']; ?> руб</span></div>
+				<div><p>Сумма к оплате заказа: </p><span><?php echo $totals[1]['text']; ?> </span></div>
 				<div class="clr"></div>
-				<div><p>Сумма с учетом <br>бонусных средств с ЛК: </p><span class="pink">38 657 руб</span></div>
+         <?php if($this->session->data['balans']):?>
+				    <div><p>Сумма с учетом <br>бонусных средств с ЛК: </p><span class="pink">
+            <?php 
+            if( $this->session->data['balans_noformat'] > $totals[1]['value']) {
+              echo "0 руб";
+           }elseif( $this->session->data['balans_noformat'] < $totals[1]['value']){
+             $sum = $totals[1]['value'] - $this->session->data['balans_noformat'];
+             echo $sum = $this->currency->format( $sum , $this->config->get('config_currency'));
+           }
+            ?>
+            </span></div>
+        <?php else: ?>
+          <div><p>Сумма с учетом <br>бонусных средств с ЛК: </p><span class="pink">0 руб</span></div>
+        <?php endif;?>
 			</div>
 			<div class="clr"></div>
-			<a href="#">Оплатить с бонусами <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/white-arrow.png" alt=""></a>
+			<a href="#" class="pay-bonus">Оплатить с бонусами <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/white-arrow.png" alt=""></a>
 			<a href="#" class="bez_bonus">Оплатить без бонусов</a>
 		</div>
    </div>
@@ -215,90 +237,142 @@ $("#send-order .bez_bonus").click(function(e){
     $(".send-form-customer").submit();
 });
 
-$('input[name=\'customer_group_id\']:checked').live('change', function() {
-  var customer_group = [];
-  
-<?php foreach ($customer_groups as $customer_group) { ?>
-  customer_group[<?php echo $customer_group['customer_group_id']; ?>] = [];
-  customer_group[<?php echo $customer_group['customer_group_id']; ?>]['company_id_display'] = '<?php echo $customer_group['company_id_display']; ?>';
-  customer_group[<?php echo $customer_group['customer_group_id']; ?>]['company_id_required'] = '<?php echo $customer_group['company_id_required']; ?>';
-  customer_group[<?php echo $customer_group['customer_group_id']; ?>]['tax_id_display'] = '<?php echo $customer_group['tax_id_display']; ?>';
-  customer_group[<?php echo $customer_group['customer_group_id']; ?>]['tax_id_required'] = '<?php echo $customer_group['tax_id_required']; ?>';
-<?php } ?>  
 
-  if (customer_group[this.value]) {
-    if (customer_group[this.value]['company_id_display'] == '1') {
-      $('#company-id-display').show();
-    } else {
-      $('#company-id-display').hide();
-    }
-    
-    if (customer_group[this.value]['company_id_required'] == '1') {
-      $('#company-id-required').show();
-    } else {
-      $('#company-id-required').hide();
-    }
-    
-    if (customer_group[this.value]['tax_id_display'] == '1') {
-      $('#tax-id-display').show();
-    } else {
-      $('#tax-id-display').hide();
-    }
-    
-    if (customer_group[this.value]['tax_id_required'] == '1') {
-      $('#tax-id-required').show();
-    } else {
-      $('#tax-id-required').hide();
-    } 
-  }
-});
+  $("#send-order .pay-bonus").click(function(e){
 
-$('input[name=\'customer_group_id\']:checked').trigger('change');
-//--></script> 
-<script type="text/javascript"><!--
-$('select[name=\'country_id\']').bind('change', function() {
-  if (this.value == '') return;
-  $.ajax({
-    url: 'index.php?route=checkout/checkout/country&country_id=' + this.value,
-    dataType: 'json',
-    beforeSend: function() {
-      // $('select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
-    },
-    complete: function() {
-      $('.wait').remove();
-    },      
-    success: function(json) {
-      if (json['postcode_required'] == '1') {
-        $('#payment-postcode-required').show();
-      } else {
-        $('#payment-postcode-required').hide();
-      }
-      
-      html = '<option value=""><?php echo $text_select; ?></option>';
-      
-      if (json['zone'] != '') {
-        for (i = 0; i < json['zone'].length; i++) {
-              html += '<option value="' + json['zone'][i]['zone_id'] + '"';
-            
-          if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
-                html += ' selected="selected"';
-            }
-  
-            html += '>' + json['zone'][i]['name'] + '</option>';
-        }
-      } else {
-        html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
-      }
-      
-      $('select[name=\'zone_id\']').html(html);
-    },
-    error: function(xhr, ajaxOptions, thrownError) {
-      alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+    e.preventDefault();
+
+    var redirect = 'http://oc.loc/index.php?route=account/account/history';
+    <?php if($this->session->data['balans_noformat']): ?>
+      var bonus = <?php echo $this->session->data['balans_noformat'];?>
+    <?php else: ?>
+      var bonus = 0;
+    <?php endif;?>
+    
+    console.log(bonus);
+    if(bonus > 0){
+      console.log(bonus);
+         $(".send-form-customer").submit();
     }
+    else{
+      alert("У вас нет бонусов!");
+      return false;
+    }
+
+      //  $.ajax({
+      //      url: 'http://oc.loc/index.php?route=account/account/withdrawal',
+      //      // url: 'http://oc.loc/catalog/controller/account/register.php',
+      //      type: 'post',
+      //      data: 'data=withdrawal',
+      //      dataType: 'json',
+      //      success: function(json) {
+      //         if(json.balans) { 
+      //           // alert(json.balans); 
+      //           alert("Oтправлен запрос на вывод");
+      //           window.location = redirect;
+      //         }
+      //       if(json.error) { alert('Нечего выводить! Ваш баланс 0 рублей');}
+      //         console.log(json);
+      //      },
+      // error:function(xhr, ajaxOptions, thrownError) {
+      //   alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      // }
+      //  });
+
   });
-});
 
-$('select[name=\'country_id\']').trigger('change');
+
+// $('input[name=\'customer_group_id\']:checked').live('change', function() {
+//   var customer_group = [];
+  
+// <?php foreach ($customer_groups as $customer_group) { ?>
+//   customer_group[<?php echo $customer_group['customer_group_id']; ?>] = [];
+//   customer_group[<?php echo $customer_group['customer_group_id']; ?>]['company_id_display'] = '<?php echo $customer_group['company_id_display']; ?>';
+//   customer_group[<?php echo $customer_group['customer_group_id']; ?>]['company_id_required'] = '<?php echo $customer_group['company_id_required']; ?>';
+//   customer_group[<?php echo $customer_group['customer_group_id']; ?>]['tax_id_display'] = '<?php echo $customer_group['tax_id_display']; ?>';
+//   customer_group[<?php echo $customer_group['customer_group_id']; ?>]['tax_id_required'] = '<?php echo $customer_group['tax_id_required']; ?>';
+// <?php } ?>  
+
+//   if (customer_group[this.value]) {
+//     if (customer_group[this.value]['company_id_display'] == '1') {
+//       $('#company-id-display').show();
+//     } else {
+//       $('#company-id-display').hide();
+//     }
+    
+//     if (customer_group[this.value]['company_id_required'] == '1') {
+//       $('#company-id-required').show();
+//     } else {
+//       $('#company-id-required').hide();
+//     }
+    
+//     if (customer_group[this.value]['tax_id_display'] == '1') {
+//       $('#tax-id-display').show();
+//     } else {
+//       $('#tax-id-display').hide();
+//     }
+    
+//     if (customer_group[this.value]['tax_id_required'] == '1') {
+//       $('#tax-id-required').show();
+//     } else {
+//       $('#tax-id-required').hide();
+//     } 
+//   }
+// });
+
+// $('input[name=\'customer_group_id\']:checked').trigger('change');
+// //--></script> 
+// <script type="text/javascript"><!--
+// $('select[name=\'country_id\']').bind('change', function() {
+//   if (this.value == '') return;
+//   $.ajax({
+//     url: 'index.php?route=checkout/checkout/country&country_id=' + this.value,
+//     dataType: 'json',
+//     beforeSend: function() {
+//       // $('select[name=\'country_id\']').after('<span class="wait">&nbsp;<img src="catalog/view/theme/default/image/loading.gif" alt="" /></span>');
+//     },
+//     complete: function() {
+//       $('.wait').remove();
+//     },      
+//     success: function(json) {
+//       if (json['postcode_required'] == '1') {
+//         $('#payment-postcode-required').show();
+//       } else {
+//         $('#payment-postcode-required').hide();
+//       }
+      
+//       html = '<option value=""><?php echo $text_select; ?></option>';
+      
+//       if (json['zone'] != '') {
+//         for (i = 0; i < json['zone'].length; i++) {
+//               html += '<option value="' + json['zone'][i]['zone_id'] + '"';
+            
+//           if (json['zone'][i]['zone_id'] == '<?php echo $zone_id; ?>') {
+//                 html += ' selected="selected"';
+//             }
+  
+//             html += '>' + json['zone'][i]['name'] + '</option>';
+//         }
+//       } else {
+//         html += '<option value="0" selected="selected"><?php echo $text_none; ?></option>';
+//       }
+      
+//       $('select[name=\'zone_id\']').html(html);
+//     },
+//     error: function(xhr, ajaxOptions, thrownError) {
+//       alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+//     }
+//   });
+// });
+
+// $('select[name=\'country_id\']').trigger('change');
+
+
+
 
 //--></script> 
 
+<?php print_r($totals);?>
+<?php echo $this->session->data['balans_noformat'];?>
+<?php echo $this->session->data['affiliate_id'];?>
+<?php print_r($_SESSION);?>

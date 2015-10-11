@@ -48,15 +48,16 @@
                 <a href="<?php echo $sort_price; ?>"><?php echo $column_price; ?></a>
                 <?php } ?>
                 </td> 
-      <?php if ($affiliate_product_commission) { ?>
-        <td class="left"><?php echo $column_commission; ?></td>
-      <?php } ?>
+
                <td class="left"><a href="#">Оптовая цена</a> </td>
                <td class="left"><a href="#">Цена закупки</a></td>
                <td class="left"><a href="#">Всего продано:</a></td>
 
 
-		
+			
+			<?php if ($affiliate_product_commission) { ?>
+				<td class="left"><?php echo $column_commission; ?></td>
+			<?php } ?>
 			
             
               <td class="right"><?php if ($sort == 'p.quantity') { ?>
