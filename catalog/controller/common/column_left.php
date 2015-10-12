@@ -82,6 +82,7 @@ class ControllerCommonColumnLeft extends Controller {
 		$this->data['link_structura'] = $this->url->link('affiliate/statisticsmyaffiliate', '', 'SSL');
 		$this->data['link_history'] = $this->url->link('account/account/history', '', 'SSL');
 		$this->data['link_logout'] = $this->url->link('account/logout', '', 'SSL');
+		$this->data['link_order'] = $this->url->link('account/order', '', 'SSL');
 		
 		if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/common/column_left.tpl')) {
 			$this->template = $this->config->get('config_template') . '/template/common/column_left.tpl';

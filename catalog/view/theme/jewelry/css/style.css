@@ -1739,9 +1739,12 @@ ul.category li span{
    padding-left:15px;
 }
 
-.lm-cart .wrap_table img{
-  max-width: 63px;
-  max-height: 63px;
+.lm-cart .wrap_table .product_title img{
+/*  max-width: 63px;
+  max-height: 63px; */
+   width: 35px;
+    height: 35px;
+
 }
 
 .lm-cart .wrap_table .del_product a{
@@ -1766,6 +1769,14 @@ ul.category li span{
   font-family: "ProximaNovaBold";
 }
 
+.lm-cart .my-orders td img{
+   margin-right: 7px;
+   margin-left: 0;
+}
+
+.lm-cart .my-orders .order_id{
+  padding-left: 30px;
+}
 
 .lm-cart .dop-links{
   overflow: hidden;

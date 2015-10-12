@@ -8,7 +8,9 @@ class ControllerAccountOrder extends Controller {
 
 	  		$this->redirect($this->url->link('account/login', '', 'SSL'));
     	}
-		
+		$this->data['logged'] = $this->customer->isLogged();
+		$this->data['home'] = $this->config->get('config_url');
+
 		$this->language->load('account/order');
 		
 		$this->load->model('account/order');
@@ -105,6 +107,12 @@ class ControllerAccountOrder extends Controller {
 			$voucher_total = $this->model_account_order->getTotalOrderVouchersByOrderId($result['order_id']);
 			$product_count = $this->model_account_order->getTotalOrderProductsCountByOrderId($result['order_id']);
 
+			$detal_prod = $this->model_account_order->getOrderProducts($result['order_id']);
+			foreach ($detal_prod as $k => $v) {
+				$detal_prod[$k]['image'] = $this->model_account_order->getImage($v['product_id']);
+			}
+			
+
 			$this->data['orders'][] = array(
 				'order_id'   => $result['order_id'],
 				'name'       => $result['firstname'] . ' ' . $result['lastname'],
@@ -114,7 +122,8 @@ class ControllerAccountOrder extends Controller {
 				'products_count'   => ($product_count + $voucher_total),
 				'total'      => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
 				'href'       => $this->url->link('account/order/info', 'order_id=' . $result['order_id'], 'SSL'),
-				'reorder'    => $this->url->link('account/order', 'order_id=' . $result['order_id'], 'SSL')
+				'reorder'    => $this->url->link('account/order', 'order_id=' . $result['order_id'], 'SSL'),
+				'detal_prod' => $detal_prod
 			);
 		}
 
@@ -140,6 +149,7 @@ class ControllerAccountOrder extends Controller {
 			'common/column_right',
 			'common/content_top',
 			'common/content_bottom',
+			'common/lk_name',
 			'common/footer',
 			'common/header'	
 		);
@@ -382,6 +392,7 @@ class ControllerAccountOrder extends Controller {
 				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
+				'common/lk_name',
 				'common/footer',
 				'common/header'	
 			);
@@ -435,6 +446,7 @@ class ControllerAccountOrder extends Controller {
 				'common/column_right',
 				'common/content_top',
 				'common/content_bottom',
+				'common/lk_name',
 				'common/footer',
 				'common/header'	
 			);

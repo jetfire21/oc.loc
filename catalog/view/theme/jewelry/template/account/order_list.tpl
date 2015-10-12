@@ -1,32 +1,139 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
-<div id="content"><?php echo $content_top; ?>
-  <div class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-    <?php } ?>
-  </div>
-  <h1><?php echo $heading_title; ?></h1>
-  <?php if ($orders) { ?>
-  <?php foreach ($orders as $order) { ?>
-  <div class="order-list">
-    <div class="order-id"><b><?php echo $text_order_id; ?></b> #<?php echo $order['order_id']; ?></div>
-    <div class="order-status"><b><?php echo $text_status; ?></b> <?php echo $order['status']; ?></div>
-    <div class="order-content">
-      <div><b><?php echo $text_date_added; ?></b> <?php echo $order['date_added']; ?><br />
-        <b><?php echo $text_products; ?></b> <?php echo $order['products']; ?><br />
-        <b><?php echo $text_products_count; ?></b> <?php echo $order['products_count']; ?></div>
-      <div><b><?php echo $text_customer; ?></b> <?php echo $order['name']; ?><br />
-        <b><?php echo $text_total; ?></b> <?php echo $order['total']; ?></div>
-      <div class="order-info"><a href="<?php echo $order['href']; ?>"><img src="catalog/view/theme/default/image/info.png" alt="<?php echo $button_view; ?>" title="<?php echo $button_view; ?>" /></a>&nbsp;&nbsp;<a href="<?php echo $order['reorder']; ?>"><img src="catalog/view/theme/default/image/reorder.png" alt="<?php echo $button_reorder; ?>" title="<?php echo $button_reorder; ?>" /></a></div>
-    </div>
-  </div>
+<?php echo $header; ?>
+<div class="lk">
+<div class="wrapper-1">
+  <div class="container">
+
+  <?php // echo $logged; ?>
+  <?php if($logged) { ?>
+  <!--    
+    <div class="full_name"> 
+        <p>Профиль Рубен Меджмулян</p>
+        <h2>Личный кабинет</h2>
+      </div>
+      <div class="balans">
+        <p>Ваш баланс: <span>1 200 руб</span></p>
+        <a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
+        <a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
+      </div>
+    <div class="clr"></div> -->
+    <?php echo $lk_name; ?>
   <?php } ?>
-  <div class="pagination"><?php echo $pagination; ?></div>
-  <?php } else { ?>
-  <div class="content"><?php echo $text_empty; ?></div>
-  <?php } ?>
-  <div class="buttons">
-    <div class="right"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_continue; ?></a></div>
+    
+
+    <?php if( !$logged) $class_guest = 'j-guest-offer'; ?>
+    <div class="lm-cart <?php echo $class_guest; ?>">
+      <?php if( $logged) { ?>
+        <?php echo $column_left; ?>
+      <?php } ?>
+
+      <div class="cart-product">
+        <h3>Мои заказы</h3>
+        <div class="wrap_table">
+        <table class="my-orders">
+            <?php if ($orders): ?>
+                <tr>
+                <th>Номер заказа</th>
+                <th colspan="2">Товары в заказе</th>
+                <th>Статус</th>
+                <th></th>
+              </tr>
+
+              <?php foreach ($orders as $order):?>
+              <tr class="cart-item">
+                <td class="order_id">  #<?php echo $order['order_id']; ?></td>
+                <td colspan="2" class="product_title">
+                   <?php foreach ($order['detal_prod'] as $k => $v): ?>
+                      <p> <img src="<?php echo $home."image/".$v['image'];?>"/><?php echo $v['name'];?> x <?php echo $v['quantity'];?>шт</p>
+                   <?php endforeach; ?>                  
+                </td>
+                <td><?php echo $order['status']; ?></td>
+                <td><a class="pink" href="<?php echo $order['href']; ?>">Подробнее</a></td>
+              </tr>     
+              <?php endforeach;?>
+
+          <?php endif;?>         
+        </table>
+            <div class="dop-links">
+            </div>
+        </div>        
+      </div>
+
+       <div class="clr"></div>
+    </div> <!-- .lm-cart -->
   </div>
-  <?php echo $content_bottom; ?></div>
+</div>
+
+<div class="lk-article-bg">
+
+      <div class="container">
+        <h4>От профессионалов продаж</h4>
+        <?php echo $column_right; ?>
+<!-- 
+          <div class="article">
+             <div class="icon-new"></div>
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/women-kak-pod-akses.jpg" alt="">
+             <div class="a-text">
+                <h2><a href="">Подруге может быть интересно</a></h2>
+                <span>Статья от стилиста с телеканала дождь</span>
+             </div>
+           </div> 
+
+          <div class="article mini-img">
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/girl-military.jpg" alt="">
+             <div class="a-text">
+               <h2><a href="">Мы продаем то что в тренде - заработайте на этом!</a></h2>              
+                <span>Рудактор портала DB News</span>
+             </div>     
+           </div> 
+
+          <div class="article mini-img">
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/girl-remen.jpg" alt="">
+             <div class="a-text">
+                <h2><a href="">10 советов по постингу ссылки</a></h2>             
+                <span>Рудактор портала DB News</span>
+             </div>
+           </div>
+   -->    
+      </div>
+
+</div>
+</div>
+
+
+<?php
+
+// echo "<pre>";
+// print_r($products);
+// echo "</pre";
+// echo '$_SESSION';
+// print_r($_SESSION);
+// print_r($totals); 
+
+?>
+
+
 <?php echo $footer; ?>
+
+<script type="text/javascript">
+
+var sum = 0;
+var i = 0;
+
+$('.cart-item').each(function(index){
+  $(this).find('#cart-kol').change(function() {
+    var up_kol = $(this).val();
+    // alert(up_kol);
+    $(this).parent().find('.kol').text(up_kol + ' шт');
+
+    $(this).parent().find("#my-q").val(up_kol);
+    $('.update_cart input').val(up_kol);
+     // console.log( $(this).parent().find('.update_cart').html() );
+    $(this).parent().find('.update_cart').submit();
+  });
+
+});
+
+</script>
+
+<?php echo '----'. $stock; print_r($_SESSION); print_r($orders);?>
+
