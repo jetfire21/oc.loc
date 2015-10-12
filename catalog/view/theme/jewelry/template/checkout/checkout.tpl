@@ -26,7 +26,7 @@
       <?php } ?>
 
 			<div class="cart-product">
-				<h3>Оформление заказа <?php echo $order_id;?> </h3>
+				<h3>Оформление заказа №<?php echo $next_order_id;?> </h3>
 				<div class="wrap_table">
           <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data" class="send-form-customer">
 					<div class="name-block">
@@ -184,7 +184,7 @@
 
   <div id="send-order" class="white-popup-block mfp-hide">
   			<div class="popup-modal-close">X</div>
-			<h3>Оплата заказа </h3>
+			<h3>Оплата заказа №<?php echo $next_order_id;?></h3>
 
       <?php if($this->session->data['balans']):?>
   			<p>

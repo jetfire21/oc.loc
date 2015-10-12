@@ -41,6 +41,8 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->document->addScript('catalog/view/javascript/jquery/colorbox/jquery.colorbox-min.js');
 		$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 
+		$this->data['next_order_id'] = $this->model_checkout_order->getLastIdOrder() + 1;
+
 		$this->data['breadcrumbs'] = array();
 
 		$this->data['breadcrumbs'][] = array(
