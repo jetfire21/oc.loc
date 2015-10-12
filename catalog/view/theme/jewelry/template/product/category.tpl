@@ -115,8 +115,8 @@
                    $product['special_end'] = str_replace(",", "",  $product['special_end']);
               ?>
               <div><span class="action"> Акция до <?php echo $product['special_end']; ?></span></div>
-              <p class="price pink"><?php echo $product['price']; ?></p>
-              <p class="old-price"><?php echo $product['special']; ?></p>
+              <p class="price pink"><?php echo $product['special']; ?></p>
+              <p class="old-price"><?php echo $product['price']; ?> </p>
               </div>
                <a href="<?php echo $product['href']; ?>" class="buy button">купить</a>
           </div> 

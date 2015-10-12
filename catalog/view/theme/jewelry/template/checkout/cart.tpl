@@ -63,10 +63,21 @@
 									 <?php $kolvo = $kolvo +  $product['quantity']; ?>
 									<span class="kol"><?php echo $product['quantity']; ?> шт</span>
  									<select name="cart-kol" id="cart-kol">
+										<!-- 
 										<option value="1" <?php if($product['quantity'] == 1) echo 'selected="selected"'; ?> >1 шт</option>
 										<option value="2" <?php if($product['quantity'] == 2) echo 'selected="selected"'; ?> >2 шт</option>
 										<option value="3" <?php if($product['quantity'] == 3) echo 'selected="selected"'; ?>>3 шт</option>
 										<option value="4" <?php if($product['quantity'] == 4) echo 'selected="selected"'; ?>>4 шт</option>
+										 -->
+										 <?php for($i = 1; $i <= $product['count_sklad']; $i++) { ?>
+										 	<option value="<?php echo $i;?>" 
+										 		<?php 
+										 		if($product['quantity'] == $i) echo 'selected="selected" >';
+										 		else echo '>';
+										 		 ?>
+										 	<?php echo $i;?> шт</option>
+										 	<?php if($i == 5) break;?>							 	   
+										 <?php } ?>
 									</select>
 									<form action="/index.php?route=checkout/cart" method="post" class="update_cart">
 										<input type="hidden" name="quantity[<?php echo $product['key']; ?>]" value="7" size="1" />
@@ -166,4 +177,6 @@ $('.cart-item').each(function(index){
 });
 
 </script>
+
+<?php echo '----'. $stock; print_r($_SESSION); print_r($products);?>
 

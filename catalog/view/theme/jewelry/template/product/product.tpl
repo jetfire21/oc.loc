@@ -93,9 +93,19 @@
 						<?php $stock = (int)$stock; ?>
         				<?php if($stock > 0 ) { ?>
 							<select name="sel-kol" class="option kol">
-							  <option>1 шт</option>
-							  <option>2 шт</option>
-							  <option>3 шт</option>
+								<?php for($i = 1; $i <= $stock; $i++) {?> 
+									<?php if($i == 1):?>
+									 	<option selected="selected"><?php echo $i;?> шт</option>
+									<?php else:?>
+										<option><?php echo $i;?> шт</option>
+									<?php endif;?>
+								  <?php if($i == 5) break;?>
+								  <?php } ?>
+	  							<!-- 							 
+								 <option class="first-option" selected="selected">1 шт</option>
+								  <option>2 шт</option>
+								  <option>3 шт</option> 
+								  -->
 							</select>
 						 <?php } ?>
 						 <input class="my-quanty" type="hidden" name="quantity" size="2" value="2" />
@@ -212,3 +222,4 @@ $("select.kol").change(function(){
 	if( sel_kol > total) {	alert('Данного товара нет в нужном количестве,пожалуйста измените количество'); }
 });
 </script>
+

@@ -191,9 +191,11 @@ class ModelSaleAffiliate extends Model {
 		
 	public function addTransaction($affiliate_id, $description = '', $amount = '', $order_id = 0, $firstname, $lastname) {
 		$affiliate_info = $this->getAffiliate($affiliate_id);
+
+		$ostatok = $this->getBalansAff($affiliate_id) + $amount;
 		
 		if ($affiliate_info) { 
-			$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate_transaction SET affiliate_id = '" . (int)$affiliate_id . "', order_id = '" . (float)$order_id . "', description = '" . $this->db->escape($description) . "',name = '" . $this->db->escape($firstname)." ".$this->db->escape($lastname). "', payment='1', operation='Оплата заказа №".$order_id."',amount = '" . (float)$amount . "', date_added = NOW()");
+			$this->db->query("INSERT INTO " . DB_PREFIX . "affiliate_transaction SET affiliate_id = '" . (int)$affiliate_id . "', order_id = '" . (float)$order_id . "', description = '" . $this->db->escape($description) . "',name = '" . $this->db->escape($firstname)." ".$this->db->escape($lastname). "', payment='1', operation='Оплата заказа №".$order_id."', ostatok='".$ostatok."', amount = '" . (float)$amount . "', date_added = NOW()");
 		
 			$this->language->load('mail/affiliate');
 							
@@ -216,6 +218,12 @@ class ModelSaleAffiliate extends Model {
 			$mail->send();
 		}
 	}
+
+     public function getBalansAff($aff_id) {
+        $query = $this->db->query("SELECT balans FROM " . DB_PREFIX . "affiliate WHERE affiliate_id = '" . (int)$aff_id . "'");
+        
+        return $query->row['balans']; 
+    }
 	
 	public function deleteTransaction($order_id) {
 		$this->db->query("DELETE FROM " . DB_PREFIX . "affiliate_transaction WHERE order_id = '" . (int)$order_id . "'");

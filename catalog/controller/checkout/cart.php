@@ -231,6 +231,9 @@ class ControllerCheckoutCart extends Controller {
 				} else {
 					$total = false;
 				}
+
+				$this->load->model('catalog/product');		
+		        $product_info2 = $this->model_catalog_product->getProduct($product['product_id']);
 				
         		$this->data['products'][] = array(
           			'key'      => $product['key'],
@@ -244,7 +247,8 @@ class ControllerCheckoutCart extends Controller {
 					'price'    => $price,
 					'total'    => $total,
 					'href'     => $this->url->link('product/product', 'product_id=' . $product['product_id']),
-					'remove'   => $this->url->link('checkout/cart', 'remove=' . $product['key'])
+					'remove'   => $this->url->link('checkout/cart', 'remove=' . $product['key']),
+					'count_sklad' => $product_info2['quantity']
 				);
       		}
 			
