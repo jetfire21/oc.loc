@@ -215,8 +215,9 @@
 
             <div class="container">
                 <h4>От профессионалов продаж</h4>
+                <?php echo $column_right; ?>
 
-                  <div class="article">
+<!--                   <div class="article">
                      <div class="icon-new"></div>
                      <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/women-kak-pod-akses.jpg" alt="">
                      <div class="a-text">
@@ -239,7 +240,7 @@
                         <h2><a href="">10 советов по постингу ссылки</a></h2>                   
                         <span>Рудактор портала DB News</span>
                      </div>
-                 </div>
+                 </div> -->
             
             </div>
 

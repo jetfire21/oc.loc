@@ -49,6 +49,7 @@ print_r($affiliate_info);
 						    	<th>Имя</th>
 						    	<th>Сумма</th>
 						    	<th>Остаток</th>
+						    	<?php $i = 1; ?>
 								<?php foreach($transactions as $item):?>
 								<tr>
 									<td><?php echo $item["date_added"];?></td>
@@ -63,6 +64,10 @@ print_r($affiliate_info);
 									<?php endif; ?>
 									
 								</tr>
+								<?php 
+									if($i == 10) break;
+									$i++;
+								?>
 								<?php endforeach;?>
 							<?php else:?>
 								<p>У вас еще не было транзакций!</p>
@@ -108,7 +113,8 @@ print_r($affiliate_info);
 
 			<div class="container">
 				<h4>От профессионалов продаж</h4>
-
+				<?php echo $column_right; ?>
+<!-- 
 				  <div class="article">
 				  	 <div class="icon-new"></div>
 			  		 <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/women-kak-pod-akses.jpg" alt="">
@@ -133,7 +139,7 @@ print_r($affiliate_info);
 			  		    <span>Рудактор портала DB News</span>
 			  		 </div>
 			  	 </div>
-			
+			 -->
 			</div>
 
 </div>

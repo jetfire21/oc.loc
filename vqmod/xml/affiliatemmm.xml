@@ -284,7 +284,8 @@
             </add>
         </operation>
         <operation>
-            <search position="before">
+            <search position="before" offset="4">
+            <!-- <search position="before"> -->
 			<![CDATA[
 				$sort == 'p.quantity'
 			]]>

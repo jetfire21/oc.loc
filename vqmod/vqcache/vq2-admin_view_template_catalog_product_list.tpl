@@ -49,10 +49,6 @@
                 <?php } ?>
                 </td> 
 
-               <td class="left"><a href="#">Оптовая цена</a> </td>
-               <td class="left"><a href="#">Цена закупки</a></td>
-               <td class="left"><a href="#">Всего продано:</a></td>
-
 
 			
 			<?php if ($affiliate_product_commission) { ?>
@@ -60,6 +56,10 @@
 			<?php } ?>
 			
             
+               <td class="left"><a href="#">Оптовая цена</a> </td>
+               <td class="left"><a href="#">Цена закупки</a></td>
+               <td class="left"><a href="#">Всего продано:</a></td>
+
               <td class="right"><?php if ($sort == 'p.quantity') { ?>
                 <a href="<?php echo $sort_quantity; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_quantity; ?></a>
                 <?php } else { ?>

@@ -139,7 +139,10 @@
       <div class="container">
         <h4>От профессионалов продаж</h4>
 
-          <div class="article">
+
+     <?php echo $column_right; ?>
+<!--   
+        <div class="article">
              <div class="icon-new"></div>
              <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/women-kak-pod-akses.jpg" alt="">
              <div class="a-text">
@@ -163,6 +166,9 @@
                 <span>Рудактор портала DB News</span>
              </div>
            </div>
+ -->
+
+           <!-- <?php echo $articleprod_bottom; ?>  -->
       
       </div>
 

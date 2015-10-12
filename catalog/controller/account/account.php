@@ -109,8 +109,10 @@ class ControllerAccountAccount extends Controller {
 			'common/content_top',
 			'common/content_bottom',
 			'common/lk_name',
+			'common/articleprod_bottom',
 			'common/footer',
-			'common/header'
+			'common/header',
+			'module/news'
 		);
 				
 		$this->response->setOutput($this->render());
@@ -129,8 +131,10 @@ class ControllerAccountAccount extends Controller {
 			'common/content_top',
 			'common/content_bottom',
 			'common/lk_name',
+			'common/articleprod_bottom',
 			'common/footer',
-			'common/header'
+			'common/header',
+			'module/news'
 		);
 		$this->response->setOutput($this->render());
   	}
@@ -198,8 +202,10 @@ class ControllerAccountAccount extends Controller {
 			'common/content_top',
 			'common/content_bottom',
 			'common/lk_name',
+			'common/articleprod_bottom',
 			'common/footer',
-			'common/header'
+			'common/header',
+			'module/news'
 		);
 		$this->response->setOutput($this->render());
   	}
@@ -235,8 +241,10 @@ class ControllerAccountAccount extends Controller {
 			'common/content_top',
 			'common/content_bottom',
 			'common/lk_name',
+			'common/articleprod_bottom',
 			'common/footer',
-			'common/header'
+			'common/header',
+			'module/news'
 		);
 		$this->response->setOutput($this->render());
   	}
