@@ -40,17 +40,19 @@
 
               <?php foreach ($orders as $order):?>
               <tr class="cart-item">
-                <td class="order_id">  #<?php echo $order['order_id']; ?></td>
+                <td class="order_id"> №<?php echo $order['order_id']; ?></td>
                 <td colspan="2" class="product_title">
                    <?php foreach ($order['detal_prod'] as $k => $v): ?>
-                      <p> <img src="<?php echo $home."image/".$v['image'];?>"/><?php echo $v['name'];?> x <?php echo $v['quantity'];?>шт</p>
+                      <p> <img src="<?php echo $home."image/".$v['image'];?>"/><span><?php echo $v['name'];?> x <?php echo $v['quantity'];?>шт</span></p>
+                      <div class="clr"></div>
                    <?php endforeach; ?>                  
                 </td>
                 <td><?php echo $order['status']; ?></td>
                 <td><a class="pink" href="<?php echo $order['href']; ?>">Подробнее</a></td>
               </tr>     
               <?php endforeach;?>
-
+          <?php else:?>
+              <p>Вы еще не совершали покупок!</p>
           <?php endif;?>         
         </table>
             <div class="dop-links">

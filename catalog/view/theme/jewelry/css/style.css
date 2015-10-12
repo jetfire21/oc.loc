@@ -1747,6 +1747,8 @@ ul.category li span{
 
 }
 
+
+
 .lm-cart .wrap_table .del_product a{
   visibility: hidden;
 }
@@ -1774,8 +1776,17 @@ ul.category li span{
    margin-left: 0;
 }
 
+/*.lm-cart .my-orders .product_title p span{
+    padding-top: 8px;
+    display: inline-block;
+}*/
+
 .lm-cart .my-orders .order_id{
   padding-left: 30px;
+}
+
+.lm-cart .my-orders td p{
+  padding: 5px 0;
 }
 
 .lm-cart .dop-links{

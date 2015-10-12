@@ -171,6 +171,9 @@ class ControllerAccountOrder extends Controller {
 			
 			$this->redirect($this->url->link('account/login', '', 'SSL'));
     	}
+
+    	$this->data['logged'] = $this->customer->isLogged();
+		$this->data['home'] = $this->config->get('config_url');
 						
 		$this->load->model('account/order');
 			

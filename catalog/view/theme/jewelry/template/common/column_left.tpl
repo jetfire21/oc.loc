@@ -5,7 +5,7 @@
     if( $_SERVER['QUERY_STRING'] == 'route=affiliate/statisticsmyaffiliate' ) $active_structura = "active";
     // if( $_SERVER['QUERY_STRING'] == 'route=account/account/structura' ) $active_structura = "active";
     if( $_SERVER['QUERY_STRING'] == 'route=account/account/history' ) $active_history = "active";
-    if( $_SERVER['QUERY_STRING'] == 'route=account/order' ) $active_order = "active";
+    if( $_SERVER['QUERY_STRING'] == 'route=account/order') $active_order = "active";
  ?>
 
       <div class="left-menu">

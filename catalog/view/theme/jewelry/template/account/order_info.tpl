@@ -1,142 +1,158 @@
-<?php echo $header; ?><?php echo $column_left; ?><?php echo $column_right; ?>
-<div id="content"><?php echo $content_top; ?>
-  <div class="breadcrumb">
-    <?php foreach ($breadcrumbs as $breadcrumb) { ?>
-    <?php echo $breadcrumb['separator']; ?><a href="<?php echo $breadcrumb['href']; ?>"><?php echo $breadcrumb['text']; ?></a>
-    <?php } ?>
-  </div>
-  <h1><?php echo $heading_title; ?></h1>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left" colspan="2"><?php echo $text_order_detail; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="left" style="width: 50%;"><?php if ($invoice_no) { ?>
-          <b><?php echo $text_invoice_no; ?></b> <?php echo $invoice_no; ?><br />
-          <?php } ?>
-          <b><?php echo $text_order_id; ?></b> #<?php echo $order_id; ?><br />
-          <b><?php echo $text_date_added; ?></b> <?php echo $date_added; ?></td>
-        <td class="left" style="width: 50%;"><?php if ($payment_method) { ?>
-          <b><?php echo $text_payment_method; ?></b> <?php echo $payment_method; ?><br />
-          <?php } ?>
-          <?php if ($shipping_method) { ?>
-          <b><?php echo $text_shipping_method; ?></b> <?php echo $shipping_method; ?>
-          <?php } ?></td>
-      </tr>
-    </tbody>
-  </table>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $text_payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td class="left"><?php echo $text_shipping_address; ?></td>
-        <?php } ?>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="left"><?php echo $payment_address; ?></td>
-        <?php if ($shipping_address) { ?>
-        <td class="left"><?php echo $shipping_address; ?></td>
-        <?php } ?>
-      </tr>
-    </tbody>
-  </table>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $column_name; ?></td>
-        <td class="left"><?php echo $column_model; ?></td>
-        <td class="right"><?php echo $column_quantity; ?></td>
-        <td class="right"><?php echo $column_price; ?></td>
-        <td class="right"><?php echo $column_total; ?></td>
-        <?php if ($products) { ?>
-        <td style="width: 1px;"></td>
-        <?php } ?>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($products as $product) { ?>
-      <tr>
-        <td class="left"><?php echo $product['name']; ?>
-          <?php foreach ($product['option'] as $option) { ?>
-          <br />
-          &nbsp;<small> - <?php echo $option['name']; ?>: <?php echo $option['value']; ?></small>
-          <?php } ?></td>
-        <td class="left"><?php echo $product['model']; ?></td>
-        <td class="right"><?php echo $product['quantity']; ?></td>
-        <td class="right"><?php echo $product['price']; ?></td>
-        <td class="right"><?php echo $product['total']; ?></td>
-        <td class="right"><a href="<?php echo $product['return']; ?>"><img src="catalog/view/theme/default/image/return.png" alt="<?php echo $button_return; ?>" title="<?php echo $button_return; ?>" /></a></td>
-      </tr>
-      <?php } ?>
-      <?php foreach ($vouchers as $voucher) { ?>
-      <tr>
-        <td class="left"><?php echo $voucher['description']; ?></td>
-        <td class="left"></td>
-        <td class="right">1</td>
-        <td class="right"><?php echo $voucher['amount']; ?></td>
-        <td class="right"><?php echo $voucher['amount']; ?></td>
-        <?php if ($products) { ?>
-        <td></td>
-        <?php } ?>
-      </tr>
-      <?php } ?>
-    </tbody>
-    <tfoot>
-      <?php foreach ($totals as $total) { ?>
-      <tr>
-        <td colspan="3"></td>
-        <td class="right"><b><?php echo $total['title']; ?>:</b></td>
-        <td class="right"><?php echo $total['text']; ?></td>
-        <?php if ($products) { ?>
-        <td></td>
-        <?php } ?>
-      </tr>
-      <?php } ?>
-    </tfoot>
-  </table>
-  <?php if ($comment) { ?>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $text_comment; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td class="left"><?php echo $comment; ?></td>
-      </tr>
-    </tbody>
-  </table>
+<?php echo $header; ?>
+<div class="lk">
+<div class="wrapper-1">
+  <div class="container">
+
+  <?php // echo $logged; ?>
+  <?php if($logged) { ?>
+  <!--    
+    <div class="full_name"> 
+        <p>Профиль Рубен Меджмулян</p>
+        <h2>Личный кабинет</h2>
+      </div>
+      <div class="balans">
+        <p>Ваш баланс: <span>1 200 руб</span></p>
+        <a href="#">Как заработать?</a> / <a href="#">Куда потратить?</a>
+        <a class="karta-out" href="#"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/visa.png" alt="">Вывести на карту</a>
+      </div>
+    <div class="clr"></div> -->
+    <?php echo $lk_name; ?>
   <?php } ?>
-  <?php if ($histories) { ?>
-  <h2><?php echo $text_history; ?></h2>
-  <table class="list">
-    <thead>
-      <tr>
-        <td class="left"><?php echo $column_date_added; ?></td>
-        <td class="left"><?php echo $column_status; ?></td>
-        <td class="left"><?php echo $column_comment; ?></td>
-      </tr>
-    </thead>
-    <tbody>
-      <?php foreach ($histories as $history) { ?>
-      <tr>
-        <td class="left"><?php echo $history['date_added']; ?></td>
-        <td class="left"><?php echo $history['status']; ?></td>
-        <td class="left"><?php echo $history['comment']; ?></td>
-      </tr>
+    
+
+    <?php if( !$logged) $class_guest = 'j-guest-offer'; ?>
+    <div class="lm-cart <?php echo $class_guest; ?>">
+      <?php if( $logged) { ?>
+        <?php echo $column_left; ?>
       <?php } ?>
-    </tbody>
-  </table>
-  <?php } ?>
-  <div class="buttons">
-    <div class="right"><a href="<?php echo $continue; ?>" class="button"><?php echo $button_continue; ?></a></div>
+
+      <div class="cart-product">
+        <h3>Заказ №<?php echo $order_id; ?> Дата: <?php echo $date_added; ?></h3>
+        <div class="wrap_table">
+        <table>
+
+          <tr>
+            <th colspan="2">Товар</th>
+            <th>Артикул</th>
+            <th>Размер</th>
+            <th>Кол-во</th>
+            <th>Цена</th>
+            <th></th>
+          </tr>
+
+           <?php foreach ($products as $product): ?>
+              <tr class="cart-item">
+                <td></td>
+                <td class="product_title"><a href="item.html"><?php echo $product['name']; ?></a></td>
+                <td><?php echo $product['model']; ?></td>
+                <td>
+                <?php if($product['option']):?>
+                    <?php foreach ($product['option'] as $option): ?>
+                      <?php echo $option['value']; ?>
+                    <?php endforeach;?>
+                <?php else:?>
+                  Нет
+                <?php endif;?>
+                </td>
+                <td>
+                  <span><?php echo $product['quantity']; ?> шт</span>  
+                  <?php $count_prod = $count_prod + $product['quantity']; ?>
+                </td>
+                <td><?php echo $product['total']; ?></td>
+                <td class="del_product"></td>
+              </tr>
+          <?php endforeach;?>
+
+          <tr>
+            <td colspan="3"></td>
+            <td>Итого</td>
+            <td class="bold"><?php echo $count_prod;?> шт</td>
+            <td class="bold"><?php echo $totals[1]['text']; ?></td>
+          </tr>    
+
+        </table>
+        <div class="dop-links">
+
+        </div>
+        </div>        
+      </div>
+
+       <div class="clr"></div>
+    </div> <!-- .lm-cart -->
   </div>
-  <?php echo $content_bottom; ?></div>
-<?php echo $footer; ?> 
+</div>
+
+<div class="lk-article-bg">
+
+      <div class="container">
+        <h4>От профессионалов продаж</h4>
+        <?php echo $column_right; ?>
+<!-- 
+          <div class="article">
+             <div class="icon-new"></div>
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/women-kak-pod-akses.jpg" alt="">
+             <div class="a-text">
+                <h2><a href="">Подруге может быть интересно</a></h2>
+                <span>Статья от стилиста с телеканала дождь</span>
+             </div>
+           </div> 
+
+          <div class="article mini-img">
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/girl-military.jpg" alt="">
+             <div class="a-text">
+               <h2><a href="">Мы продаем то что в тренде - заработайте на этом!</a></h2>              
+                <span>Рудактор портала DB News</span>
+             </div>     
+           </div> 
+
+          <div class="article mini-img">
+             <img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/girl-remen.jpg" alt="">
+             <div class="a-text">
+                <h2><a href="">10 советов по постингу ссылки</a></h2>             
+                <span>Рудактор портала DB News</span>
+             </div>
+           </div>
+   -->    
+      </div>
+
+</div>
+</div>
+
+
+<?php
+
+// echo "<pre>";
+// print_r($products);
+// echo "</pre";
+// echo '$_SESSION';
+// print_r($_SESSION);
+// print_r($totals); 
+
+?>
+
+
+<?php echo $footer; ?>
+
+<script type="text/javascript">
+
+var sum = 0;
+var i = 0;
+
+$('.cart-item').each(function(index){
+  $(this).find('#cart-kol').change(function() {
+    var up_kol = $(this).val();
+    // alert(up_kol);
+    $(this).parent().find('.kol').text(up_kol + ' шт');
+
+    $(this).parent().find("#my-q").val(up_kol);
+    $('.update_cart input').val(up_kol);
+     // console.log( $(this).parent().find('.update_cart').html() );
+    $(this).parent().find('.update_cart').submit();
+  });
+
+});
+
+</script>
+
+<?php echo '----'. $stock; print_r($_SESSION); print_r($products);?>
+
