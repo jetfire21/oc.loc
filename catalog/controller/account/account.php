@@ -307,6 +307,15 @@ class ControllerAccountAccount extends Controller {
 				}
 			}
 
+			if($_POST['skype']){
+				if (utf8_strlen($this->request->post['skype']) < 3) {
+					$error['error_skype'] = "Skype должен содержать более 3 символов";
+				}
+				else{
+						$data['skype'] = $this->request->post['skype'];
+				}
+			}
+
 			if($_POST['telephone']){
 				if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
 					$error['error_telephone'] = $this->language->get('error_telephone');
@@ -340,10 +349,20 @@ class ControllerAccountAccount extends Controller {
 
 
 			if(!$error){
-				if($data['firstname'])	$this->model_account_customer->editCustomerName($data);
-				if($data['lastname'])	$this->model_account_customer->editCustomerFam($data);
+
+				$this->load->model('affiliate/affiliate');
+
+				if($data['firstname'])	{
+					$this->model_account_customer->editCustomerName($data);
+					$this->model_affiliate_affiliate->editAffiliateName($data,$this->session->data['customer_id']);
+				}
+				if($data['lastname'])	{
+					$this->model_account_customer->editCustomerFam($data);
+					$this->model_affiliate_affiliate->editAffiliatelastname($data,$this->session->data['customer_id']);
+				}
 				if($data['telephone'])	$this->model_account_customer->editCustomerPhone($data);
 				if($data['email'])	$this->model_account_customer->editCustomerEmail($data);
+				if($data['skype'])	$this->model_account_customer->editCustomerSkype($data);
 				if($data['postcode'])	$this->model_account_customer->editCustomerPostcode($data);
 				if($data['password'])	$this->model_account_customer->editPassword($data);
 				if($data['middlename'])	$this->model_account_customer->editCustomerMiddleName($data);

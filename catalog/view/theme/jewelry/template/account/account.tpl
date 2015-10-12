@@ -81,6 +81,7 @@
                   </form>
              </div>
             <div class="clr"></div>
+
             <div class="offer-n"><p>E-mail: </p>
                 <?php if($customer_info['email']) { ?>
                       <span class="hover-hidden"><?php echo $customer_info['email']; ?></span>
@@ -94,8 +95,21 @@
                   </form>
 		    	</div>
           <div class="clr"></div>
-            <div class="offer-n"><p>Skype: </p><span>Ruben11</span></div>
-            <div class="clr"></div>
+
+            <div class="offer-n"><p>Skype: </p>
+                <?php if($customer_info['skype']) { ?>
+                      <span class="hover-hidden"><?php echo $customer_info['skype']; ?></span>
+                <?php } else { ?>
+                    <span class="hover-hidden lk-gray">Не указано</span> 
+                <?php } ?>
+                   
+                  <form action="<?php // echo $link_account;?>" class="edit-val skype" method="post">
+                    <input type="text" name="skype" value="<?php echo $customer_info['skype']; ?>">
+                    <input type="submit" value=" ">
+                  </form>
+          </div>
+          <div class="clr"></div>
+
             <div class="offer-n"><p>Почтовый индекс: </p>
                 <?php if($address['postcode']) { ?>
                       <span class="hover-hidden"><?php echo $address['postcode']; ?></span>
@@ -272,6 +286,32 @@ $(".name-block .email input[type='submit'").click(function(e){
          success: function(json) {
           if(json.success == "ok") {  window.location.href = redirect;}
           if(json.error_email) { $(".name-block .email").parent().append('<span class="error">' + json.error_email + '</span>');}
+          console.log(json);
+         },
+         error:function(){
+          alert('error!');
+        }
+     });
+
+});
+
+
+$(".name-block .skype input[type='submit'").click(function(e){
+      e.preventDefault();
+
+      var redirect = "/index.php?route=account/account";
+      var data = $(".name-block .skype").serialize();
+      console.log(data);
+
+      $.ajax({
+         url: '/index.php?route=account/account/edit_profile',
+         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         type: 'post',
+         data: data,
+         dataType: 'json',
+         success: function(json) {
+          if(json.success == "ok") {  window.location.href = redirect;}
+          if(json.error_skype) { $(".name-block .skype").parent().append('<span class="error">' + json.error_skype + '</span>');}
           console.log(json);
          },
          error:function(){

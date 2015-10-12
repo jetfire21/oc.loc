@@ -109,6 +109,10 @@ class ModelAccountCustomer extends Model {
 		$this->db->query("UPDATE " . DB_PREFIX . "customer SET email = '" . $this->db->escape($data['email']) . "' WHERE customer_id = '" . (int)$this->customer->getId() . "'");
 	}
 
+	public function editCustomerSkype($data) {
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET skype = '" . $this->db->escape($data['skype']) . "' WHERE customer_id = '" . (int)$this->customer->getId() . "'");
+	}
+
 	public function editCustomerPostcode($data) {
 		$this->db->query("UPDATE " . DB_PREFIX . "address SET postcode ='" . $this->db->escape($data['postcode']) . "' WHERE address_id = '" . (int)$this->customer->getId() . "'");
 	}
