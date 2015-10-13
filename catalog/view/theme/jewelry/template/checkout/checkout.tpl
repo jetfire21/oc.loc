@@ -235,6 +235,19 @@ $(".way-pay .radio").bind('click',function(){
 
 $("#send-order .bez_bonus").click(function(e){
     e.preventDefault();
+
+    var pay_online = $("#payment_method").val(); 
+    // console.log(pay_online);
+
+    if(pay_online == "Оплата оналйн"){
+
+      pay_online = $(".send-form-customer").attr("action") + "&p=online";
+      $(".send-form-customer").attr("action",pay_online);
+
+    }
+    
+     // return false;
+
     $(".send-form-customer").submit();
 });
 
@@ -252,7 +265,7 @@ $("#send-order .bez_bonus").click(function(e){
     
     console.log(bonus);
     if(bonus > 0){
-      console.log(bonus);
+      // console.log(bonus);
         var if_bonus = $(".send-form-customer").attr("action");
         if_bonus = if_bonus + "&b=ok"
         // console.log('if_bonus'+if_bonus);
@@ -383,7 +396,7 @@ $("#send-order .bez_bonus").click(function(e){
 
 //--></script> 
 
-<?php print_r($totals);?>
-<?php echo $this->session->data['balans_noformat'];?>
-<?php echo $this->session->data['affiliate_id'];?>
-<?php print_r($_SESSION);?>
+// <?php print_r($totals);?>
+// <?php echo $this->session->data['balans_noformat'];?>
+// <?php echo $this->session->data['affiliate_id'];?>
+// <?php print_r($_SESSION);?>

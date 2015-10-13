@@ -9,6 +9,9 @@
 class ControllerCheckoutCheckout extends Controller { 
 	private $error = array();
 	public function index() {
+
+		if($this->request->get['cart'] == "del") unset($this->session->data['cart']);
+		
 		$this->language->load('checkout/checkout');
 		$this->load->model('checkout/order');
 		$this->load->model('account/address');
@@ -16,7 +19,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->load->model('localisation/zone');
 		// Validate cart has products and has stock.
 		if ((!$this->cart->hasProducts() && empty($this->session->data['vouchers'])) || (!$this->cart->hasStock() && !$this->config->get('config_stock_checkout'))) {
-			echo '<script type="text/javascript">alert("Товара нет в наличии!");</script>';
+			// echo '<script type="text/javascript">alert("Товара нет в наличии!");</script>';
 			$this->redirect($this->url->link('checkout/cart'));
 		}
 
@@ -42,6 +45,7 @@ class ControllerCheckoutCheckout extends Controller {
 		$this->document->addStyle('catalog/view/javascript/jquery/colorbox/colorbox.css');
 
 		$this->data['next_order_id'] = $this->model_checkout_order->getLastIdOrder() + 1;
+		$this->session->data['next_order_id'] = $this->data['next_order_id'];
 
 		$this->data['breadcrumbs'] = array();
 
@@ -288,6 +292,8 @@ class ControllerCheckoutCheckout extends Controller {
 		
 		//=========================insert order==============================//
 		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+
+
 			$customer_info = $this->request->post;
 				$data = array();
 				if ($this->customer->isLogged()) {
@@ -520,6 +526,9 @@ class ControllerCheckoutCheckout extends Controller {
 			// $this->load->model('catalog/product');		
 	  //       $product_info2 = $this->model_catalog_product->getProductPricesById($product['product_id']);
 
+/* ******* add order ********** */
+
+
 			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
 			$order_id = $this->session->data['order_id'];
 			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
@@ -551,6 +560,25 @@ class ControllerCheckoutCheckout extends Controller {
 	          
 	           }
             }
+
+        if($this->request->get['p'] == "online"){
+
+		  	    //echo $this->data['next_order_id'];
+				// print_r($_POST);
+				//print_r($_SESSION);
+				// print_r($data);
+				// echo $data['total'];
+				// exit;
+				// $this->redirect($this->url->link('error/not_found', '', 'SSL'));	
+        	$this->session->data['fio'] = $this->request->post['firstname']." ". $this->request->post['firstname'];
+        	$this->session->data['email'] = $this->request->post['email'];
+        	$this->session->data['telephone'] = $this->request->post['telephone'];
+
+        	$this->session->data['sum'] = $data['total'];
+        	$this->redirect($this->url->link('checkout/checkout/ex_pay', '', 'SSL'));
+
+		}
+			
 
 			unset($this->session->data['cart']);
 			$this->redirect($this->url->link('checkout/success', '', 'SSL'));
@@ -1117,5 +1145,22 @@ class ControllerCheckoutCheckout extends Controller {
 
 	// 	$this->response->setOutput($output);
 	// }
+
+	public function ex_pay(){
+
+		$this->template = $this->config->get('config_template') . '/template/checkout/ex_pay.tpl';
+		$this->children = array(
+			'common/column_left',
+			'common/column_right',
+			'common/content_top',
+			'common/content_bottom',
+			'common/lk_name',
+			'common/footer',
+			'common/header'	
+		);
+
+		$this->response->setOutput($this->render());
+	}
+
 }
 ?>

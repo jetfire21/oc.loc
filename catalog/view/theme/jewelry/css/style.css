@@ -2695,3 +2695,8 @@ img.loader{
 }
 
 .children+td{ color:red !important;}
+
+.lm-cart .confirm-pay{
+    float: left;
+    margin-left: 250px;
+}

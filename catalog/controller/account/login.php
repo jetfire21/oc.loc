@@ -1,8 +1,10 @@
 <?php 
 class ControllerAccountLogin extends Controller {
-	private $error = array();
+
+private $error = array();
 	
 	public function index() {
+		$this->redirect($this->url->link('common/home', '', 'SSL'));
 		$this->load->model('account/customer');
 		
 		// Login override for admin users

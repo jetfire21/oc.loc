@@ -3,6 +3,8 @@ class ControllerAffiliateLogin extends Controller {
 	private $error = array();
 	
 	public function index() {
+
+		$this->redirect($this->url->link('common/home', '', 'SSL'));
 		if ($this->affiliate->isLogged()) {  
       		$this->redirect($this->url->link('affiliate/account', '', 'SSL'));
     	}
