@@ -93,7 +93,7 @@ class ControllerAccountAccount extends Controller {
 
 		// print_r($this->data);
 		// print_r($customer_info);
-		print_r($_SESSION);
+		//print_r($_SESSION);
 
 		// ************************* мой код
 		

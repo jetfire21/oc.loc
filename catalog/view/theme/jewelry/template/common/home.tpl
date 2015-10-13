@@ -15,7 +15,7 @@
 			<span class="otzyv">Отзыв о коллекции</span>
 			<h2>Мы движем этим миром</h2>
 			<span class="author">Анжелика Труднова</span>
-			<a class="more-otzyv" href="#">Читать отзыв о коллекции</a>
+			<a class="more-otzyv" href="index.php?route=information/information&information_id=9">Читать отзыв о коллекции</a>
 			<h3>Популярные акссесуары</h3>
 		</div>
 	</div>

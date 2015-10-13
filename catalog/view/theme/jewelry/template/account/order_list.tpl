@@ -140,5 +140,5 @@ $('.cart-item').each(function(index){
 
 </script>
 
-<?php echo '----'. $stock; print_r($_SESSION); print_r($orders);?>
+<!-- <?php echo '----'. $stock; print_r($_SESSION); print_r($orders);?> -->
 

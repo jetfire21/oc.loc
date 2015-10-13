@@ -134,4 +134,35 @@ $(function () {
     $.magnificPopup.close();
   });
 
+// вывод срредств из лк
+
+  $(".withdrawal").click(function(e){
+    e.preventDefault();
+    var redirect = 'http://oc.loc/index.php?route=account/account/history';
+
+       $.ajax({
+           url: 'http://oc.loc/index.php?route=account/account/withdrawal',
+           // url: 'http://oc.loc/catalog/controller/account/register.php',
+           type: 'post',
+           data: 'data=withdrawal',
+           dataType: 'json',
+           success: function(json) {
+              if(json.balans > 0) { 
+                alert("Oтправлен запрос на вывод");
+                window.location = redirect;
+              }else{
+                 alert('Нечего выводить! Ваш баланс 0 рублей');
+                 return false;
+              }
+            if(json.error) { alert('Нечего выводить! Ваш баланс 0 рублей');}
+              console.log(json);
+           },
+      error:function(xhr, ajaxOptions, thrownError) {
+        alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+      }
+       });
+
+  });
+
+
 });

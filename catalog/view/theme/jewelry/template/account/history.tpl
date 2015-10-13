@@ -1,6 +1,6 @@
 <?php
  //print_r($transactions);
-print_r($affiliate_info);
+// print_r($affiliate_info);
   ?>
 
 <?php echo $header; ?>
@@ -146,7 +146,7 @@ print_r($affiliate_info);
 
 <?php echo $footer; ?> 
 
-
+<!-- 
 <script type="text/javascript">
 	$(".withdrawal").click(function(e){
 		e.preventDefault();
@@ -175,4 +175,4 @@ print_r($affiliate_info);
 	     });
 
 	});
-</script>
+</script> -->
