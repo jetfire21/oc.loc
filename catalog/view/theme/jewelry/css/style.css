@@ -2700,3 +2700,7 @@ img.loader{
     float: left;
     margin-left: 250px;
 }
+
+.pay-online{
+  display: none;
+}

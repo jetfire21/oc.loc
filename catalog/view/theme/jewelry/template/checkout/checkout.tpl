@@ -128,7 +128,13 @@
     				<div class="clr"></div>
         </div>  <!-- .way-pay -->
     				<div class="dop-links">
-    					<a class="back-shop" href="index.php?route=checkout/cart"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-left.png" alt="">Вернуться в корзину товаров</a><a class="popup-modal2 checkout" href="#send-order">Отправить заказ<img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-right.png" alt=""></a>
+    					<a class="back-shop" href="index.php?route=checkout/cart"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-left.png" alt="">Вернуться в корзину товаров</a>
+              <div class="pay-dost">
+                 <a class="checkout" href="#send-order">Отправить заказ<img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-right.png" alt=""></a>
+              </div>      
+                <div class="pay-online">
+                 <a class="checkout popup-modal2" href="#send-order">Отправить заказ<img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/mini-arrow-right.png" alt=""></a>
+              </div>
     				</div>
 
 
@@ -223,14 +229,34 @@
 
 <script type="text/javascript">
 
+// $(".pay-method .radio").bind('click',function(){
+//     var pay = $(this).find('span').text();
+//     $(this).parent().find("#payment_method").val(pay);
+
+//     var payment_method = $("#payment_method").val(); 
+//     if(payment_method == "Оплата оналйн") $(".checkout").addClass('popup-modal2');
+//     else $(".checkout").removeClass('popup-modal2');
+// });
+
+
 $(".pay-method .radio").bind('click',function(){
     var pay = $(this).find('span').text();
     $(this).parent().find("#payment_method").val(pay);
+
+    var payment_method = $("#payment_method").val(); 
+    if(payment_method == "Оплата оналйн") { $(".pay-dost").hide(); $(".pay-online").show(); }
+    else { $(".pay-dost").show(); $(".pay-online").hide();  }
+
 });
 
 $(".way-pay .radio").bind('click',function(){
     var pay = $(this).find('span').text();
     $(this).parent().find("#shipping_method").val(pay);
+});
+
+$(".checkout").click(function(e){
+  e.preventDefault();
+  $(".send-form-customer").submit();
 });
 
 $("#send-order .bez_bonus").click(function(e){
@@ -245,7 +271,7 @@ $("#send-order .bez_bonus").click(function(e){
       $(".send-form-customer").attr("action",pay_online);
 
     }
-    
+
      // return false;
 
     $(".send-form-customer").submit();
