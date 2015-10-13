@@ -253,6 +253,16 @@ $("#send-order .bez_bonus").click(function(e){
     console.log(bonus);
     if(bonus > 0){
       console.log(bonus);
+        var if_bonus = $(".send-form-customer").attr("action");
+        if_bonus = if_bonus + "&b=ok"
+        // console.log('if_bonus'+if_bonus);
+
+         $(".send-form-customer").attr("action", if_bonus);
+
+        // var if_bonus = $(".send-form-customer").attr("action");
+        // console.log('if_bonus ch'+if_bonus);
+
+        // return false;
          $(".send-form-customer").submit();
     }
     else{

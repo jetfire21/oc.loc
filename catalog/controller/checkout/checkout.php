@@ -529,7 +529,7 @@ class ControllerCheckoutCheckout extends Controller {
 				$this->model_affiliate_affiliate->pushCountOrderingByCode($_COOKIE['tracking']);
 			}
 
-			if( $this->customer->isLogged() ) {
+			if( $this->customer->isLogged() && $this->session->data['balans_noformat'] > 0 && $this->request->get['b'] == "ok") {
 
 	            if( $this->session->data['balans_noformat'] > $this->data['totals'][1]['value']) {
 
