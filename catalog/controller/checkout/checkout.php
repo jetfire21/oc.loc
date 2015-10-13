@@ -517,7 +517,8 @@ class ControllerCheckoutCheckout extends Controller {
 			// print_r($data);
 			// exit;
 
-
+			// $this->load->model('catalog/product');		
+	  //       $product_info2 = $this->model_catalog_product->getProductPricesById($product['product_id']);
 
 			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
 			$order_id = $this->session->data['order_id'];

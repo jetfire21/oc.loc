@@ -772,5 +772,19 @@ class ModelSaleOrder extends Model {
 
 		return $query->rows;
 	}	
+
+	public function getTotalProfit() {
+
+		$query = $this->db->query("SELECT  sum(profit) FROM `" . DB_PREFIX . "order` WHERE order_status_id ='5'");	
+
+		return $query->row['sum(profit)'];
+	}
+
+	public function getTotalWithdrawal() {
+
+		$query = $this->db->query("SELECT  sum(amount) FROM `" . DB_PREFIX . "affiliate_transaction` WHERE withdrawal ='1'");	
+
+		return $query->row['sum(amount)'];
+	}
 }
 ?>

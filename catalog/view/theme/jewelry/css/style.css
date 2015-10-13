@@ -2558,6 +2558,14 @@ p.j-warning{
     padding: 50px 0;
 }
 
+.pagination b{
+    padding: 10px 15px;
+    color: #c1c1c1;
+    border-radius: 15px;
+    margin: 0 5px;
+    border: 1px solid #c1c1c1;
+}
+
 .pagination a{
     padding: 10px 15px;
     color: #c1c1c1;

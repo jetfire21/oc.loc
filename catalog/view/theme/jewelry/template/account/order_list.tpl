@@ -49,14 +49,17 @@
                 </td>
                 <td><?php echo $order['status']; ?></td>
                 <td><a class="pink" href="<?php echo $order['href']; ?>">Подробнее</a></td>
-              </tr>     
-              <?php endforeach;?>
+              </tr>
+              <?php endforeach;?>     
           <?php else:?>
               <p>Вы еще не совершали покупок!</p>
           <?php endif;?>         
         </table>
-            <div class="dop-links">
-            </div>
+            <!-- <div class="dop-links"></div> -->
+            <?php if ($orders) { ?> 
+               <div class="pagination"><?php echo $pagination; ?></div>
+            <?php } ?>
+
         </div>        
       </div>
 

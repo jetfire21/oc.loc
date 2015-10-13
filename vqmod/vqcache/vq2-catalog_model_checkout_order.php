@@ -12,6 +12,12 @@ class ModelCheckoutOrder extends Model {
 		$order_id = $this->db->getLastId();
 
 		foreach ($data['products'] as $product) { 
+
+			$query = $this->db->query("SELECT price,price_zakup FROM " . DB_PREFIX . "product WHERE product_id='".(int)$product['product_id']."'");
+			$a = $query->row;
+		    $profit = (($a['price'] - $a['price_zakup']) * (int)$product['quantity']) + $profit;
+		    // $profit = (int)$product['quantity'];
+
 			$this->db->query("INSERT INTO " . DB_PREFIX . "order_product SET order_id = '" . (int)$order_id . "', product_id = '" . (int)$product['product_id'] . "', name = '" . $this->db->escape($product['name']) . "', model = '" . $this->db->escape($product['model']) . "', quantity = '" . (int)$product['quantity'] . "', price = '" . (float)$product['price'] . "', total = '" . (float)$product['total'] . "', tax = '" . (float)$product['tax'] . "', reward = '" . (int)$product['reward'] . "'");
  
 			$order_product_id = $this->db->getLastId();
@@ -23,7 +29,10 @@ class ModelCheckoutOrder extends Model {
 			foreach ($product['download'] as $download) {
 				$this->db->query("INSERT INTO " . DB_PREFIX . "order_download SET order_id = '" . (int)$order_id . "', order_product_id = '" . (int)$order_product_id . "', name = '" . $this->db->escape($download['name']) . "', filename = '" . $this->db->escape($download['filename']) . "', mask = '" . $this->db->escape($download['mask']) . "', remaining = '" . (int)($download['remaining'] * $product['quantity']) . "'");
 			}	
+
 		}
+
+		$this->db->query("UPDATE `" . DB_PREFIX . "order` SET profit='".$profit."' WHERE order_id='".$order_id."'");
 		
 		foreach ($data['vouchers'] as $voucher) {
 			$this->db->query("INSERT INTO " . DB_PREFIX . "order_voucher SET order_id = '" . (int)$order_id . "', description = '" . $this->db->escape($voucher['description']) . "', code = '" . $this->db->escape($voucher['code']) . "', from_name = '" . $this->db->escape($voucher['from_name']) . "', from_email = '" . $this->db->escape($voucher['from_email']) . "', to_name = '" . $this->db->escape($voucher['to_name']) . "', to_email = '" . $this->db->escape($voucher['to_email']) . "', voucher_theme_id = '" . (int)$voucher['voucher_theme_id'] . "', message = '" . $this->db->escape($voucher['message']) . "', amount = '" . (float)$voucher['amount'] . "'");

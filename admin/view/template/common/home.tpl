@@ -39,6 +39,14 @@
             <tr>
               <td><?php echo $text_total_sale_year; ?></td>
               <td><?php echo $total_sale_year; ?></td>
+            </tr> 
+            <tr>
+              <td>Чистая прибыль</td>
+              <td><?php echo $total_profit; ?></td>
+            </tr>  
+            <tr>
+              <td>Выплаты</td>
+              <td><?php echo $total_withdrawal; ?></td>
             </tr>
             <tr>
               <td><?php echo $text_total_order; ?></td>
@@ -57,7 +65,8 @@
               <td><?php echo $total_review_approval; ?></td>
             </tr>
             <tr>
-              <td><?php echo $text_total_affiliate; ?></td>
+              <!-- <td><?php echo $text_total_affiliate; ?></td> -->
+              <td>Количество регистраций</td>
               <td><?php echo $total_affiliate; ?></td>
             </tr>
             <tr>
