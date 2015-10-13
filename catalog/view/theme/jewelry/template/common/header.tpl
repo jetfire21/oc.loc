@@ -77,7 +77,8 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <!-- <a class="popup-modal" href="#auth-modal">Кабинет</a> -->
 
             <div class="cart"><a href="index.php?route=checkout/cart">Корзина</a></div>
-         <div class="phone"> </div>
+         <!-- <div class="phone"> </div> -->
+         <a class="popup-modal3 phone" href="#phone-modal" name="phone"> </a>
        </div>
 
     </div>
@@ -87,6 +88,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 <div class="clr"></div>
 
   <div id="auth-modal" class="white-popup-block mfp-hide">
+
       <img class="treugol" src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/treugol.png" alt="">
       <div class="wrap-auth">
         <div class="wrap-form">
@@ -140,13 +142,35 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
          </div>
 
       </div>
+
       <div class="login-soc">
         <span>Войти через соц сети:</span>
         <!-- <a href="/index.php?route=account/register/reg_vk" class="social"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/soc.jpg" alt=""></a> -->
         <div><a href="/index.php?route=account/register/reg_vk" class="social"></a></div>
       </div>
+
     </div>
+
    </div>
+
+
+ <div id="phone-modal" class="white-popup-block mfp-hide">
+
+      <div class="wrap-auth">
+        <div class="wrap-form">
+      <h3><span class="pink login-title">обратный звонок</span></h3>
+
+        <div class="login phone-form">
+          <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data">
+            <label class="name-input"><input class="gray-btn" type="text" placeholder="Ваше имя:" name="name"></label>
+             <label class="phone-input"><input class="gray-btn" type="text" placeholder="Ваш телефон" name="phone"></label>
+            <input type="submit" value="Заказать" class="send-phone">
+          </form>
+        </div>
+        </div>
+        </div>
+</div>
+
 
 
 <script type="text/javascript">
@@ -251,5 +275,51 @@ $(".send-login").click(function(e){
 
    });
 });
+
+$(".send-phone").click(function(e){
+      e.preventDefault();
+      var data = $('.phone-form form').serialize();
+      console.log(data);
+
+      $.ajax({
+         url: '/index.php?route=account/login/validate_callback',
+         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         type: 'post',
+         data: data,
+         dataType: 'json',
+         success: function(json) {
+
+
+                  if(json.error_name) { 
+                    if( $('#phone-modal .name-input span').hasClass('error') ) {  }
+                    else { $('#phone-modal .name-input ').prepend('<span class="error">'+ json.error_name + '<span>'); }
+                  }
+                   else {
+                    $('#phone-modal .name-input span').remove(); 
+                  }
+
+                  if(json.error_phone) { 
+                    if( $('#phone-modal .phone-input span').hasClass('error') ) {  }
+                    else { $('#phone-modal .phone-input ').prepend('<span class="error">'+ json.error_phone + '<span>'); }
+                  }
+                   else {
+                    $('#phone-modal .phone-input span').remove(); 
+                  }
+
+                  if(json.res=="success") {
+                    alert("Наши менеджеры скоро свяжутся с вами");
+                    $.magnificPopup.close();
+                  }
+
+                  console.log(data);
+            
+         },
+         error:function(){
+          alert('error!');
+        }
+
+   });
+});
+
 </script>
 

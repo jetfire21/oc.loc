@@ -239,6 +239,35 @@ class ControllerAccountLogin extends Controller {
 
 	}
 
+	public function validate_callback(){
+
+		
+	    	if ((utf8_strlen($this->request->post['name']) < 3) || (utf8_strlen($this->request->post['phone']) > 20)) {
+	      		$arr['error_name'] = "Имя содержать от 3 до 20 символов!";
+	    	} 
+
+	       	if ((utf8_strlen($this->request->post['phone']) < 6) || (utf8_strlen($this->request->post['phone']) > 20)) {
+	      		$arr['error_phone'] = "Телефон должен содержать от 6 до 20 символов!";
+	    	}			
+				
+			if( !$arr ) {
+				
+					// $to = 'freerun-2012@yandex.ru'; 
+					$to = $this->config->get('config_email'); 
+					$sitename = $_SERVER['HTTP_HOST'];
+					$subject = "Обратный звонок";
+					$message = "Имя: " .$this->request->post['name'].  "\r\nТелефон: ".$this->request->post['phone']."\r\n";
+					$headers = "From: {$sitename} <" .$arr['email']. ">\r\nContent-type:text/plain; charset=utf-8\r\n";
+					mail($to,$subject,$message,$headers);
+					$arr['res'] = 'success';
+					echo json_encode($arr); 
+			}	else{
+
+				echo json_encode($arr);
+			 }
+
+	}
+
   	// мой код
 }
 ?>

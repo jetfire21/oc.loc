@@ -109,6 +109,17 @@ $(function () {
 });
 
 $(function () {
+  $('.popup-modal3').magnificPopup({
+    type: 'inline',
+    preloader: false,
+     mainClass:"my-phone-popup",
+    focus: '#phone',
+    modal: true,
+    closeOnBgClick:true
+  });
+});
+
+$(function () {
   $('.popup-modal2').magnificPopup({
     type: 'inline',
     preloader: false,

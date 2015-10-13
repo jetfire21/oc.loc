@@ -5,7 +5,7 @@ class ControllerAccountAccount extends Controller {
 		if (!$this->customer->isLogged()) {
 	  		$this->session->data['redirect'] = $this->url->link('account/account', '', 'SSL');
 	  
-	  		$this->redirect($this->url->link('account/login', '', 'SSL'));
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
     	} 
 
 		$this->language->load('account/account');

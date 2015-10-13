@@ -570,19 +570,6 @@ ul.menu a:hover{
   border-radius: 0 0 6px 6px;
 }
 
-.login-soc div{
-  background: url("../images/soc.jpg");
-  width: 263px;
-  height: 33px;
-}
-
-.login-soc div a{
-   height: 33px;
-    cursor: pointer;
-    width: 33px;
-    display: block;
-}
-
 #auth-modal h3{
   font-size:24px;
   color:#000;
@@ -610,12 +597,6 @@ ul.menu a:hover{
     margin-top: 10px;
 }
 
-.gray-btn{
-    border: 2px solid #f2f3f5;
-    padding: 11px 30px;
-    border-radius: 25px;
-}
-
 #auth-modal form a{
   color: #fe157d;
   text-decoration: underline;
@@ -639,6 +620,108 @@ ul.menu a:hover{
 }
 
 
+/* модальное окно обратный звонок */
+
+.mfp-wrap.my-phone-popup{
+  margin-left:-170px; !important;
+  width: 340px;
+}
+
+#phone-modal form div{
+  display: inline-block;
+}
+
+#phone-modal .wrap-auth{
+  background: #fff;
+  border-radius: 6px;
+}
+
+#phone-modal .treugol{
+  margin-left: 280px;
+  display: block;
+}
+
+#phone-modal .wrap-form, #phone-modal .login-soc{
+    padding: 30px 35px 30px 35px;
+}
+
+#phone-modal .login-soc{
+  padding-bottom: 30px;
+  border-radius: 0 0 6px 6px;
+}
+
+#phone-modal h3{
+  font-size:24px;
+  color:#000;
+  margin: 0 0 20px 0;
+}
+
+#phone-modal{
+    font:18px "ProximaNovaRegular";
+    color: #afafaf;
+}
+
+#phone-modal input[type="text"], #phone-modal input[type="password"] {
+  width: 210px; 
+  margin-bottom: 10px;
+}
+
+#phone-modal input[type="submit"]{
+    padding: 8px 30px;
+    border-radius: 25px;
+    background-color: #fe157d;
+    border:0;
+    color: #fff;
+    text-transform: uppercase;
+    font-family: "ProximaNovaBold";
+    margin-top: 10px;
+}
+
+#phone-modal form a{
+  color: #fe157d;
+  text-decoration: underline;
+      padding-left: 50px;
+}
+
+#phone-modal form a:hover{
+  text-decoration: none;
+}
+
+#phone-modal .login-soc{
+  /*margin-top: 20px;*/
+  background-color: #fcfcfc;
+  /*background-color: gray;*/
+  border-top:1px solid #eeeeee;
+}
+
+#phone-modal .login-soc span{
+  padding-bottom: 10px;
+  display: block;
+}
+
+
+/* */
+
+.login-soc div{
+  background: url("../images/soc.jpg");
+  width: 263px;
+  height: 33px;
+}
+
+.login-soc div a{
+   height: 33px;
+    cursor: pointer;
+    width: 33px;
+    display: block;
+}
+
+.gray-btn{
+    border: 2px solid #f2f3f5;
+    padding: 11px 30px;
+    border-radius: 25px;
+}
+
+
 .cart{
    border-radius: 20px;
   padding: 7px 15px 7px 45px;
@@ -658,7 +741,7 @@ ul.menu a:hover{
   height: 36px;
   border-radius: 18px;
  /* display: inline-block;*/
-  position: absolute;
+  position: absolute !important;
   right: 0;
   top:30px;
 }
