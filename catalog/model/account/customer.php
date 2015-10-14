@@ -124,9 +124,12 @@ class ModelAccountCustomer extends Model {
 	}
 	// UPDATE `shopoc_address` SET address_1 = 'ddddd' WHERE address_id = (SELECT address_id FROM `shopoc_customer`WHERE customer_id='29')
 
-	// public function editPassword($email, $password) {
+	// public function editPasswordOs($email, $password) {
  //      	$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(sha1($salt . sha1($salt . sha1($password)))) . "' WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
 	// }
+		public function editPasswordOs($email, $password) {
+      	$this->db->query("UPDATE " . DB_PREFIX . "customer SET salt = '" . $this->db->escape($salt = substr(md5(uniqid(rand(), true)), 0, 9)) . "', password = '" . $this->db->escape(md5($password)) . "' WHERE LOWER(email) = '" . $this->db->escape(utf8_strtolower($email)) . "'");
+	}
 
 
 	public function editPassword($password) {

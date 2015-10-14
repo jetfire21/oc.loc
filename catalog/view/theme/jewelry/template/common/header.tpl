@@ -99,7 +99,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
             <input class="gray-btn" type="text" placeholder="Введите ваш e-mail" name="email">
             <input class="gray-btn" type="password" placeholder="Ваш пароль" name="password">
             <input type="submit" value="Войти" class="send-login">
-            <a href="#">Забыли?</a>
+            <a href="/index.php?route=account/forgotten">Забыли?</a>
           </form>
         </div>
 
@@ -268,6 +268,7 @@ $(".send-login").click(function(e){
                   }
                    else { $('.login form span').remove(); }
             }
+            console.log("email" + json.email + "pass" + json.password);
          },
          error:function(){
           alert('error!');

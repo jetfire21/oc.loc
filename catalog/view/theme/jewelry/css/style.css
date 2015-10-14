@@ -1907,6 +1907,10 @@ ul.category li span{
   margin-right: 45px;
 }
 
+.forgot .lm-cart .checkout{
+  float: left;
+}
+
 .lm-cart .checkout img{
    position: absolute;
    top:11px;

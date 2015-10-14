@@ -17,8 +17,11 @@ class ControllerAccountForgotten extends Controller {
 			$this->language->load('mail/forgotten');
 			
 			$password = substr(sha1(uniqid(mt_rand(), true)), 0, 10);
+			// $password = substr(md5(uniqid(mt_rand(), true)), 0, 10);
+			// $password = "1212";
+
 			
-			$this->model_account_customer->editPassword($this->request->post['email'], $password);
+			$this->model_account_customer->editPasswordOs($this->request->post['email'], $password);
 			
 			$subject = sprintf($this->language->get('text_subject'), $this->config->get('config_name'));
 			
@@ -43,7 +46,7 @@ class ControllerAccountForgotten extends Controller {
 			
 			$this->session->data['success'] = $this->language->get('text_success');
 
-			$this->redirect($this->url->link('account/login', '', 'SSL'));
+			$this->redirect($this->url->link('account/forgotten', '', 'SSL'));
 		}
 
       	$this->data['breadcrumbs'] = array();

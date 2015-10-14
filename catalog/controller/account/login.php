@@ -223,9 +223,17 @@ private $error = array();
 
 		$this->language->load('account/login');
 
-		if (!$this->customer->login($this->request->post['email'], $this->request->post['password'])) {
+		if (!$this->customer->login( trim($this->request->post['email']), trim($this->request->post['password']) )) {
       		$res['warning'] = $this->language->get('error_login');
+      		$res['email'] = $this->request->post['email'];
+      		$res['password'] = $this->request->post['password'];
     	}
+
+			// if (!$this->customer->login( trim('freerun-2012@yandex.ru'), trim('2aeab94ee1')) ) {
+	  //     		$res['warning'] = $this->language->get('error_login');
+	  //     		$res['email'] = $this->request->post['email'];
+	  //     		$res['password'] = $this->request->post['password'];
+	  //   	}
 
     	$this->load->model('account/customer');
     	$customer_info = $this->model_account_customer->getCustomerByEmail($this->request->post['email']);
