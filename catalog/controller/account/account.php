@@ -2,6 +2,7 @@
 class ControllerAccountAccount extends Controller { 
 
 	public function index() {
+
 		if (!$this->customer->isLogged()) {
 	  		$this->session->data['redirect'] = $this->url->link('account/account', '', 'SSL');
 	  
@@ -70,6 +71,7 @@ class ControllerAccountAccount extends Controller {
 
 		$this->load->model('account/customer');
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
+		
 		$address =  $this->model_account_customer->getCustomerAddress1($this->customer->getId());
 
 		$this->load->model('module/statisticsmyaffiliate');
@@ -94,6 +96,63 @@ class ControllerAccountAccount extends Controller {
 		// print_r($this->data);
 		// print_r($customer_info);
 		//print_r($_SESSION);
+
+
+  		if($_FILES['userfile']){
+
+		  	$uploaddir = 'download/photo/';
+			// это папка, в которую будет загружаться картинка
+			$apend=date('YmdHi').rand(1,10).$_FILES['userfile']['name'];
+			// это имя, которое будет присвоенно изображению 
+			
+
+			$uploadfile = "$uploaddir$apend"; 
+			//в переменную $uploadfile будет входить папка и имя изображения
+
+			// В данной строке самое важное - проверяем загружается ли изображение (а может вредоносный код?)
+			// И проходит ли изображение по весу. В нашем случае до 512 Кб
+			if($_FILES['userfile']['type'] == 'image/gif' || $_FILES['userfile']['type'] == 'image/jpeg' || $_FILES['userfile']['type'] == 'image/png') {
+
+			    if($_FILES['userfile']['size'] != 0 and $_FILES['userfile']['size']<=512000 ) 
+			    { 
+
+			    // Указываем максимальный вес загружаемого файла. Сейчас до 512 Кб 
+			      if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) 
+			       { 
+				       //Здесь идет процесс загрузки изображения 
+				       $size = getimagesize($uploadfile); 
+				         // с помощью этой функции мы можем получить размер пикселей изображения 
+				         if ($size[0] < 801 && $size[1]<1501) 
+				         { 
+				         	 $this->model_account_customer->editImageCustomer($_SESSION['customer_id'], $apend);
+				           // если размер изображения не более 60 пикселей по ширине и не более 1500 по  высоте 
+				           $this->data['error_load_img'] .= "Файл успешно загружен!"; 
+				         } 
+				         else {
+				           $this->data['error_load_img'] .= "Загружаемое изображение превышает допустимые нормы (ширина не более - 800; высота не более 1500)"; 
+				           unlink($uploadfile); 
+				           // удаление файла 
+				         } 
+			         } else {
+			            $this->data['error_load_img'] .= "Файл не загружен, вернитеcь и попробуйте еще раз";
+			       } 
+			    } 
+			    else { 
+			       $this->data['error_load_img'] .= " Размер файла не должен превышать 512 Кб";
+			    } 
+
+			} else { 
+			  $this->data['error_load_img'] .= " Это не изображение! ";
+			} 
+
+			// $this->redirect( $this->url->link('account/account', '', 'SSL') );
+		}
+		else{
+			unset(  $this->data['error_load_img']);
+		}
+
+
+		$this->data['photo'] = $this->model_account_customer->getImageCustomer($this->customer->getId());
 
 		// ************************* мой код
 		
@@ -379,6 +438,55 @@ class ControllerAccountAccount extends Controller {
 		}
 
 	}
+
+  public function load_image(){
+
+  	if($this->rqquest->post['upload_photo']){
+	  	$uploaddir = 'images2/';
+		// это папка, в которую будет загружаться картинка
+		$apend=date('YmdHis').rand(100,1000).'.jpg'; 
+		// это имя, которое будет присвоенно изображению 
+		$uploadfile = "$uploaddir$apend"; 
+		//в переменную $uploadfile будет входить папка и имя изображения
+
+		// В данной строке самое важное - проверяем загружается ли изображение (а может вредоносный код?)
+		// И проходит ли изображение по весу. В нашем случае до 512 Кб
+		if($_FILES['userfile']['type'] == 'image/gif' || $_FILES['userfile']['type'] == 'image/jpeg' || $_FILES['userfile']['type'] == 'image/png') {
+
+		    if($_FILES['userfile']['size'] != 0 and $_FILES['userfile']['size']<=512000 ) 
+		    { 
+
+		    // Указываем максимальный вес загружаемого файла. Сейчас до 512 Кб 
+		      if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) 
+		       { 
+		       //Здесь идет процесс загрузки изображения 
+		       $size = getimagesize($uploadfile); 
+		         // с помощью этой функции мы можем получить размер пикселей изображения 
+		         if ($size[0] < 501 && $size[1]<1501) 
+		         { 
+		           // если размер изображения не более 60 пикселей по ширине и не более 1500 по  высоте 
+		           $this->data['error_load_img'] .= "Файл успешно загружен!"; 
+		         } else {
+		           $this->data['error_load_img'] .= "Загружаемое изображение превышает допустимые нормы (ширина не более - 500; высота не более 1500)"; 
+		           unlink($uploadfile); 
+		           // удаление файла 
+		         } 
+		         } else {
+		            $this->data['error_load_img'] .= "Файл не загружен, вернитеcь и попробуйте еще раз";
+		       } 
+		    } 
+		    else { 
+		       $this->data['error_load_img'] .= " Размер файла не должен превышать 512 Кб";
+		    } 
+
+		} else { 
+		  $this->data['error_load_img'] .= " Это не изображение! ";
+		} 
+
+		// $this->redirect( $this->url->link('account/account', '', 'SSL') );
+	}
+
+  }
 
 }
 ?>

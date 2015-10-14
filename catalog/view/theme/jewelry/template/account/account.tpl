@@ -24,7 +24,11 @@
         <h3>Профиль </h3>
         <div class="wrap_table">
           <div class="name-block">
-               <img class="lk-foto-customer" src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.jpg" alt="">
+            <?php if($photo):?>
+                <img class="lk-foto-customer" src="download/photo/<?php echo $photo;?>" alt="">
+            <?php else:?>
+                 <img class="lk-foto-customer" src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.jpg" alt="">
+            <?php endif;?>
 
             <div class="offer-n">
                 <p>Имя: </p>
@@ -124,11 +128,21 @@
             </div>
             <div class="clr"></div>
             <div class="offer-n">
-              <p>Моя фотография: </p><span class="lk-gray">Не загружена</span><span class="pink">Загрузить</span>
+              <p>Моя фотография: </p>
+              <!-- <span class="lk-gray">Не загружена</span><span class="pink">Загрузить</span> -->
 <!--                <form action="" enctype="multipart/form-data">
                 <input type="file">
                 <input type="submit" value="Загрузить">
               </form> -->
+
+              <form name="upload_photo" class="upload_photo" action="" method="POST" ENCTYPE="multipart/form-data"> 
+              <input type="file" name="userfile">
+              <input class="pink file_upload" type="submit" name="upload" value="Загрузить"> 
+              </form>
+              <?php if($error_load_img):?>
+                 <span class="error"><?php echo $error_load_img;?></span>
+              <?php endif;?>
+
             </div>
             <div class="clr"></div>
             <div class="offer-n">

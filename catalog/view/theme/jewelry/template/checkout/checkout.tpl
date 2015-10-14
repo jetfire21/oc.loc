@@ -1,3 +1,9 @@
+<?php 
+/*********** рабочий скрипт(отправляется submit на maltipay прямо со страницы checkout 
+  без лишнего шага) реализован только для без бонуса*************/
+ ?>
+
+
 <?php echo $header; ?>
 <div class="lk">
 <div class="wrapper-1">
@@ -30,37 +36,37 @@
 				<div class="wrap_table">
           <form action="<?php echo $action;?>" method="post" enctype="multipart/form-data" class="send-form-customer">
 					<div class="name-block">
-                        <div class="offer-n"><p> * Имя </p>
+                        <div class="offer-n firstname" ><p> * Имя </p>
                               <input type="text" name="firstname" value="<?php echo $firstname; ?>"  class="large-field" />
                               <?php if ($error_firstname) { ?>
                                 <div class="error"><?php echo $error_firstname; ?></div>
                               <?php } ?>
                         </div>
-                        <div class="offer-n"><p> * <?php echo $entry_lastname; ?></p>
+                        <div class="offer-n lastname"><p> * <?php echo $entry_lastname; ?></p>
                               <input type="text" name="lastname" value="<?php echo $lastname; ?>"  class="large-field" />
                               <?php if ($error_lastname) { ?>
                                 <div class="error"><?php echo $error_lastname; ?></div>
                               <?php } ?>
                         </div>   
-                        <div class="offer-n"><p> * Отчество</p>
+                        <div class="offer-n middlename"><p> * Отчество</p>
                               <input type="text" name="middlename" value="<?php echo $middlename; ?>"  class="large-field" />
                               <?php if ($error_middlename) { ?>
                                 <div class="error"><?php echo $error_middlename; ?></div>вава
                               <?php } ?>
                         </div>                        
-                        <div class="offer-n"><p> * <?php echo $entry_email; ?></p>
+                        <div class="offer-n email"><p> * <?php echo $entry_email; ?></p>
                               <input type="text" name="email" value="<?php echo $email; ?>"  class="large-field" />
                               <?php if ($error_email) { ?>
                                 <div class="error"><?php echo $error_email; ?></div>
                               <?php } ?>
                         </div>                        
-                        <div class="offer-n"><p> * <?php echo $entry_telephone; ?></p>
+                        <div class="offer-n telephone"><p> * <?php echo $entry_telephone; ?></p>
                               <input type="text" name="telephone" value="<?php echo $telephone; ?>"  class="large-field" />
                               <?php if ($error_telephone) { ?>
                                 <div class="error"><?php echo $error_telephone; ?></div>
                               <?php } ?>
                         </div>                        
-                        <div class="offer-n"><p> * <?php echo $entry_address_1; ?></p>
+                        <div class="offer-n address_1"><p> * <?php echo $entry_address_1; ?></p>
                               <input type="text" name="address_1" value="<?php echo $address_1; ?>"  class="large-field" />
                               <?php if ($error_address_1) { ?>
                                 <div class="error"><?php echo $error_address_1; ?></div>
@@ -72,7 +78,7 @@
                                 <div class="error"><?php echo $error_city; ?></div>
                               <?php } ?>
                         </div>  -->                      
-                         <div class="offer-n"><p> * <?php echo $entry_postcode; ?></p>
+                         <div class="offer-n postcode"><p> * <?php echo $entry_postcode; ?></p>
                               <input type="text" name="postcode" value="<?php echo $postcode; ?>"  class="large-field" />
                               <?php if ($error_postcode) { ?>
                                 <div class="error"><?php echo $error_postcode; ?></div>
@@ -228,6 +234,40 @@
 		</div>
    </div>
 
+
+
+   <?php  
+
+    define(MPAY_WEBSITE_ID, "1756");
+    define(MPAY_ORDER_NUMBER, $this->session->data['next_order_id']);
+    define(MPAY_PAYMENT_SUM,  $this->session->data['sum']);
+    $secret_key = "I8huE5XKwxTwN2Fniv3DU31pyqU8Dy2O";
+    $domain = $this->config->get('config_url');
+
+    $signature = strtoupper( md5(
+    md5( MPAY_WEBSITE_ID ) .
+    md5(MPAY_ORDER_NUMBER) .
+    md5(MPAY_PAYMENT_SUM) .
+    md5($secret_key)
+    ));
+
+    ?>
+                                                              
+  <form action="https://multipay.bz/api/payments" method="post" class="ex-pay" >
+    <input type="hidden" name="MPAY_WEBSITE_ID" value="<?php echo MPAY_WEBSITE_ID;?>">
+    <input type="hidden" name="MPAY_PAYMENT_SUM" value="<?php echo MPAY_PAYMENT_SUM;?>">
+    <input type="hidden" name="MPAY_CURRENCY" value="RUR">
+    <input type="hidden" name="MPAY_ORDER_NUMBER" value="<?php echo MPAY_ORDER_NUMBER;?>">
+    <input type="hidden" name="MPAY_PAYER_FIO" value="<?php echo $this->session->data['fio'];?> ">
+    <input type="hidden" name="MPAY_PAYER_EMAIL" value="<?php echo $this->session->data['email'];?>">
+    <input type="hidden" name="MPAY_PAYER_PHONE" value="<?php echo $this->session->data['telephone'];?>">
+    <input type="hidden" name="MPAY_DESCRIPTION" value="Оплата товара">
+    <input type="hidden" name="MPAY_SIGNATURE" value="<?php echo $signature;?>">
+    <input type="hidden" name="MPAY_RETURN_URL_OK" value="<?php echo $this->url->link('checkout/success');?>">
+    <input type="hidden" name="MPAY_RETURN_URL_NO" value="<?php echo $this->url->link('checkout/checkout').'&cart=del';?>">
+    <!-- <input type="submit" value="Оплатить"> -->
+  </form>
+
 <script type="text/javascript">
 
 // $(".pay-method .radio").bind('click',function(){
@@ -260,7 +300,10 @@ $(".pay-dost .checkout").click(function(e){
   $(".send-form-customer").submit();
 });
 
+
+// без бонусов
 $("#send-order .bez_bonus").click(function(e){
+
     e.preventDefault();
 
     var pay_online = $("#payment_method").val(); 
@@ -274,8 +317,96 @@ $("#send-order .bez_bonus").click(function(e){
 
       // return false;
 
-    $(".send-form-customer").submit();
+      // $(".send-form-customer").submit();
+      // -----------------------------------------------------------------------------------
+
+      var data = $('.send-form-customer').serialize();
+      console.log(data);
+
+      $.ajax({
+         url: '/index.php?route=checkout/checkout/checkout_validate',
+         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         type: 'post',
+         data: data,
+         dataType: 'json',
+         success: function(json) {
+
+                  // console.log(json);
+                  // console.log( $("input.firstname").val() );
+                
+                   if(json.firstname) { 
+                    if( !$('div.firstname span').hasClass('error') ) $('div.firstname').append('<span class="error">'+ json.firstname + '<span>'); 
+                  }else{
+                   $('div.firstname span').remove();
+                  }
+                      
+                   if(json.lastname) { 
+                    if( !$('div.lastname span').hasClass('error') ) $('div.lastname').append('<span class="error">'+ json.lastname + '<span>'); 
+                  }else{
+                   $('div.lastname span').remove();
+                  }
+                                        
+                   if(json.middlename) { 
+                    if( !$('div.middlename span').hasClass('error') ) $('div.middlename').append('<span class="error">'+ json.middlename + '<span>'); 
+                  }else{
+                   $('div.middlename span').remove();
+                  }  
+                                        
+                   if(json.email) { 
+                    if( !$('div.email span').hasClass('error') ) $('div.email').append('<span class="error">'+ json.email + '<span>'); 
+                  }else{
+                   $('div.email span').remove();
+                  }                   
+                                        
+                   if(json.telephone) { 
+                    if( !$('div.telephone span').hasClass('error') ) $('div.telephone').append('<span class="error">'+ json.telephone + '<span>'); 
+                  }else{
+                   $('div.telephone span').remove();
+                  }  
+                                                            
+                   if(json.postcode) { 
+                    if( !$('div.postcode span').hasClass('error') ) $('div.postcode').append('<span class="error">'+ json.postcode + '<span>'); 
+                  }else{
+                   $('div.postcode span').remove();
+                  }  
+                     
+                   if(json.address_1) { 
+                    if( !$('div.address_1 span').hasClass('error') ) $('div.address_1').append('<span class="error">'+ json.address_1 + '<span>'); 
+                  }else{
+                   $('div.address_1 span').remove();
+                  }  
+                     
+                  $.magnificPopup.close();
+
+                  if(json.success == "ok") {
+                     // alert('ok');
+                     console.log("send checkout" + data);
+                           $.ajax({
+                               url: '/index.php?route=checkout/checkout&p=online',
+                               // url: 'http://oc.loc/catalog/controller/account/register.php',
+                               type: 'post',
+                               data: data,
+                               dataType: 'json',
+                               success: function(json) {
+                                   console.log(json);
+                                   console.log(json.sum);
+                                   $("form.ex-pay").submit();
+                                },
+                               error:function(){
+                                alert('error send checkout!');
+                              }
+                         });
+                   }
+                   
+         },
+         error:function(){
+          alert('error-bez-bonus!');
+        }
+
+   });
+
 });
+
 
 
   $("#send-order .pay-bonus").click(function(e){

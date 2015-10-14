@@ -1,3 +1,10 @@
+<?php 
+/*********** рабочий скрипт(отправляется submit на maltipay прямо со страницы checkout 
+  без лишнего шага) реализован только для без бонуса*************/
+ ?>
+
+
+
 <?php
 /******************************************************
  * @package Checkout for Opencart 1.5.x
@@ -291,7 +298,8 @@ class ControllerCheckoutCheckout extends Controller {
 		//=========================end cart==================================//
 		
 		//=========================insert order==============================//
-		if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+		// if (($this->request->server['REQUEST_METHOD'] == 'POST') && $this->validate()) {
+		if (($this->request->server['REQUEST_METHOD'] == 'POST')) {
 
 
 			$customer_info = $this->request->post;
@@ -586,7 +594,8 @@ class ControllerCheckoutCheckout extends Controller {
              	$this->session->data['sum'] = $sum_pay;
              }
 
-        	$this->redirect($this->url->link('checkout/checkout/ex_pay', '', 'SSL'));
+        	// $this->redirect($this->url->link('checkout/checkout/ex_pay', '', 'SSL'));
+             echo json_encode($this->session->data);
 
 		}
 			
@@ -1182,6 +1191,46 @@ class ControllerCheckoutCheckout extends Controller {
 
 			unset($this->session->data['cart']);
 			$this->redirect($this->url->link('checkout/success', '', 'SSL'));
+	}
+// -----------------------------------------------------------------------------------
+	public function checkout_validate(){
+
+		   $this->language->load('checkout/checkout');
+
+			if ((utf8_strlen($this->request->post['firstname']) < 1) || (utf8_strlen($this->request->post['firstname']) > 32)) {
+				$error['firstname'] = $this->language->get('error_firstname');
+			}
+
+			if ((utf8_strlen($this->request->post['lastname']) < 1) || (utf8_strlen($this->request->post['lastname']) > 32)) {
+				$error['lastname'] = $this->language->get('error_lastname');
+			}
+
+			if ((utf8_strlen($this->request->post['middlename']) < 1) || (utf8_strlen($this->request->post['middlename']) > 32)) {
+				$error['middlename'] = "Отчество должно содержать от 1 до 32 симоволов";
+			}
+
+			if ((utf8_strlen($this->request->post['email']) > 96) || !preg_match('/^[^\@]+@.*\.[a-z]{2,6}$/i', $this->request->post['email'])) {
+				$error['email'] = $this->language->get('error_email');
+			}
+
+			if ((utf8_strlen($this->request->post['telephone']) < 3) || (utf8_strlen($this->request->post['telephone']) > 32)) {
+				$error['telephone'] = $this->language->get('error_telephone');
+			}
+
+			if ((utf8_strlen($this->request->post['address_1']) < 3) || (utf8_strlen($this->request->post['address_1']) > 128)) {
+				$error['address_1'] = $this->language->get('error_address_1');
+			}
+
+			if ( (utf8_strlen($this->request->post['postcode']) < 2) || (utf8_strlen($this->request->post['postcode']) > 10)) {
+				$error['postcode'] = $this->language->get('error_postcode');
+			}
+
+			if($error){
+				echo json_encode($error);
+			}else{
+				$error['success'] = "ok";
+				echo json_encode($error);
+			}
 	}
 
 }

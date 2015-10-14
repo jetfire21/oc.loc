@@ -2708,3 +2708,15 @@ img.loader{
 .pay-online{
   display: none;
 }
+
+.upload_photo input{
+     border: 0;
+     padding: 0; 
+     border-radius: 0; 
+     width: 280px;
+     background: none; 
+}
+
+.upload_photo .file_upload{
+  width: 100px;
+}

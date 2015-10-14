@@ -272,5 +272,14 @@ class ModelAccountCustomer extends Model {
 		
 		return $query->num_rows;
 	}	
+
+	public function editImageCustomer($customer_id, $name_img){
+		$this->db->query("UPDATE " . DB_PREFIX . "customer SET photo = '" . $name_img . "' WHERE customer_id = '" . (int)$customer_id . "'");
+	}
+
+	public function getImageCustomer($customer_id){
+		$query = $this->db->query("SELECT photo FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
+		return $query->row['photo'];
+	}
 }
 ?>
