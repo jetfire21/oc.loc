@@ -529,9 +529,10 @@ class ControllerCheckoutCheckout extends Controller {
 /* ******* add order ********** */
 
 
-			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
-			$order_id = $this->session->data['order_id'];
-			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
+				$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
+				$order_id = $this->session->data['order_id'];
+				$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
+		    
 
 			if($_COOKIE['tracking']){
 				$this->load->model('affiliate/affiliate');
@@ -554,6 +555,7 @@ class ControllerCheckoutCheckout extends Controller {
 	           } elseif( $this->session->data['balans_noformat'] < $this->data['totals'][1]['value']){
 
 	              // $this->session->data['balans_noformat'];
+	           		$sum_pay = $this->data['totals'][1]['value'] - $this->session->data['balans_noformat'];
 	               $this->load->model('module/statisticsmyaffiliate');
 	               $this->model_module_statisticsmyaffiliate->updateBalansAff($this->session->data['affiliate_id'], 0);
 	               $this->model_module_statisticsmyaffiliate->addTransaction($this->session->data['affiliate_id'],$this->session->data['name_fam'],$this->session->data['balans_noformat']);
@@ -570,11 +572,20 @@ class ControllerCheckoutCheckout extends Controller {
 				// echo $data['total'];
 				// exit;
 				// $this->redirect($this->url->link('error/not_found', '', 'SSL'));	
-        	$this->session->data['fio'] = $this->request->post['firstname']." ". $this->request->post['firstname'];
+        	
+        	// $this->redirect($this->url->link('checkout/checkout/pay_success', '', 'SSL'));
+
+        	$this->session->data['fio'] = $this->request->post['firstname']." ". $this->request->post['lastname'];
         	$this->session->data['email'] = $this->request->post['email'];
         	$this->session->data['telephone'] = $this->request->post['telephone'];
 
-        	$this->session->data['sum'] = $data['total'];
+        	if(!$this->request->get['b']){
+        		$this->session->data['sum'] = $data['total'];
+             }
+             else{
+             	$this->session->data['sum'] = $sum_pay;
+             }
+
         	$this->redirect($this->url->link('checkout/checkout/ex_pay', '', 'SSL'));
 
 		}
@@ -1160,6 +1171,17 @@ class ControllerCheckoutCheckout extends Controller {
 		);
 
 		$this->response->setOutput($this->render());
+	}
+
+	public function pay_success(){
+
+			$this->load->model('checkout/order');
+			$this->session->data['order_id'] = $this->model_checkout_order->addOrder($data);
+			$order_id = $this->session->data['order_id'];
+			$this->model_checkout_order->confirm($order_id,1,$customer_info['comment'], $notify = false);
+
+			unset($this->session->data['cart']);
+			$this->redirect($this->url->link('checkout/success', '', 'SSL'));
 	}
 
 }
