@@ -38,6 +38,9 @@ class ModelAccountCustomer extends Model {
 		$message .= $this->language->get('text_thanks') . "\n";
 		$message .= $this->config->get('config_name');
 		
+		// если это не использовать то при при регистрации через вк не добавится либо покупатель либо партнер...notice ошибка c mail
+		return true;
+		
 		$mail = new Mail();
 		$mail->protocol = $this->config->get('config_mail_protocol');
 		$mail->parameter = $this->config->get('config_mail_parameter');
@@ -83,6 +86,8 @@ class ModelAccountCustomer extends Model {
 				}
 			}
 		}
+
+
 	}
 	
 	public function editCustomer($data) {

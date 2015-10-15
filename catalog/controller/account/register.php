@@ -656,30 +656,44 @@ class ControllerAccountRegister extends Controller {
 					$data['lastname'] = $result->response[0]->last_name;
 
 					$this->load->model('account/customer');
+				    $this->load->model('affiliate/affiliate');
 					
 					
 			    	if (!empty($data)) {
 			    			 $customer_info = $this->model_account_customer->getCustomerNameFam($data);
 			    			 // var_dump($customer_info);
 			    			  // header("Location:http://ya.ru");
+			    			 
 
 							 if( isset($customer_info['firstname']) ) { 
 
 									$this->session->data['customer_id'] = $customer_info['customer_id'];
+
 								 	 $this->redirect($this->url->link('account/account','', 'SSL'));
 								 	// header("Location:http://google.ru");
 
 							  } else{
-								 	//если выдернутные данные из вк не существуют то мы добавим их в базу						
-						  			$before_reg_vk = $this->model_account_customer->getCustomerLastId();
+						 							
+									$before_reg_vk = $this->model_account_customer->getCustomerLastId();
 									$bregvk = $before_reg_vk['MAX(customer_id)'];
 									$bregvk++;
 									$this->session->data['customer_id'] = $bregvk;
-									// $this->redirect($this->url->link('account/register/reg_vk','', 'SSL'));
-									header("Location:http://akahooliganka.com/index.php?route=account/register/reg_vk");
-								 	 $this->model_account_customer->addCustomer($data);
-								 	 $this->redirect($this->url->link('account/account','', 'SSL'));
-								 	  // header("Location:" .$this->url->link('account/account','', 'SSL'));
+
+									$this->model_affiliate_affiliate->addAffiliate($data, $this->session->data['customer_id'], $_COOKIE['tracking'] );
+									$this->model_account_customer->addCustomer($data);
+
+									$this->model_affiliate_affiliate->pushCountRegByCode($_COOKIE['tracking']);
+
+									$this->redirect($this->url->link('account/account','', 'SSL'));
+
+									//header("Location:".$this->config->get('config_url')."index.php?route=account/register/reg_vk");
+
+								   // $this->redirect($this->url->link('account/register/reg_vk','', 'SSL'));
+									// header("Location:http://akahooliganka.com/index.php?route=account/register/reg_vk");
+									
+								 	// echo '3';							
+
+								 	
 							 }
 							
 
@@ -694,6 +708,30 @@ class ControllerAccountRegister extends Controller {
 			}
 
 		}
+
+    }
+
+    public function add_ca(){
+
+    	$this->load->model('account/customer');
+	    $this->load->model('affiliate/affiliate');
+
+		$data['firstname']= $this->request->get['f'];
+		$data['lastname']= $this->request->get['l'];
+
+		$before_reg_vk = $this->model_account_customer->getCustomerLastId();
+		$bregvk = $before_reg_vk['MAX(customer_id)'];
+		$bregvk++;
+       $this->session->data['customer_id'] = $bregvk;
+
+	 	$this->model_affiliate_affiliate->addAffiliate($data, $this->session->data['customer_id'], $_COOKIE['tracking'] );
+       $this->model_account_customer->addCustomer($data);
+
+		$this->model_affiliate_affiliate->pushCountRegByCode($_COOKIE['tracking']);
+
+		echo 'all';
+		// $this->redirect($this->url->link('account/account','', 'SSL'));
+
 
     }
 }
