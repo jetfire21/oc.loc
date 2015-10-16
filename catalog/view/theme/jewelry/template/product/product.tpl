@@ -47,7 +47,7 @@
 					<div class="main-img">
 					<div class="zoom" id='ex1'>	
 					<?php if($thumb) { ?>
-						<img src="<?php echo $thumb; ?>" alt="" width="200">
+						<img src="<?php echo $this->config->get('config_url')."image/".$thumb; ?>" alt="">
 					<?php } ?>
 					</div>
 					</div>
@@ -55,7 +55,7 @@
 					
 					<?php if ($images) { ?>
 						<?php foreach ($images as $image) { ?>
-							<img src="<?php echo $image['popup']; ?>" data-rel="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
+							<img src="<?php echo $this->config->get('config_url')."image/".$image['popup']; ?>" data-rel="<?php echo $this->config->get('config_url')."image/".$image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
 						<?php } ?>
 					<?php } ?>
 					
