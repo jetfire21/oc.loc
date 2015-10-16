@@ -31,6 +31,7 @@
 
   <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/jquery-1.11.3.min.js"></script>
   <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zclip/jquery.zclip.js"></script>
+  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zoom-master/jquery.zoom.js"></script>
   <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js//owl-carousel/owl.carousel.js"></script>
   <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/magnific-popup/jquery.magnific-popup.min.js"></script>
   <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/custom.js"></script>

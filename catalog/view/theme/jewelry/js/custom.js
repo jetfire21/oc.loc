@@ -164,8 +164,8 @@ $(function () {
 
   });
 
-
-
+// zoo-master
+$('#ex1').zoom();
   
 
 

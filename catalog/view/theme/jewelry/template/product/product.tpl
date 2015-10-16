@@ -45,16 +45,20 @@
 				<!-- <div class="prod-in-cart"></div> -->
 				<div class="dp-left">
 					<div class="main-img">
+					<div class="zoom" id='ex1'>	
 					<?php if($thumb) { ?>
-						<img src="<?php echo $thumb; ?>" alt="">
+						<img src="<?php echo $thumb; ?>" alt="" width="200">
 					<?php } ?>
 					</div>
-					<div class="preview">
+					</div>
+					<div class="preview" id='ex1'>
+					
 					<?php if ($images) { ?>
 						<?php foreach ($images as $image) { ?>
 							<img src="<?php echo $image['popup']; ?>" data-rel="<?php echo $image['thumb']; ?>" title="<?php echo $heading_title; ?>" alt="<?php echo $heading_title; ?>">
 						<?php } ?>
 					<?php } ?>
+					
 					</div>
 				</div>
 
