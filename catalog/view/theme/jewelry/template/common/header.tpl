@@ -2,9 +2,9 @@
 <html dir="<?php echo $direction; ?>" lang="<?php echo $lang; ?>">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template');?>/css/fonts.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/magnific-popup/magnific-popup.css" />
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template');?>/css/style.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/magnific-popup/magnific-popup.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/css/style.css" />
 <title><?php echo $title; if (isset($_GET['page'])) { echo " - ". ((int) $_GET['page'])." ".$text_page;} ?></title>
 <base href="<?php echo $base; ?>" />
 <?php if ($description) { ?>
@@ -25,17 +25,17 @@
 <?php if ($icon) { ?>
 <link href="<?php echo $icon; ?>" rel="icon" />
 <?php } ?>
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/owl-carousel/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/owl-carousel/owl.carousel.css" />
 
-<link rel="stylesheet" type="text/css" href="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/owl-carousel/owl.carousel.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/owl-carousel/owl.carousel.css" />
 
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/jquery-1.11.3.min.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zclip/jquery.zclip.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zoom-master/jquery.zoom.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js//owl-carousel/owl.carousel.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/magnific-popup/jquery.magnific-popup.min.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/custom.js"></script>
-  <script src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/oc-common.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/jquery-1.11.3.min.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zclip/jquery.zclip.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/zoom-master/jquery.zoom.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js//owl-carousel/owl.carousel.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/magnific-popup/jquery.magnific-popup.min.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/custom.js"></script>
+  <script src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/js/oc-common.js"></script>
 
 <?php if ($stores) { ?>
 <script type="text/javascript"><!--
@@ -73,7 +73,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
            <?php if (!$logged) { ?>
                <a class="popup-modal" href="#auth-modal" name="lk">Кабинет</a> 
           <?php } else { ?>
-               <a href="<?php echo $login; ?>" class="pink customer-name"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.png" alt=""><?php echo $firstname; ?></a>
+               <a href="<?php echo $login; ?>" class="pink customer-name"><img src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.png" alt=""><?php echo $firstname; ?></a>
           <?php } ?>
             <!-- <a class="popup-modal" href="#auth-modal">Кабинет</a> -->
 
@@ -90,7 +90,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 
   <div id="auth-modal" class="white-popup-block mfp-hide">
 
-      <img class="treugol" src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/treugol.png" alt="">
+      <img class="treugol" src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/treugol.png" alt="">
       <div class="wrap-auth">
         <div class="wrap-form">
       <h3><span class="pink login-title">Вход</span> / <span class="reg-title">Регистрация</span></h3>
@@ -146,8 +146,9 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
 
       <div class="login-soc">
         <span>Войти через соц сети:</span>
-        <!-- <a href="/index.php?route=account/register/reg_vk" class="social"><img src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/soc.jpg" alt=""></a> -->
+        <!-- <a href="/index.php?route=account/register/reg_vk" class="social"><img src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/soc.jpg" alt=""></a> -->
         <div><a href="/index.php?route=account/register/reg_vk" class="social"></a></div>
+        <div><a href="/account-fb" class="social"></a></div>
       </div>
 
     </div>
@@ -182,7 +183,7 @@ $(".send-reg").click(function(e){
 
       $.ajax({
          url: '/index.php?route=account/register/my_validate',
-         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         // url: 'http://oc.loc/<?php echo $base;?>catalog/controller/account/register.php',
          type: 'post',
          data: data,
          dataType: 'json',
@@ -233,7 +234,7 @@ $(".send-reg").click(function(e){
 
            if(json.success == 'ok') {
             window.location.href = "/index.php?route=account/success";
-            $('.reg-loader').append("<img class='loader' src='catalog/view/theme/jewelry/images/loader.gif'>");
+            $('.reg-loader').append("<img class='loader' src='<?php echo $base;?>catalog/view/theme/jewelry/images/loader.gif'>");
             // setTimeout("console.log('Boom!');", 2000);
             // return false;
           }
@@ -253,7 +254,7 @@ $(".send-login").click(function(e){
 
       $.ajax({
          url: '/index.php?route=account/login/validate_login',
-         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         // url: 'http://oc.loc/<?php echo $base;?>catalog/controller/account/register.php',
          type: 'post',
          data: data,
          dataType: 'json',
@@ -285,7 +286,7 @@ $(".send-phone").click(function(e){
 
       $.ajax({
          url: '/index.php?route=account/login/validate_callback',
-         // url: 'http://oc.loc/catalog/controller/account/register.php',
+         // url: 'http://oc.loc/<?php echo $base;?>catalog/controller/account/register.php',
          type: 'post',
          data: data,
          dataType: 'json',
@@ -324,4 +325,6 @@ $(".send-phone").click(function(e){
 });
 
 </script>
+
+<!-- <p style="font-size:22px;">The quick brown fox jumps over the lazy dog. Серьги-пусеты "лимонка" с бирюзой</p> -->
 

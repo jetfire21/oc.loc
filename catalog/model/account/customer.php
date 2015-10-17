@@ -286,5 +286,6 @@ class ModelAccountCustomer extends Model {
 		$query = $this->db->query("SELECT photo FROM " . DB_PREFIX . "customer WHERE customer_id = '" . (int)$customer_id . "'");
 		return $query->row['photo'];
 	}
+
 }
 ?>
