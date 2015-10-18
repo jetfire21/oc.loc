@@ -150,6 +150,7 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
         <div class="social">
         <a href="/index.php?route=account/register/reg_vk" class="vk"></a>
         <a href="/account-fb" class="facebook"></a>
+        <a href="/index.php?route=account/twitter" class="twitter"></a>
         </div>
       </div>
 

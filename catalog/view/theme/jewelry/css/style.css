@@ -724,6 +724,10 @@ ul.menu a:hover{
   background: url("../images/facebook.jpg") no-repeat;
 }
 
+.login-soc .twitter{
+  background: url("../images/twitter.jpg") no-repeat;
+}
+
 .login-soc div a{
    height: 33px;
     cursor: pointer;
