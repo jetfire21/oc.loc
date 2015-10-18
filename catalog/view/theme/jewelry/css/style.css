@@ -437,7 +437,9 @@ a:focus,select:focus,input:focus{
 html{width: 100%;}
 
 body{
-  font-family: "ProximaNovaBold";
+ font-family: "ProximaNovaBold";
+  font-style: normal;
+  font-weight: normal;
   width: 100%;
   min-width: 1200px;
 }
@@ -596,6 +598,7 @@ ul.menu a:hover{
     text-transform: uppercase;
     font-family: "ProximaNovaBold";
     margin-top: 10px;
+    font-weight: normal;
 }
 
 #auth-modal form a{
@@ -676,6 +679,7 @@ ul.menu a:hover{
     text-transform: uppercase;
     font-family: "ProximaNovaBold";
     margin-top: 10px;
+    font-weight: normal;
 }
 
 #phone-modal form a{
@@ -703,10 +707,21 @@ ul.menu a:hover{
 
 /* */
 
-.login-soc div{
-  background: url("../images/soc.jpg");
+.login-soc .social{
   width: 263px;
   height: 33px;
+}
+
+.login-soc .social a{
+  display: inline-block;
+}
+
+.login-soc .vk{
+  background: url("../images/vk.jpg") no-repeat;
+}
+
+.login-soc .facebook{
+  background: url("../images/facebook.jpg") no-repeat;
 }
 
 .login-soc div a{
@@ -800,6 +815,7 @@ ul.menu a:hover{
   font:40px "ProximaNovaBold";
   text-transform: uppercase;
   margin: 40px 0 10px 0;
+  font-weight: normal;
 }
 
 .collection .author{
@@ -816,6 +832,7 @@ a.more-otzyv{
   border: 2px solid #467c5e;
   border-radius: 23px;
   padding: 10px 35px 10px 20px;
+  font-weight: normal;
 }
 
 span.otzyv{
@@ -828,6 +845,7 @@ h3{
   color: #fff;
   text-transform: uppercase;
   margin:60px 0 40px 0;
+  font-weight: normal;
 }
 
 .pop-aksess, .hot-product{
@@ -1010,6 +1028,9 @@ h3{
 .wrap-product .special-product h2{
    font-size: 28px;
    line-height: 1;
+    font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .wrap-product .special-product h2 a:hover{
@@ -1070,6 +1091,9 @@ h3{
   font-size: 24px;
   /*margin: -30px 0 20px 0;*/
   text-transform: uppercase;
+   font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .wrap-product .product span, .special-product span{
@@ -1177,6 +1201,7 @@ h3{
    padding: 70px 0 60px 0;
     background: url(../images/big-girl-eye.png) right bottom no-repeat;
     overflow: hidden;
+
 }
 
 .most-buy h4{
@@ -1184,6 +1209,9 @@ h3{
       font-size: 24px;
     /*margin: -30px 0 20px 0;*/
     text-transform: uppercase;
+     font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .most-buy .article span{
@@ -1462,6 +1490,9 @@ ul.category li span{
       font-size: 24px;
     /*margin: -30px 0 20px 0;*/
     text-transform: uppercase;
+     font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .only-catalog .item{
@@ -1522,6 +1553,9 @@ ul.category li span{
 .map-product .dp-title h2{
   font-size: 35px;
   margin:0 0 5px 0;
+   font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .map-product .data-product-child{
@@ -1602,6 +1636,7 @@ ul.category li span{
   font:36px "ProximaNovaBold";
   color: #fe157d;
   margin: 5px 0 0 0;
+  font-weight: normal;
 }
 
 .data-product-child .old-price{
@@ -1621,6 +1656,7 @@ ul.category li span{
     font:18px "ProximaNovaBold";
     padding: 8px 20px 8px 45px;
      border-radius: 25px;
+     font-weight: normal;
 }
 
 .data-product-child .add-to-cart img{
@@ -1661,6 +1697,8 @@ ul.category li span{
 .map-product h4{
   color:#c5c5b3;
   font:20px "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
   margin-bottom: 30px;
 }
 
@@ -1693,6 +1731,7 @@ ul.category li span{
  font: 35px "ProximaNovaBold";
   text-transform: uppercase;
   margin-top: 5px;
+  font-weight: normal;  
 }
 
 .lk .balans{
@@ -1711,6 +1750,7 @@ ul.category li span{
     position: relative;
     border: 0;
     font: 18px "ProximaNovaBold";
+    font-weight: normal;
     padding: 8px 20px 8px 15px;
     border-radius: 25px;
     display: block;
@@ -1731,6 +1771,7 @@ ul.category li span{
 .lk .balans span{
      font: 20px "ProximaNovaBold";
      text-transform: uppercase;
+     font-weight: normal;
 }
 
 .lk .balans a{
@@ -1858,6 +1899,7 @@ ul.category li span{
 }
 .lm-cart .bold{
   font-family: "ProximaNovaBold";
+  font-weight: normal;
 }
 
 .lm-cart .my-orders td img{
@@ -1908,6 +1950,7 @@ ul.category li span{
   position: relative;
   border: 0;
   font: 18px "ProximaNovaBold";
+  font-weight: normal;
   padding: 8px 40px 8px 20px;
   border-radius: 25px;
   margin-right: 45px;
@@ -2032,6 +2075,7 @@ ul.category li span{
 .name-block .radioblock .r-active{
   background: url("../images/radio-active.png") no-repeat;
    font: 18px "ProximaNovaBold";
+   font-weight: normal;
 }
 
 .name-block .edit-val{
@@ -2107,6 +2151,9 @@ ul.category li span{
    margin: 70px 0 40px 0;
     font-size: 24px;
     text-transform: uppercase;
+     font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
 }
 
 .mfp-bg.my-order-popup{
@@ -2143,6 +2190,7 @@ ul.category li span{
     color: #fff;
     text-transform: uppercase;
     font-family: "ProximaNovaBold";
+    font-weight: normal;
     margin-top: 10px;
     position: relative;
 }
@@ -2182,6 +2230,7 @@ right: 15px;
 
 #send-order .summa span{
   font-family: "ProximaNovaBold";
+  font-weight: normal;
 }
 
 #send-order .summa p{
@@ -2228,6 +2277,7 @@ right: 15px;
    display: inline-block;
    border-radius: 25px;
     font: 18px "ProximaNovaBold";
+    font-weight: normal;
     padding: 8px 20px 8px 20px;
 
 }
@@ -2276,6 +2326,7 @@ right: 15px;
 .stat-vizit span{
   color: #000;
   font: 18px "ProximaNovaBold";
+  font-weight: normal;
 }
 
 .ref-text a{
@@ -2302,6 +2353,7 @@ right: 15px;
     position: relative;
     border: 0;
     font: 18px "ProximaNovaBold";
+    font-weight: normal;
     padding: 8px 40px 8px 20px;
     border-radius: 25px;
     margin-right: 45px;
@@ -2328,6 +2380,7 @@ right: 15px;
 
 .wrap_table .bold{
    font: 17px "ProximaNovaBold";
+   font-weight: normal;
 }
 
 .history td{
@@ -2495,6 +2548,7 @@ right: 15px;
 
 .structure .level-1{
   font: 17px "ProximaNovaBold";
+  font-weight: normal;
 }
 
 .structure .level-2{
@@ -2751,3 +2805,9 @@ img.loader{
     }
 
     .zoom img::selection { background-color: transparent; }
+
+.prod-no-btn h2 a{
+  font-family: "ProximaNovaBold";
+  font-style: normal;
+    font-weight: normal;
+}

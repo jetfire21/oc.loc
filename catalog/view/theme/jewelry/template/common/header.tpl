@@ -147,8 +147,10 @@ $('body').prepend('<iframe src="<?php echo $store; ?>" style="display: none;"></
       <div class="login-soc">
         <span>Войти через соц сети:</span>
         <!-- <a href="/index.php?route=account/register/reg_vk" class="social"><img src="<?php echo $base;?>catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/soc.jpg" alt=""></a> -->
-        <div><a href="/index.php?route=account/register/reg_vk" class="social"></a></div>
-        <div><a href="/account-fb" class="social"></a></div>
+        <div class="social">
+        <a href="/index.php?route=account/register/reg_vk" class="vk"></a>
+        <a href="/account-fb" class="facebook"></a>
+        </div>
       </div>
 
     </div>
