@@ -162,9 +162,7 @@ class ControllerCatalogProduct extends Controller {
 					break;
 				}					
 			}
-			
-			$count_prod = $this->model_catalog_product->getOrderProduct($result['product_id']);
-
+	
 			$json['products'][] = array(
 				'product_id' 	=> $result['product_id'],
 				'name'       	=> $result['name'],
@@ -174,14 +172,13 @@ class ControllerCatalogProduct extends Controller {
 				'price'      	=> $result['price'],
 			   'opt_price'      	=> $result['opt_price'],
 			   'price_zakup'      	=> $result['price_zakup'],
-			   'kol'      	=> $count_prod,
+			   'kol'      	=> $result['kol'],
 				'special'    	=> $special,
 				'image'		=> $image,
 				'quantity'   	=> $result['quantity'],
 				'status'     	=> ($result['status'] ? $this->language->get('text_enabled') : $this->language->get('text_disabled')),
 				'selected'   	=> isset($this->request->post['selected']) && in_array($result['product_id'], $this->request->post['selected']),
-				'action'     	=> $action,
-				'affiliate_commission'   => ( $result['price'] * $result['affiliate_commission']) / 100
+				'action'     	=> $action
 			);
 		}
 		$pagination = new Pagination();
@@ -586,7 +583,34 @@ class ControllerCatalogProduct extends Controller {
 			
 		$results = $this->model_catalog_product->getProducts($data);
 
+		///////////////////////////////////////////// contoller
 
+		$my_results = $this->model_catalog_product->getAllOrderProduct();
+
+		foreach ($my_results  as $result) {
+				$this->data['order_product'][] = array(
+					'product_id'           => $result['product_id'],
+					'quantity'        => $result['quantity']
+				);
+
+				foreach ($this->data['order_product'] as $result2) {
+				if($result['product_id'] == $result2['product_id'] ) {
+						$this->data['kol'][$result['product_id']] = $result['quantity'] + $this->data['kol'][$result['product_id']];
+						break;
+				}else{
+					$this->data['kol'][$result['product_id']] = $result['quantity'];
+					break;
+				}
+			}
+					        		
+		}
+		
+
+			
+		// for($i = 0; $i < count($this->data['order_product']['product_id']); $i++){
+		// 	$kol = $this->data['order_product']['product_id'][$i]
+		// }
+		///////////////////////////////////////////// contoller
 				    	
 		foreach ($results as $result) {
 			$action = array();
@@ -613,18 +637,7 @@ class ControllerCatalogProduct extends Controller {
 					break;
 				}					
 			}
-
-			$my_result = $this->model_catalog_product->getOrderProduct($result['product_id']);
 	
-
-			
-		if ($special) {
-      		$price = $special;
-    	} else {
-			$price = $result['price'];
-		}
-			
-            
       		$this->data['products'][] = array(
 				'product_id' => $result['product_id'],
 				'category'   => $this->model_catalog_product->getProductCatNames($result['product_id']),
@@ -632,15 +645,9 @@ class ControllerCatalogProduct extends Controller {
 				'name'       => $result['name'],
 				'model'      => $result['model'],
 				'price'      => $result['price'],
-
-			
-				'commission' => $price * $result['affiliate_commission'] / 100,
-			
-            
 				'opt_price'      => $result['opt_price'],
 				'price_zakup'      => $result['price_zakup'],
-				// 'kol'      => $this->data['kol'][$result['product_id']],
-				'kol' => $my_result,
+				'kol'      => $result['kol'],
 				'special'    => $special,
 				'image'      => $image,
 				'quantity'   => $result['quantity'],
@@ -666,12 +673,6 @@ class ControllerCatalogProduct extends Controller {
 		$this->data['column_name'] = $this->language->get('column_name');		
 		$this->data['column_model'] = $this->language->get('column_model');		
 		$this->data['column_price'] = $this->language->get('column_price');		
-
-			
-			$this->data['column_commission'] = $this->language->get('column_commission');
-			$this->data['affiliate_product_commission'] = $this->config->get('affiliate_product_commission');
-			
-            
 		$this->data['column_quantity'] = $this->language->get('column_quantity');		
 		$this->data['column_status'] = $this->language->get('column_status');		
 		$this->data['column_action'] = $this->language->get('column_action');		
@@ -866,12 +867,6 @@ class ControllerCatalogProduct extends Controller {
     	$this->data['entry_quantity'] = $this->language->get('entry_quantity');
 		$this->data['entry_stock_status'] = $this->language->get('entry_stock_status');
     	$this->data['entry_price'] = $this->language->get('entry_price');
-
-			
-				$this->data['entry_commission'] = $this->language->get('entry_commission');
-				$this->data['affiliate_product_commission'] = $this->config->get('affiliate_product_commission');
-			
-            
     	$this->data['entry_opt_price'] = $this->language->get('entry_opt_price');    	
     	$this->data['entry_price_zakup'] = $this->language->get('entry_price_zakup');    	
     	$this->data['entry_hot'] = $this->language->get('entry_hot');    	
@@ -1168,17 +1163,6 @@ class ControllerCatalogProduct extends Controller {
 			$this->data['shipping'] = 1;
 		}
 		
-
-			
-		if (isset($this->request->post['commission'])) {
-      		$this->data['commission'] = $this->request->post['commission'];
-    	} elseif (!empty($product_info)) {
-			$this->data['commission'] = $product_info['affiliate_commission'];
-		} else {
-      		$this->data['commission'] = '';
-    	}
-			
-            
     	if (isset($this->request->post['price'])) {
       		$this->data['price'] = $this->request->post['price'];
     	} elseif (!empty($product_info)) {
@@ -1194,6 +1178,8 @@ class ControllerCatalogProduct extends Controller {
 		} else {
       		$this->data['opt_price'] = '';
     	}  
+
+
 
       	if (isset($this->request->post['hot'])) {
       		$this->data['hot'] = $this->request->post['hot'];
@@ -1796,16 +1782,11 @@ class ControllerCatalogProduct extends Controller {
 					'model'      => $result['model'],
 					'option'     => $option_data,
 					'price'      => $result['price'],
-
-			
-				'commission' => $price * $result['affiliate_commission'] / 100,
-			
-            
 					'opt_price'   => $result['opt_price'],
 					'price_zakup'   => $result['price_zakup'],
 					'hot'   => $result['hot'],
 					'top_akses'   => $result['top_akses'],
-					'kol'   => $this->data['kol'][$result['product_id']]
+					'kol'   => $result['kol']
 
 				);	
 			}

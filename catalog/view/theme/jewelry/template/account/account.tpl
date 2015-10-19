@@ -25,9 +25,9 @@
         <div class="wrap_table">
           <div class="name-block">
             <?php if($photo):?>
-                <img class="lk-foto-customer" src="download/photo/<?php echo $photo;?>" alt="">
+                <img class="lk-foto-customer" src="/download/photo/<?php echo $photo;?>" alt="">
             <?php else:?>
-                 <img class="lk-foto-customer" src="catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.jpg" alt="">
+                 <img class="lk-foto-customer" src="/catalog/view/theme/<?php echo $this->config->get('config_template');?>/images/foto-customer.jpg" alt="">
             <?php endif;?>
 
             <div class="offer-n">

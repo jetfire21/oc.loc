@@ -179,6 +179,11 @@ class ControllerAccountAccount extends Controller {
 
   	public function referal(){
 
+  		if (!$this->customer->isLogged()) {
+	  
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
+    	} 
+
   		$this->load->model('account/customer');
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		$this->data['customer_info'] = $customer_info;
@@ -201,6 +206,11 @@ class ControllerAccountAccount extends Controller {
 
 
   	public function history(){
+
+  		if (!$this->customer->isLogged()) {
+	  
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
+    	} 
 
   		$this->load->model('account/customer');
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
@@ -270,6 +280,7 @@ class ControllerAccountAccount extends Controller {
   	}
 
   	 public function withdrawal(){
+
   	 	if($this->request->post['data']){
 
   	 		$res['balans'] = $this->session->data['balans_noformat'];
@@ -289,6 +300,12 @@ class ControllerAccountAccount extends Controller {
   	}
 
 	public function structura(){
+
+  		if (!$this->customer->isLogged()) {
+	  
+	  		$this->redirect($this->url->link('common/home', '', 'SSL'));
+    	} 
+
 		$this->load->model('account/customer');
 		$customer_info = $this->model_account_customer->getCustomer($this->customer->getId());
 		$this->data['customer_info'] = $customer_info;

@@ -37,7 +37,9 @@ class ModelAffiliateAffiliate extends Model {
 					}
 				}
 			}
-
+				
+		// если это не использовать то при при регистрации через вк не добавится либо покупатель либо партнер...notice ошибка c mail
+		return true;
 	
 		$this->language->load('mail/affiliate');
 
@@ -88,6 +90,7 @@ class ModelAffiliateAffiliate extends Model {
 		$mail->setSubject(html_entity_decode($subject, ENT_QUOTES, 'UTF-8'));
 		$mail->setText(html_entity_decode($message, ENT_QUOTES, 'UTF-8'));
 		$mail->send();
+
 
 	}
 	

@@ -138,10 +138,11 @@ $(function () {
 
   $(".withdrawal").click(function(e){
     e.preventDefault();
-    var redirect = 'http://oc.loc/index.php?route=account/account/history';
+    var base = $("base").attr("href");
+    var redirect = base + 'index.php?route=account/account/history';
 
        $.ajax({
-           url: 'http://oc.loc/index.php?route=account/account/withdrawal',
+           url: base + 'index.php?route=account/account/withdrawal',
            // url: 'http://oc.loc/catalog/controller/account/register.php',
            type: 'post',
            data: 'data=withdrawal',

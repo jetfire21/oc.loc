@@ -149,7 +149,8 @@
 
               <td><?php echo $product['opt_price']; ?></td>
               <td><?php echo $product['price_zakup']; ?></td>
-              <td><?php if(isset($kol[$product['product_id']])) echo $kol[$product['product_id']]; else echo "0"; ?></td>
+              <!-- <td><?php if(isset($kol[$product['product_id']])) echo $kol[$product['product_id']]; else echo "0"; ?></td> -->
+               <td><?php echo $product['kol']; ?></td>
 
               <td class="right"><?php if ($product['quantity'] <= 0) { ?>
                 <span style="color: #FF0000;"><?php echo $product['quantity']; ?></span>
@@ -183,7 +184,7 @@
               </td>
               <td class="center"><img src="${image}" alt="${name}" style="padding: 1px; border: 1px solid #DDDDDD;" /></td>
 	      <td class="left">{{each(i, cat) category}}${cat['name']}<br/>{{/each}}</td>
-	      <td class="left">${manufacturer}</td>
+	      
               <td class="left">${name}</td>
               <td class="left">${model}</td>
               <td class="left">{{if special}}
@@ -193,6 +194,10 @@
                 ${price}
                 {{/if}}
 	      </td>
+         <td class="left">${affiliate_commission}</td>
+         <td class="left">${opt_price}</td>
+         <td class="left">${price_zakup}</td>
+         <td class="left">${kol}</td>
               <td class="right">
 		      {{if quantity <= 5}}
 			      {{if quantity <= 0}}

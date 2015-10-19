@@ -539,6 +539,15 @@ class ModelCatalogProduct extends Model {
 	}
 
 	/////////////////////////////////// my model
+
+	public function getOrderProduct($product_id) {
+		
+		$query = $this->db->query("SELECT sum(quantity) FROM " . DB_PREFIX . "order_product WHERE product_id='".$product_id."'");	
+
+		return $query->row['sum(quantity)'];
+	}
+
+	/////////////////////////////////// my model
 		
 	public function getProductCategories($product_id) {
 		$product_category_data = array();
