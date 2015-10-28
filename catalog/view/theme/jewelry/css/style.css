@@ -744,14 +744,15 @@ ul.menu a:hover{
 
 .cart{
    border-radius: 20px;
+ 
   padding: 7px 15px 7px 45px;
   display: inline-block;
-  background: url(../images/cart.png) 13px no-repeat;
+  background: url(../images/cart.png) 13px no-repeat #f5f071;;
    margin: 0 50px 0 20px;
 }
 
 .cart-active, .cart:hover{
-    background-color:#f5f071;
+    background-color:#fffb92;
 }
 
 .phone{
@@ -785,7 +786,7 @@ ul.menu a:hover{
 }
 
 .cartel-text{
-   width: 818px;
+   width: 992px;
    margin: 0 auto;
    padding-top: 90px;
 }
@@ -945,7 +946,7 @@ h3{
 
 .pop-aksess .item img{
     max-width: 187px;
-    height: 118px;
+    height: 138px;
      border-radius: 7px;
 }
 
@@ -1032,7 +1033,8 @@ h3{
 .wrap-product .special-product h2{
    font-size: 28px;
    line-height: 1;
-    font-family: "ProximaNovaBold";
+       padding-top: 10px;
+    font-family: "ProximaNovaRegular";
   font-style: normal;
     font-weight: normal;
 }
@@ -2811,7 +2813,7 @@ img.loader{
     .zoom img::selection { background-color: transparent; }
 
 .prod-no-btn h2 a{
-  font-family: "ProximaNovaBold";
+    font: 17px "ProximaNovaRegular";
   font-style: normal;
     font-weight: normal;
 }
