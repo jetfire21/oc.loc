@@ -6446,3 +6446,225 @@
 2015-10-19 17:35:37 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
 2015-10-19 17:35:37 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
 2015-10-19 17:35:37 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:26:52 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 12:26:52 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:26:52 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:26:55 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:26:55 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:27:54 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 12:27:54 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:27:54 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:28:09 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:28:09 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:28:11 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:28:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:31:07 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:31:08 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:31:08 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:31:08 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:31:08 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:31:08 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:10 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 12:31:10 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:31:11 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:31:36 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:31:37 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 12:31:37 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:31:37 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 12:32:25 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 12:32:25 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 12:32:25 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_account in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 21
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_cart in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 22
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_order in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 23
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_referal in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 29
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_structura in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 30
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: active_history in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\column_left.tpl on line 31
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 63
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 69
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 72
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 76
+2015-10-20 17:31:23 - PHP Notice:  Uninitialized string offset: 0 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\module\news.tpl on line 77
+2015-10-20 17:31:23 - PHP Notice:  Undefined index: tracking in E:\OpenServer\domains\oc.loc\catalog\controller\common\header.php on line 12
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 99
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 108
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: lastname in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 113
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: email in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 116
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 119
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: error_telephone in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 120
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 124
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: error_address_1 in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 125
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 129
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: error_city in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 130
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: password in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 135
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: confirm in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 138
+2015-10-20 17:31:23 - PHP Notice:  Undefined variable: action in E:\OpenServer\domains\oc.loc\catalog\view\theme\jewelry\template\common\header.tpl on line 169
